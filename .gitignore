@@ -1,0 +1,25 @@
+# IDE-local state
+.idea/
+
+# Local reference prototypes and temporary materials
+temp/
+
+# OS files
+.DS_Store
+
+# Future Next.js / Node.js artifacts
+node_modules/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+
+# Local environment and logs
+.env
+.env.*
+!.env.example
+*.log
+
+# Future local database and Docker data
+postgres-data/
+data/postgres/
