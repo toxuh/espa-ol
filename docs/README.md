@@ -11,6 +11,7 @@
 5. [MIGRATION_PLAN.md](MIGRATION_PLAN.md) — последовательность реализации и критерии функционального паритета.
 6. [DEPLOYMENT.md](DEPLOYMENT.md) — контейнеры, Traefik, PostgreSQL и эксплуатация на Synology.
 7. [OPEN_DECISIONS.md](OPEN_DECISIONS.md) — вопросы, которые пока намеренно не зафиксированы окончательно.
+8. [IMPLEMENTATION_STATUS.md](IMPLEMENTATION_STATUS.md) — что уже собрано и какой срез рекомендуется следующим.
 
 ## Источники истины
 

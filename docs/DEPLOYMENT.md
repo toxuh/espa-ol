@@ -8,10 +8,10 @@
 
 Минимальная production-схема:
 
-| Сервис | Назначение | Публичный порт |
-|---|---|---|
-| `app` | Next.js production server | нет; доступен Traefik по Docker-сети |
-| `db` | PostgreSQL | нет; доступен только внутренней сети compose |
+| Сервис | Назначение                | Публичный порт                               |
+| ------ | ------------------------- | -------------------------------------------- |
+| `app`  | Next.js production server | нет; доступен Traefik по Docker-сети         |
+| `db`   | PostgreSQL                | нет; доступен только внутренней сети compose |
 
 Опциональный одноразовый job `migrate` может выполнять `prisma migrate deploy` перед запуском новой версии. Не следует запускать development-команды или `prisma migrate dev` в production.
 

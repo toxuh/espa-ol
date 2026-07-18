@@ -13,18 +13,18 @@
 
 ### Profile
 
-| Поле | Назначение |
-|---|---|
-| `id` | UUID/CUID, значение хранится в браузере |
-| `name` | отображаемое имя |
-| `normalizedName` | уникальное нормализованное имя |
-| `level` | A1–C1 или `null` до placement |
-| `placementDone` | завершён ли стартовый выбор |
-| `joinedAt` | дата создания |
-| `timezone` | обычно `Europe/Madrid` |
-| `streak` | текущая серия полных дней |
-| `lastCompletedDate` | последняя локальная дата полного дня |
-| `active` | позволяет скрыть профиль без удаления истории |
+| Поле                | Назначение                                    |
+| ------------------- | --------------------------------------------- |
+| `id`                | UUID/CUID, значение хранится в браузере       |
+| `name`              | отображаемое имя                              |
+| `normalizedName`    | уникальное нормализованное имя                |
+| `level`             | A1–C1 или `null` до placement                 |
+| `placementDone`     | завершён ли стартовый выбор                   |
+| `joinedAt`          | дата создания                                 |
+| `timezone`          | обычно `Europe/Madrid`                        |
+| `streak`            | текущая серия полных дней                     |
+| `lastCompletedDate` | последняя локальная дата полного дня          |
+| `active`            | позволяет скрыть профиль без удаления истории |
 
 ### GrammarExercise
 
@@ -96,20 +96,20 @@
 
 Одна запись на профиль и локальную дату.
 
-| Поле | Назначение |
-|---|---|
-| `id` | идентификатор дня |
-| `profileId` | владелец |
-| `localDate` | дата без времени |
-| `levelSnapshot` | уровень на момент генерации |
-| `timezoneSnapshot` | временная зона генерации |
-| `theoryLessonId` | урок дня |
-| `theoryIsReview` | новая тема или повтор |
-| `readingContentId` | чтение дня |
-| `translateFromId` | ES→RU |
-| `translateToId` | RU→ES |
-| `completedAt` | `null` или момент полного завершения |
-| `createdAt` | момент создания |
+| Поле               | Назначение                           |
+| ------------------ | ------------------------------------ |
+| `id`               | идентификатор дня                    |
+| `profileId`        | владелец                             |
+| `localDate`        | дата без времени                     |
+| `levelSnapshot`    | уровень на момент генерации          |
+| `timezoneSnapshot` | временная зона генерации             |
+| `theoryLessonId`   | урок дня                             |
+| `theoryIsReview`   | новая тема или повтор                |
+| `readingContentId` | чтение дня                           |
+| `translateFromId`  | ES→RU                                |
+| `translateToId`    | RU→ES                                |
+| `completedAt`      | `null` или момент полного завершения |
+| `createdAt`        | момент создания                      |
 
 Уникальность: `(profileId, localDate)`.
 

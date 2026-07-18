@@ -1,0 +1,8 @@
+.git
+.idea
+.next
+node_modules
+coverage
+src/generated
+temp
+package-lock.json

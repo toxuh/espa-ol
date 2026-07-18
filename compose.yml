@@ -1,0 +1,22 @@
+name: espanol-diario-dev
+
+services:
+  db:
+    image: postgres:17-bookworm
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-espanol_diario}
+      POSTGRES_USER: ${POSTGRES_USER:-espanol_diario}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-espanol_diario}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres-dev-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+volumes:
+  postgres-dev-data:
