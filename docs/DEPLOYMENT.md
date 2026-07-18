@@ -13,7 +13,7 @@
 | `app`  | Next.js production server | нет; доступен Traefik по Docker-сети         |
 | `db`   | PostgreSQL                | нет; доступен только внутренней сети compose |
 
-Опциональный одноразовый job `migrate` может выполнять `prisma migrate deploy` перед запуском новой версии. Не следует запускать development-команды или `prisma migrate dev` в production.
+Одноразовый job `migrate` выполняет `prisma migrate deploy` и идемпотентный `prisma db seed` перед каждым запуском новой версии. `app` зависит от его успешного завершения. Development-команды и `prisma migrate dev` в production не используются.
 
 ## Сети
 
@@ -94,8 +94,8 @@ Endpoint не должен раскрывать DATABASE_URL, версии с и
 
 1. создать резервную копию БД;
 2. скачать или собрать новый immutable image tag;
-3. выполнить `prisma migrate deploy`;
-4. перезапустить app;
+3. запустить compose: job `migrate` применит схему и синхронизирует контент;
+4. дождаться запуска app после успешного job;
 5. дождаться healthcheck;
 6. проверить выбор профиля, текущий день и сохранённую историю;
 7. сохранить предыдущий image tag для отката приложения.

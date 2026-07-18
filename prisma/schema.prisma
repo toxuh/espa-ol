@@ -20,18 +20,125 @@ enum CefrLevel {
   C1
 }
 
+enum ContentKind {
+  GRAMMAR
+  READING
+  LISTENING
+  TRANSLATE_FROM_ES
+  TRANSLATE_TO_ES
+  THEORY
+  VOCABULARY
+  CONJUGATION
+  PLACEMENT
+}
+
+enum AttemptKind {
+  GRAMMAR
+  VOCABULARY
+  CONJUGATION
+}
+
+enum LevelSelectionMethod {
+  PLACEMENT
+  MANUAL
+}
+
 model Profile {
-  id                String     @id @default(cuid())
+  id                String              @id @default(cuid())
   name              String
-  normalizedName    String     @unique
+  normalizedName    String              @unique
   level             CefrLevel?
-  placementDone     Boolean    @default(false)
-  timezone          String     @default("Europe/Madrid")
-  streak            Int        @default(0)
-  lastCompletedDate DateTime?  @db.Date
-  active            Boolean    @default(true)
-  joinedAt          DateTime   @default(now())
-  updatedAt         DateTime   @updatedAt
+  placementDone     Boolean             @default(false)
+  timezone          String              @default("Europe/Madrid")
+  streak            Int                 @default(0)
+  lastCompletedDate DateTime?           @db.Date
+  active            Boolean             @default(true)
+  joinedAt          DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  dailyPlans        DailyPlan[]
+  placementAttempts PlacementAttempt[]
+  levelEvents       ProfileLevelEvent[]
 
   @@index([active, name])
+}
+
+model ContentItem {
+  id        String         @id @default(cuid())
+  sourceId  String         @unique
+  kind      ContentKind
+  level     CefrLevel?
+  topic     String?
+  position  Int
+  data      Json
+  active    Boolean        @default(true)
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+  attempts  DailyAttempt[]
+
+  @@index([kind, level, active])
+  @@index([topic])
+}
+
+model DailyPlan {
+  id               String         @id @default(cuid())
+  profileId        String
+  localDate        DateTime       @db.Date
+  levelSnapshot    CefrLevel
+  timezoneSnapshot String
+  plan             Json
+  progress         Json           @default("{}")
+  score            Int?
+  rating           String?
+  completedAt      DateTime?
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+  profile          Profile        @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  attempts         DailyAttempt[]
+
+  @@unique([profileId, localDate])
+  @@index([profileId, completedAt])
+}
+
+model DailyAttempt {
+  id              String      @id @default(cuid())
+  dailyPlanId     String
+  contentSourceId String
+  kind            AttemptKind
+  answer          Json
+  result          Json
+  correctCount    Int
+  totalCount      Int
+  correctFirstTry Boolean
+  attemptedAt     DateTime    @default(now())
+  dailyPlan       DailyPlan   @relation(fields: [dailyPlanId], references: [id], onDelete: Cascade)
+  content         ContentItem @relation(fields: [contentSourceId], references: [sourceId], onDelete: Restrict)
+
+  @@unique([dailyPlanId, contentSourceId])
+  @@index([dailyPlanId, kind])
+  @@index([contentSourceId, attemptedAt])
+}
+
+model PlacementAttempt {
+  id            String               @id @default(cuid())
+  profileId     String
+  method        LevelSelectionMethod
+  answers       Json
+  score         Int?
+  assignedLevel CefrLevel
+  createdAt     DateTime             @default(now())
+  profile       Profile              @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@index([profileId, createdAt])
+}
+
+model ProfileLevelEvent {
+  id        String               @id @default(cuid())
+  profileId String
+  fromLevel CefrLevel?
+  toLevel   CefrLevel
+  method    LevelSelectionMethod
+  createdAt DateTime             @default(now())
+  profile   Profile              @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@index([profileId, createdAt])
 }

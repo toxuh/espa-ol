@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
+import { AppHeader } from "@/components/app-header";
+import { ProfileProvider } from "@/components/profile-provider";
 
 export const metadata: Metadata = {
   title: "Español Diario",
@@ -19,7 +21,10 @@ export default function RootLayout({
       className={`${GeistSans.variable} ${GeistMono.variable} h-full antialiased`}
     >
       <body className={`${GeistSans.className} flex min-h-full flex-col`}>
-        {children}
+        <ProfileProvider>
+          <AppHeader />
+          {children}
+        </ProfileProvider>
       </body>
     </html>
   );

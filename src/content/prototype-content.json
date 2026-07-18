@@ -1,0 +1,2747 @@
+{
+  "LEVELS": ["A1", "A2", "B1", "B2", "C1"],
+  "LEVEL_NAMES": {
+    "A1": "A1 · Новичок",
+    "A2": "A2 · Элементарный",
+    "B1": "B1 · Средний",
+    "B2": "B2 · Выше среднего",
+    "C1": "C1 · Продвинутый"
+  },
+  "GRAMMAR": [
+    {
+      "id": "a1-01",
+      "level": "A1",
+      "topic": "ser / estar",
+      "type": "mcq",
+      "prompt": "Ella ___ profesora.",
+      "options": ["es", "está", "son", "están"],
+      "answer": "es",
+      "explain": "<b>Ser</b> используется для постоянных характеристик: профессия, национальность, характер. <b>Estar</b> — для временных состояний и местоположения. \"Профессия\" — постоянный признак, поэтому \"es\"."
+    },
+    {
+      "id": "a1-02",
+      "level": "A1",
+      "topic": "ser / estar",
+      "type": "mcq",
+      "prompt": "Nosotros ___ muy cansados hoy.",
+      "options": ["somos", "estamos", "es", "está"],
+      "answer": "estamos",
+      "explain": "Усталость — временное состояние, поэтому используется <b>estar</b>: estamos cansados."
+    },
+    {
+      "id": "a1-03",
+      "level": "A1",
+      "topic": "artículos",
+      "type": "mcq",
+      "prompt": "___ agua está fría.",
+      "options": ["La", "El", "Los", "Las"],
+      "answer": "el",
+      "explain": "Слово \"agua\" женского рода, но начинается на ударную \"a\", поэтому в единственном числе перед ним ставится артикль <b>el</b> (el agua), хотя прилагательные согласуются в женском роде: el agua fría."
+    },
+    {
+      "id": "a1-04",
+      "level": "A1",
+      "topic": "artículos",
+      "type": "mcq",
+      "prompt": "Tengo ___ hermano y ___ hermana.",
+      "options": ["un / una", "una / un", "el / la", "un / uno"],
+      "answer": "un / una",
+      "explain": "Неопределённый артикль: <b>un</b> для мужского рода, <b>una</b> для женского. \"Hermano\" — м.р., \"hermana\" — ж.р."
+    },
+    {
+      "id": "a1-05",
+      "level": "A1",
+      "topic": "presente -ar",
+      "type": "fill",
+      "prompt": "Yo (hablar) ___ español todos los días.",
+      "answer": "hablo",
+      "explain": "Глаголы на -ar в настоящем времени: habl<b>o</b>, hablas, habla, hablamos, habláis, hablan. Для \"yo\" окончание -o."
+    },
+    {
+      "id": "a1-06",
+      "level": "A1",
+      "topic": "presente -er",
+      "type": "fill",
+      "prompt": "Tú (comer) ___ mucha fruta.",
+      "answer": "comes",
+      "explain": "Глаголы на -er: com<b>o</b>, com<b>es</b>, come, comemos, coméis, comen. Для \"tú\" окончание -es."
+    },
+    {
+      "id": "a1-07",
+      "level": "A1",
+      "topic": "presente -ir",
+      "type": "fill",
+      "prompt": "Ellos (vivir) ___ en Madrid.",
+      "answer": "viven",
+      "explain": "Глаголы на -ir: vivo, vives, vive, vivimos, vivís, viv<b>en</b>. Для \"ellos/ellas\" окончание -en."
+    },
+    {
+      "id": "a1-08",
+      "level": "A1",
+      "topic": "verbo tener",
+      "type": "mcq",
+      "prompt": "¿Cuántos años ___ tú?",
+      "options": ["tienes", "tienen", "tengo", "tenéis"],
+      "answer": "tienes",
+      "explain": "Tener — неправильный глагол: tengo, <b>tienes</b>, tiene, tenemos, tenéis, tienen. Для \"tú\" — tienes."
+    },
+    {
+      "id": "a1-09",
+      "level": "A1",
+      "topic": "ir + a",
+      "type": "mcq",
+      "prompt": "Mañana ___ a visitar a mis abuelos.",
+      "options": ["voy", "va", "vamos", "van"],
+      "answer": "voy",
+      "explain": "Конструкция \"ir + a + инфинитив\" выражает ближайшее будущее. Для \"yo\" форма глагола ir — <b>voy</b>: voy a visitar."
+    },
+    {
+      "id": "a1-10",
+      "level": "A1",
+      "topic": "posesivos",
+      "type": "mcq",
+      "prompt": "Este es ___ coche (de nosotros).",
+      "options": ["nuestro", "su", "tu", "mi"],
+      "answer": "nuestro",
+      "explain": "Притяжательное местоимение для \"мы\" — <b>nuestro/nuestra/nuestros/nuestras</b>, согласуется с существительным: nuestro coche (м.р. ед.ч.)."
+    },
+    {
+      "id": "a1-11",
+      "level": "A1",
+      "topic": "gustar",
+      "type": "mcq",
+      "prompt": "A mí ___ los gatos.",
+      "options": ["me gustan", "me gusta", "le gustan", "les gusta"],
+      "answer": "me gustan",
+      "explain": "Глагол \"gustar\" согласуется с тем, что нравится, а не с человеком. \"Los gatos\" — мн.ч., поэтому <b>gustan</b>; \"a mí\" требует местоимения <b>me</b>."
+    },
+    {
+      "id": "a1-12",
+      "level": "A1",
+      "topic": "plural",
+      "type": "fill",
+      "prompt": "singular: \"el lápiz\" → plural: \"los ___\"",
+      "answer": "lapices",
+      "explain": "Существительные, оканчивающиеся на -z, во множественном числе меняют z на c и добавляют -es: lápiz → lápices."
+    },
+    {
+      "id": "a2-01",
+      "level": "A2",
+      "topic": "pretérito indefinido",
+      "type": "fill",
+      "prompt": "Ayer yo (comprar) ___ un libro nuevo.",
+      "answer": "compre",
+      "explain": "Правильный глагол на -ar в претерите: compr<b>é</b>, compraste, compró, compramos, comprasteis, compraron. Для \"yo\" окончание -é."
+    },
+    {
+      "id": "a2-02",
+      "level": "A2",
+      "topic": "pretérito irregular",
+      "type": "mcq",
+      "prompt": "El año pasado ellos ___ a España.",
+      "options": ["fueron", "fue", "fuimos", "van"],
+      "answer": "fueron",
+      "explain": "Глагол \"ir\" в претерите неправильный и совпадает с формами \"ser\": fui, fuiste, fue, fuimos, fuisteis, <b>fueron</b>."
+    },
+    {
+      "id": "a2-03",
+      "level": "A2",
+      "topic": "imperfecto",
+      "type": "fill",
+      "prompt": "Cuando era niño, (jugar) ___ en el parque todos los días.",
+      "answer": "jugaba",
+      "explain": "Имперфект для повторяющихся действий в прошлом: jug<b>aba</b>, jugabas, jugaba, jugábamos, jugabais, jugaban."
+    },
+    {
+      "id": "a2-04",
+      "level": "A2",
+      "topic": "pretérito vs imperfecto",
+      "type": "mcq",
+      "prompt": "Mientras (yo) ___ la cena, sonó el teléfono.",
+      "options": ["preparaba", "preparé", "he preparado", "prepararé"],
+      "answer": "preparaba",
+      "explain": "Имперфект описывает фоновое, длящееся действие (\"готовил\"), на фоне которого происходит другое, законченное действие в претерите (\"зазвонил\")."
+    },
+    {
+      "id": "a2-05",
+      "level": "A2",
+      "topic": "futuro simple",
+      "type": "fill",
+      "prompt": "El próximo año (nosotros/viajar) ___ a Perú.",
+      "answer": "viajaremos",
+      "explain": "Будущее простое время образуется от инфинитива + окончания: viajar<b>emos</b> (nosotros). Окончания одинаковы для всех трёх спряжений."
+    },
+    {
+      "id": "a2-06",
+      "level": "A2",
+      "topic": "comparativos",
+      "type": "mcq",
+      "prompt": "Mi hermano es ___ alto ___ yo.",
+      "options": ["más / que", "tan / como", "menos / de", "muy / que"],
+      "answer": "más / que",
+      "explain": "Сравнение превосходства: \"más + прилагательное + que\". Для равенства используется \"tan...como\"."
+    },
+    {
+      "id": "a2-07",
+      "level": "A2",
+      "topic": "superlativos",
+      "type": "mcq",
+      "prompt": "Este es el restaurante ___ caro de la ciudad.",
+      "options": ["más", "tan", "muy", "tanto"],
+      "answer": "más",
+      "explain": "Превосходная степень: \"el/la más + прилагательное + de\": el restaurante más caro de la ciudad."
+    },
+    {
+      "id": "a2-08",
+      "level": "A2",
+      "topic": "objeto directo",
+      "type": "mcq",
+      "prompt": "¿Tienes las llaves? Sí, ___ tengo aquí.",
+      "options": ["las", "los", "les", "la"],
+      "answer": "las",
+      "explain": "Местоимение прямого дополнения должно согласовываться в роде и числе: \"las llaves\" — ж.р. мн.ч. → <b>las</b>."
+    },
+    {
+      "id": "a2-09",
+      "level": "A2",
+      "topic": "objeto indirecto",
+      "type": "mcq",
+      "prompt": "___ voy a dar un regalo a mi madre.",
+      "options": ["Le", "Lo", "La", "Les"],
+      "answer": "le",
+      "explain": "Косвенное дополнение единственного числа — <b>le</b> (независимо от рода): le doy un regalo a mi madre."
+    },
+    {
+      "id": "a2-10",
+      "level": "A2",
+      "topic": "reflexivos",
+      "type": "fill",
+      "prompt": "Todos los días yo (levantarse) ___ a las siete.",
+      "answer": "me levanto",
+      "explain": "Возвратные глаголы требуют местоимения, согласованного с субъектом: me levanto, te levantas, se levanta..."
+    },
+    {
+      "id": "a2-11",
+      "level": "A2",
+      "topic": "estar + gerundio",
+      "type": "fill",
+      "prompt": "Ahora mismo (nosotros/comer) ___ ___ en un restaurante.",
+      "answer": "estamos comiendo",
+      "explain": "Конструкция \"estar + gerundio\" выражает действие, происходящее прямо сейчас: estamos comiendo."
+    },
+    {
+      "id": "a2-12",
+      "level": "A2",
+      "topic": "tener que / hay que",
+      "type": "mcq",
+      "prompt": "___ estudiar mucho para aprobar el examen.",
+      "options": ["Hay que", "Tengo que", "Tienes que", "Hay de"],
+      "answer": "hay que",
+      "explain": "\"Hay que\" — безличная конструкция обязанности (для всех вообще). \"Tener que\" используется с конкретным субъектом: tengo que, tienes que..."
+    },
+    {
+      "id": "b1-01",
+      "level": "B1",
+      "topic": "subjuntivo — formación",
+      "type": "fill",
+      "prompt": "Quiero que tú (hablar) ___ con ella.",
+      "answer": "hables",
+      "explain": "После \"querer que\" используется subjuntivo. Для -ar глаголов: habl<b>e</b>, habl<b>es</b>, hable, hablemos, habléis, hablen."
+    },
+    {
+      "id": "b1-02",
+      "level": "B1",
+      "topic": "subjuntivo — deseo",
+      "type": "mcq",
+      "prompt": "Espero que (vosotros) ___ un buen viaje.",
+      "options": ["tengáis", "tenéis", "tendréis", "tuvierais"],
+      "answer": "tengáis",
+      "explain": "\"Esperar que\" вводит субхунтив. Tener → teng- (irregular stem) + окончания субхунтива: tengáis."
+    },
+    {
+      "id": "b1-03",
+      "level": "B1",
+      "topic": "subjuntivo vs indicativo",
+      "type": "mcq",
+      "prompt": "Creo que ella ___ razón. / No creo que ella ___ razón.",
+      "options": [
+        "tiene / tenga",
+        "tenga / tiene",
+        "tiene / tiene",
+        "tenga / tenga"
+      ],
+      "answer": "tiene / tenga",
+      "explain": "\"Creer que\" (утверждение) требует indicativo: tiene. \"No creer que\" (отрицание/сомнение) требует subjuntivo: tenga."
+    },
+    {
+      "id": "b1-04",
+      "level": "B1",
+      "topic": "condicional simple",
+      "type": "fill",
+      "prompt": "En tu lugar, yo (hablar) ___ con el jefe.",
+      "answer": "hablaria",
+      "explain": "Кондиционал = инфинитив + окончания имперфекта: hablar<b>ía</b>. Используется для советов и гипотез: yo hablaría."
+    },
+    {
+      "id": "b1-05",
+      "level": "B1",
+      "topic": "futuro de probabilidad",
+      "type": "mcq",
+      "prompt": "No sé dónde está Juan. ___ en casa.",
+      "options": ["Estará", "Está", "Estuvo", "Estaría"],
+      "answer": "estará",
+      "explain": "Простое будущее время может выражать предположение о настоящем: \"estará en casa\" = \"наверное, он дома\"."
+    },
+    {
+      "id": "b1-06",
+      "level": "B1",
+      "topic": "pretérito perfecto",
+      "type": "fill",
+      "prompt": "Esta mañana (yo/desayunar) ___ ___ muy poco.",
+      "answer": "he desayunado",
+      "explain": "Pretérito perfecto compuesto (haber + participio) используется для действий в недавнем/незавершённом временном отрезке: he desayunado."
+    },
+    {
+      "id": "b1-07",
+      "level": "B1",
+      "topic": "por / para",
+      "type": "mcq",
+      "prompt": "Este regalo es ___ ti.",
+      "options": ["para", "por", "a", "de"],
+      "answer": "para",
+      "explain": "\"Para\" указывает получателя/цель: para ti (для тебя). \"Por\" используется для причины, обмена, средства передвижения и т.д."
+    },
+    {
+      "id": "b1-08",
+      "level": "B1",
+      "topic": "por / para",
+      "type": "mcq",
+      "prompt": "Pasamos ___ el parque para llegar antes.",
+      "options": ["por", "para", "a", "en"],
+      "answer": "por",
+      "explain": "\"Por\" указывает движение через место: pasar por el parque (проходить через парк)."
+    },
+    {
+      "id": "b1-09",
+      "level": "B1",
+      "topic": "pronombres relativos",
+      "type": "mcq",
+      "prompt": "El hombre ___ vive al lado es médico.",
+      "options": ["que", "quien", "cual", "donde"],
+      "answer": "que",
+      "explain": "\"Que\" — самое универсальное относительное местоимение для людей и предметов в ограничительных придаточных: el hombre que vive..."
+    },
+    {
+      "id": "b1-10",
+      "level": "B1",
+      "topic": "pasiva refleja",
+      "type": "mcq",
+      "prompt": "___ habla español en muchos países.",
+      "options": ["Se", "Es", "Está", "Hay"],
+      "answer": "se",
+      "explain": "Безличная пассивная конструкция \"se + глагол в 3-м лице\" описывает действие без указания субъекта: se habla español."
+    },
+    {
+      "id": "b1-11",
+      "level": "B1",
+      "topic": "imperativo afirmativo",
+      "type": "fill",
+      "prompt": "(tú/cerrar) ___ la puerta, por favor.",
+      "answer": "cierra",
+      "explain": "Утвердительный императив для \"tú\" у глаголов с изменением корня (e→ie): cierra (от cerrar)."
+    },
+    {
+      "id": "b1-12",
+      "level": "B1",
+      "topic": "imperativo negativo",
+      "type": "mcq",
+      "prompt": "No ___ tarde a la reunión.",
+      "options": ["llegues", "llegas", "llega", "llegar"],
+      "answer": "llegues",
+      "explain": "Отрицательный императив всегда образуется от субхунтива: no llegues (а не llega). Для \"tú\" -ar глаголов окончание -es."
+    },
+    {
+      "id": "b1-13",
+      "level": "B1",
+      "topic": "pronombres dobles",
+      "type": "mcq",
+      "prompt": "¿El libro? ___ di a María ayer.",
+      "options": ["Se lo", "Le lo", "Lo le", "Se la"],
+      "answer": "se lo",
+      "explain": "Когда косвенное \"le/les\" стоит перед прямым \"lo/la/los/las\", \"le/les\" меняется на <b>se</b>: se lo di (= le di el libro)."
+    },
+    {
+      "id": "b1-14",
+      "level": "B1",
+      "topic": "estilo indirecto",
+      "type": "mcq",
+      "prompt": "Ella dijo: \"Estoy cansada.\" → Ella dijo que ___ cansada.",
+      "options": ["estaba", "está", "estuvo", "esté"],
+      "answer": "estaba",
+      "explain": "В косвенной речи после глагола в прошедшем времени (\"dijo\") presente переходит в imperfecto: estoy → estaba."
+    },
+    {
+      "id": "b2-01",
+      "level": "B2",
+      "topic": "subjuntivo imperfecto",
+      "type": "fill",
+      "prompt": "Si (yo/tener) ___ más tiempo, aprendería piano.",
+      "answer": "tuviera",
+      "explain": "Условное 2 типа (нереальное в настоящем): \"si + imperfecto de subjuntivo, condicional\". Tener → tuviera/tuviese."
+    },
+    {
+      "id": "b2-02",
+      "level": "B2",
+      "topic": "condicional tipo 2",
+      "type": "mcq",
+      "prompt": "Si yo ___ tú, aceptaría la oferta.",
+      "options": ["fuera", "soy", "sería", "fui"],
+      "answer": "fuera",
+      "explain": "Гипотетическое условие: \"si + imperfecto subjuntivo (fuera/fuese), + condicional (aceptaría)\"."
+    },
+    {
+      "id": "b2-03",
+      "level": "B2",
+      "topic": "condicional tipo 3",
+      "type": "mcq",
+      "prompt": "Si me lo ___ dicho, te habría ayudado.",
+      "options": ["hubieras", "habrías", "has", "hubiste"],
+      "answer": "hubieras",
+      "explain": "Нереальное условие в прошлом: \"si + pluscuamperfecto de subjuntivo (hubieras dicho), + condicional compuesto (habría ayudado)\"."
+    },
+    {
+      "id": "b2-04",
+      "level": "B2",
+      "topic": "voz pasiva",
+      "type": "fill",
+      "prompt": "La novela (escribir, pasiva) ___ ___ por Cervantes.",
+      "answer": "fue escrita",
+      "explain": "Пассивный залог: \"ser (в нужном времени) + participio\", согласованный в роде/числе с подлежащим: fue escrita."
+    },
+    {
+      "id": "b2-05",
+      "level": "B2",
+      "topic": "gerundio causal",
+      "type": "mcq",
+      "prompt": "___ mucho, aprobó el examen fácilmente.",
+      "options": ["Estudiando", "Estudia", "Estudiado", "Al estudiar"],
+      "answer": "estudiando",
+      "explain": "Деепричастие (gerundio) может выражать причину или способ: \"Estudiando mucho\" = \"поскольку/благодаря тому, что много учился\"."
+    },
+    {
+      "id": "b2-06",
+      "level": "B2",
+      "topic": "verbos de cambio",
+      "type": "mcq",
+      "prompt": "Después del accidente, se ___ muy nervioso cada vez que conduce.",
+      "options": ["pone", "hace", "vuelve", "llega a ser"],
+      "answer": "pone",
+      "explain": "\"Ponerse + adjetivo\" выражает временное эмоциональное/физическое изменение: se pone nervioso. \"Volverse\" — более устойчивое изменение характера."
+    },
+    {
+      "id": "b2-07",
+      "level": "B2",
+      "topic": "subjuntivo — duda/emoción",
+      "type": "fill",
+      "prompt": "Me sorprende que no me (tú/llamar) ___ ayer.",
+      "answer": "llamaras",
+      "explain": "После выражений эмоции (\"me sorprende que\") в прошедшем контексте требуется imperfecto de subjuntivo: llamaras."
+    },
+    {
+      "id": "b2-08",
+      "level": "B2",
+      "topic": "concesivas",
+      "type": "mcq",
+      "prompt": "Aunque ___ mucho dinero, no sería feliz sin amigos.",
+      "options": ["tuviera", "tengo", "tuve", "tendría"],
+      "answer": "tuviera",
+      "explain": "\"Aunque\" с гипотетическим, нереальным смыслом требует subjuntivo (tuviera); с фактом — indicativo (tengo)."
+    },
+    {
+      "id": "b2-09",
+      "level": "B2",
+      "topic": "pluscuamperfecto",
+      "type": "fill",
+      "prompt": "Cuando llegamos, la película ya (empezar) ___ ___.",
+      "answer": "habia empezado",
+      "explain": "Pluscuamperfecto (había + participio) описывает действие, завершившееся до другого прошедшего действия: había empezado."
+    },
+    {
+      "id": "b2-10",
+      "level": "B2",
+      "topic": "futuro compuesto",
+      "type": "mcq",
+      "prompt": "Para el año 2030, los científicos ___ una cura.",
+      "options": [
+        "habrán encontrado",
+        "encontrarán",
+        "han encontrado",
+        "encuentran"
+      ],
+      "answer": "habrán encontrado",
+      "explain": "Futuro compuesto (habrá + participio) выражает действие, которое будет завершено к определённому моменту в будущем."
+    },
+    {
+      "id": "b2-11",
+      "level": "B2",
+      "topic": "lo que",
+      "type": "mcq",
+      "prompt": "No entiendo ___ quieres decir.",
+      "options": ["lo que", "que", "lo cual", "cual"],
+      "answer": "lo que",
+      "explain": "\"Lo que\" используется для обозначения абстрактной идеи или неопределённого предмета (\"то, что\"): no entiendo lo que quieres decir."
+    },
+    {
+      "id": "b2-12",
+      "level": "B2",
+      "topic": "verbos con preposición",
+      "type": "mcq",
+      "prompt": "Por fin me acostumbré ___ vivir aquí.",
+      "options": ["a", "de", "en", "con"],
+      "answer": "a",
+      "explain": "\"Acostumbrarse a\" — устойчивое сочетание глагола с предлогом \"a\"."
+    },
+    {
+      "id": "b2-13",
+      "level": "B2",
+      "topic": "discurso indirecto",
+      "type": "mcq",
+      "prompt": "Me preguntó si ___ ir con ellos al cine.",
+      "options": ["quería", "quiero", "querré", "quise"],
+      "answer": "queria",
+      "explain": "В косвенном вопросе после глагола в прошедшем времени presente переходит в imperfecto: quiero → quería."
+    },
+    {
+      "id": "b2-14",
+      "level": "B2",
+      "topic": "cuál vs qué",
+      "type": "mcq",
+      "prompt": "¿___ es tu color favorito?",
+      "options": ["Cuál", "Qué", "Cual es", "Que"],
+      "answer": "cual",
+      "explain": "\"Cuál\" используется перед глаголом \"ser\" для выбора из группы вариантов: ¿Cuál es tu color favorito?"
+    },
+    {
+      "id": "c1-01",
+      "level": "C1",
+      "topic": "concesivas complejas",
+      "type": "mcq",
+      "prompt": "Por más que lo ___, no consigo entenderlo.",
+      "options": ["intento", "intentaré", "intentaba", "intentara"],
+      "answer": "intento",
+      "explain": "\"Por más que\" с реальным, фактическим значением требует indicativo: por más que lo intento (несмотря на то, что действительно пытаюсь)."
+    },
+    {
+      "id": "c1-02",
+      "level": "C1",
+      "topic": "por / para avanzado",
+      "type": "mcq",
+      "prompt": "Lo tomaron ___ un experto, aunque apenas sabía nada.",
+      "options": ["por", "para", "como", "de"],
+      "answer": "por",
+      "explain": "\"Tomar/confundir por\" — устойчивое выражение \"принять за (кого-то)\": lo tomaron por un experto."
+    },
+    {
+      "id": "c1-03",
+      "level": "C1",
+      "topic": "perífrasis verbales",
+      "type": "mcq",
+      "prompt": "___ dos años estudiando chino y todavía no domino los caracteres.",
+      "options": ["Llevo", "Estoy", "Voy", "Tengo"],
+      "answer": "llevo",
+      "explain": "\"Llevar + periodo de tiempo + gerundio\" выражает длительность действия, продолжающегося до сих пор: llevo dos años estudiando."
+    },
+    {
+      "id": "c1-04",
+      "level": "C1",
+      "topic": "perífrasis verbales",
+      "type": "mcq",
+      "prompt": "No me hables de eso otra vez, ya ___ de decírtelo mil veces.",
+      "options": ["acabo", "vuelvo", "dejo", "llevo"],
+      "answer": "acabo",
+      "explain": "\"Acabar de + infinitivo\" означает \"только что что-то сделать\": acabo de decírtelo — я только что тебе это сказал."
+    },
+    {
+      "id": "c1-05",
+      "level": "C1",
+      "topic": "estructuras enfáticas",
+      "type": "mcq",
+      "prompt": "No te imaginas ___ difícil que fue tomar esa decisión.",
+      "options": ["lo", "que", "cuán", "el"],
+      "answer": "lo",
+      "explain": "Эмфатическая конструкция \"lo + прилагательное + que\" усиливает степень признака: lo difícil que fue = \"насколько это было трудно\"."
+    },
+    {
+      "id": "c1-06",
+      "level": "C1",
+      "topic": "subjuntivo relativo indefinido",
+      "type": "mcq",
+      "prompt": "Busco un asistente que ___ hablar tres idiomas.",
+      "options": ["sepa", "sabe", "sabrá", "supo"],
+      "answer": "sepa",
+      "explain": "Когда антецедент неопределённый/несуществующий (\"un asistente\" — ещё не найденный), придаточное относительное требует subjuntivo: que sepa."
+    },
+    {
+      "id": "c1-07",
+      "level": "C1",
+      "topic": "nominalización / registro formal",
+      "type": "mcq",
+      "prompt": "La empresa comunicó ___ decisión de cerrar la planta.",
+      "options": ["su", "la", "una", "esta la"],
+      "answer": "su",
+      "explain": "В формальном регистре часто используется номинализация действия: \"comunicar su decisión\" (существительное вместо глагольной фразы) звучит более официально."
+    },
+    {
+      "id": "c1-08",
+      "level": "C1",
+      "topic": "conectores discursivos",
+      "type": "mcq",
+      "prompt": "El proyecto fue costoso; ___, los resultados justificaron la inversión.",
+      "options": ["no obstante", "porque", "ya que", "si bien"],
+      "answer": "no obstante",
+      "explain": "\"No obstante\" (тем не менее) вводит противопоставление между двумя утверждениями, аналогично \"sin embargo\"."
+    },
+    {
+      "id": "c1-09",
+      "level": "C1",
+      "topic": "pasiva refleja vs ser",
+      "type": "mcq",
+      "prompt": "___ construyeron tres nuevos hospitales el año pasado.",
+      "options": ["Se", "Fueron", "Son", "Están"],
+      "answer": "se",
+      "explain": "Пассивная возвратная конструкция \"se + verbo\" часто предпочтительнее пассива с \"ser\", когда субъект неважен и объект — предмет: se construyeron tres hospitales."
+    },
+    {
+      "id": "c1-10",
+      "level": "C1",
+      "topic": "colocaciones",
+      "type": "mcq",
+      "prompt": "Se ___ cuenta de su error demasiado tarde.",
+      "options": ["dio", "hizo", "tomó", "llevó"],
+      "answer": "dio",
+      "explain": "\"Darse cuenta de algo\" — устойчивое выражение \"осознать что-либо\": se dio cuenta de su error."
+    },
+    {
+      "id": "c1-11",
+      "level": "C1",
+      "topic": "discurso indirecto complejo",
+      "type": "mcq",
+      "prompt": "Dijo que, si ___ tiempo, habría terminado el informe.",
+      "options": ["hubiera tenido", "tenía", "tuviera", "tuvo"],
+      "answer": "hubiera tenido",
+      "explain": "В сложной косвенной речи при нереальном условии в прошлом сохраняется pluscuamperfecto de subjuntivo: si hubiera tenido tiempo."
+    },
+    {
+      "id": "c1-12",
+      "level": "C1",
+      "topic": "sea como sea",
+      "type": "mcq",
+      "prompt": "___ , terminaremos el proyecto a tiempo.",
+      "options": [
+        "Sea como sea",
+        "Sea que sea",
+        "Como si fuera",
+        "Fuera como fuera antes"
+      ],
+      "answer": "sea como sea",
+      "explain": "\"Sea como sea\" — устойчивое выражение \"как бы то ни было / во что бы то ни стало\", часто в начале фразы для усиления решимости."
+    },
+    {
+      "id": "a1-13",
+      "level": "A1",
+      "topic": "adjetivos — género",
+      "type": "mcq",
+      "prompt": "Mi casa es muy ___.",
+      "options": ["bonita", "bonito", "bonitos", "bonitas"],
+      "answer": "bonita",
+      "explain": "Прилагательные согласуются в роде и числе с существительным. \"Casa\" — женский род, единственное число → bonita."
+    },
+    {
+      "id": "a1-14",
+      "level": "A1",
+      "topic": "ser / estar",
+      "type": "mcq",
+      "prompt": "El libro ___ en la mesa.",
+      "options": ["está", "es", "están", "son"],
+      "answer": "está",
+      "explain": "Для местоположения предметов всегда используется <b>estar</b>: el libro está en la mesa."
+    },
+    {
+      "id": "a1-15",
+      "level": "A1",
+      "topic": "presente -ar",
+      "type": "fill",
+      "prompt": "Ella (trabajar) ___ en un banco.",
+      "answer": "trabaja",
+      "explain": "Глаголы на -ar, 3-е лицо ед.ч.: trabaj<b>a</b>. Окончания: -o, -as, -a, -amos, -áis, -an."
+    },
+    {
+      "id": "a1-16",
+      "level": "A1",
+      "topic": "presente ser",
+      "type": "fill",
+      "prompt": "Nosotros (ser) ___ estudiantes.",
+      "answer": "somos",
+      "explain": "Глагол ser неправильный: soy, eres, es, <b>somos</b>, sois, son."
+    },
+    {
+      "id": "a1-17",
+      "level": "A1",
+      "topic": "hay",
+      "type": "fill",
+      "prompt": "En la clase (haber) ___ veinte alumnos.",
+      "answer": "hay",
+      "explain": "\"Hay\" — безличная неизменяемая форма глагола haber, означает \"есть/имеется\", используется и в единственном, и во множественном числе."
+    },
+    {
+      "id": "a1-18",
+      "level": "A1",
+      "topic": "posesivos",
+      "type": "fill",
+      "prompt": "Este es ___ perro (de ella).",
+      "answer": "su",
+      "explain": "\"Su\" означает \"его/её/их\" и не меняется в зависимости от рода обладателя, а согласуется только с числом предмета: su perro, sus perros."
+    },
+    {
+      "id": "a1-19",
+      "level": "A1",
+      "topic": "plural",
+      "type": "fill",
+      "prompt": "singular: \"la ciudad\" → plural: \"las ___\"",
+      "answer": "ciudades",
+      "explain": "Существительные, оканчивающиеся на согласную, образуют множественное число добавлением -es: ciudad → ciudades."
+    },
+    {
+      "id": "a1-20",
+      "level": "A1",
+      "topic": "presente -ir",
+      "type": "fill",
+      "prompt": "Yo (escribir) ___ una carta.",
+      "answer": "escribo",
+      "explain": "Глаголы на -ir, 1-е лицо ед.ч.: escrib<b>o</b>. Окончания: -o, -es, -e, -imos, -ís, -en."
+    },
+    {
+      "id": "a2-13",
+      "level": "A2",
+      "topic": "imperfecto",
+      "type": "mcq",
+      "prompt": "Antes, mis padres ___ en el campo.",
+      "options": ["vivían", "vivieron", "viven", "han vivido"],
+      "answer": "vivían",
+      "explain": "Имперфект используется для повторяющихся/привычных действий в прошлом: vivían (жили когда-то регулярно)."
+    },
+    {
+      "id": "a2-14",
+      "level": "A2",
+      "topic": "pretérito irregular",
+      "type": "mcq",
+      "prompt": "Ayer (yo) ___ que estudiar toda la noche.",
+      "options": ["tuve", "tenía", "tengo", "tendré"],
+      "answer": "tuve",
+      "explain": "Tener в претерите — неправильный глагол с основой tuv-: tuve, tuviste, tuvo, tuvimos, tuvisteis, tuvieron."
+    },
+    {
+      "id": "a2-15",
+      "level": "A2",
+      "topic": "reflexivos",
+      "type": "mcq",
+      "prompt": "¿A qué hora ___ acuestas?",
+      "options": ["te", "se", "me", "nos"],
+      "answer": "te",
+      "explain": "Возвратное местоимение должно совпадать с подлежащим: для \"tú\" — te acuestas."
+    },
+    {
+      "id": "a2-16",
+      "level": "A2",
+      "topic": "futuro simple",
+      "type": "fill",
+      "prompt": "El sábado (ellos/llegar) ___ a las diez.",
+      "answer": "llegarán",
+      "explain": "Futuro simple = инфинитив + окончания. Для \"ellos\": llegar<b>án</b>."
+    },
+    {
+      "id": "a2-17",
+      "level": "A2",
+      "topic": "estar + gerundio",
+      "type": "fill",
+      "prompt": "Ahora (yo/leer) ___ ___ un libro interesante.",
+      "answer": "estoy leyendo",
+      "explain": "\"Estar + gerundio\" — действие прямо сейчас. Gerundio глагола leer неправильный: leyendo (i → y между гласными)."
+    },
+    {
+      "id": "a2-18",
+      "level": "A2",
+      "topic": "comparativos — igualdad",
+      "type": "fill",
+      "prompt": "Ana es tan alta ___ su hermano.",
+      "answer": "como",
+      "explain": "Сравнение равенства: \"tan + прилагательное + como\" (так же... как)."
+    },
+    {
+      "id": "a2-19",
+      "level": "A2",
+      "topic": "objeto directo",
+      "type": "fill",
+      "prompt": "¿Compraste el pan? Sí, ___ compré esta mañana.",
+      "answer": "lo",
+      "explain": "Местоимение прямого дополнения для \"el pan\" (м.р. ед.ч.) — <b>lo</b>."
+    },
+    {
+      "id": "a2-20",
+      "level": "A2",
+      "topic": "tener que",
+      "type": "fill",
+      "prompt": "Nosotros (tener que) ___ terminar el proyecto hoy.",
+      "answer": "tenemos que",
+      "explain": "\"Tener que + infinitivo\" выражает обязанность; глагол tener спрягается по подлежащему: nosotros → tenemos que."
+    },
+    {
+      "id": "b1-15",
+      "level": "B1",
+      "topic": "subjuntivo — ojalá",
+      "type": "fill",
+      "prompt": "Ojalá (nosotros/aprobar) ___ el examen.",
+      "answer": "aprobemos",
+      "explain": "\"Ojalá\" всегда требует subjuntivo, независимо от контекста: ojalá aprobemos."
+    },
+    {
+      "id": "b1-16",
+      "level": "B1",
+      "topic": "condicional — cortesía",
+      "type": "fill",
+      "prompt": "¿(Tú) ___ (poder) ayudarme mañana?",
+      "answer": "podrías",
+      "explain": "Condicional часто используется для вежливых просьб. Poder — неправильная основа podr- + окончания имперфекта: podrías."
+    },
+    {
+      "id": "b1-17",
+      "level": "B1",
+      "topic": "pretérito perfecto",
+      "type": "fill",
+      "prompt": "¿Alguna vez (tú/estar) ___ en Argentina?",
+      "answer": "has estado",
+      "explain": "Pretérito perfecto (haber + participio) используется для вопросов об опыте в жизни: ¿has estado alguna vez...?"
+    },
+    {
+      "id": "b1-18",
+      "level": "B1",
+      "topic": "imperativo formal",
+      "type": "fill",
+      "prompt": "(Usted/hablar) ___ más despacio, por favor.",
+      "answer": "hable",
+      "explain": "Формальный императив (usted) образуется от формы subjuntivo: hable (не *habla)."
+    },
+    {
+      "id": "b1-19",
+      "level": "B1",
+      "topic": "por / para",
+      "type": "fill",
+      "prompt": "Trabajo ___ ganar dinero.",
+      "answer": "para",
+      "explain": "\"Para + infinitivo\" выражает цель действия: trabajo para ganar dinero (работаю, чтобы зарабатывать)."
+    },
+    {
+      "id": "b1-20",
+      "level": "B1",
+      "topic": "pronombres relativos",
+      "type": "fill",
+      "prompt": "La ciudad ___ nací es muy pequeña.",
+      "answer": "donde",
+      "explain": "\"Donde\" используется как относительное местоимение для мест: la ciudad donde nací."
+    },
+    {
+      "id": "b2-15",
+      "level": "B2",
+      "topic": "condicional tipo 3",
+      "type": "fill",
+      "prompt": "Si (yo/saber) ___ la verdad, te la habría dicho.",
+      "answer": "hubiera sabido",
+      "explain": "Нереальное условие в прошлом: \"si + pluscuamperfecto de subjuntivo, + condicional compuesto\". Saber → hubiera sabido."
+    },
+    {
+      "id": "b2-16",
+      "level": "B2",
+      "topic": "voz pasiva",
+      "type": "fill",
+      "prompt": "El puente (construir, pasiva) ___ ___ en 1920.",
+      "answer": "fue construido",
+      "explain": "Пассивный залог: ser (в прошедшем времени) + participio, согласованный с подлежащим (el puente — м.р.): fue construido."
+    },
+    {
+      "id": "b2-17",
+      "level": "B2",
+      "topic": "gerundio",
+      "type": "fill",
+      "prompt": "(Caminar) ___ por la calle, vi a mi amigo.",
+      "answer": "caminando",
+      "explain": "Деепричастие (gerundio) в начале фразы выражает одновременное действие: caminando por la calle, vi..."
+    },
+    {
+      "id": "b2-18",
+      "level": "B2",
+      "topic": "pluscuamperfecto",
+      "type": "fill",
+      "prompt": "Cuando llegué, ellos ya (salir) ___ ___.",
+      "answer": "habían salido",
+      "explain": "Pluscuamperfecto (había + participio) описывает действие, завершившееся раньше другого прошедшего действия."
+    },
+    {
+      "id": "b2-19",
+      "level": "B2",
+      "topic": "futuro compuesto",
+      "type": "fill",
+      "prompt": "Para diciembre, (nosotros/terminar) ___ ___ el curso.",
+      "answer": "habremos terminado",
+      "explain": "Futuro compuesto (habremos + participio) выражает действие, которое будет завершено к определённому моменту будущего."
+    },
+    {
+      "id": "b2-20",
+      "level": "B2",
+      "topic": "verbos con preposición",
+      "type": "fill",
+      "prompt": "Los niños se rieron ___ el payaso.",
+      "answer": "de",
+      "explain": "\"Reírse de algo/alguien\" — устойчивое сочетание \"смеяться над кем-то/чем-то\"."
+    },
+    {
+      "id": "c1-13",
+      "level": "C1",
+      "topic": "concesivas — por muy...que",
+      "type": "fill",
+      "prompt": "Por muy difícil que (ser) ___, lo lograremos.",
+      "answer": "sea",
+      "explain": "\"Por muy + прилагательное + que\" всегда требует subjuntivo, независимо от реальности ситуации."
+    },
+    {
+      "id": "c1-14",
+      "level": "C1",
+      "topic": "perífrasis — volver a",
+      "type": "fill",
+      "prompt": "No quiero (volver a/cometer) ___ ___ el mismo error.",
+      "answer": "volver a cometer",
+      "explain": "\"Volver a + infinitivo\" означает \"сделать что-то снова\": volver a cometer = совершить ещё раз."
+    },
+    {
+      "id": "c1-15",
+      "level": "C1",
+      "topic": "nominalización",
+      "type": "fill",
+      "prompt": "La ___ (decidir) de cerrar la fábrica sorprendió a todos.",
+      "answer": "decisión",
+      "explain": "В формальном регистре глагол часто превращается в существительное (nominalización): decidir → la decisión."
+    },
+    {
+      "id": "c1-16",
+      "level": "C1",
+      "topic": "conectores discursivos",
+      "type": "fill",
+      "prompt": "El plan era arriesgado; ___, decidieron seguir adelante.",
+      "answer": "sin embargo",
+      "explain": "\"Sin embargo\" — коннектор противопоставления, синонимичный \"no obstante\" (тем не менее)."
+    },
+    {
+      "id": "c1-17",
+      "level": "C1",
+      "topic": "pasiva refleja",
+      "type": "fill",
+      "prompt": "___ (vender) muchos coches usados en esta tienda.",
+      "answer": "se venden",
+      "explain": "Пассивная возвратная конструкция \"se + глагол\" согласуется в числе с подлежащим (coches — мн.ч.): se venden."
+    },
+    {
+      "id": "c1-18",
+      "level": "C1",
+      "topic": "colocaciones",
+      "type": "fill",
+      "prompt": "Al escuchar la noticia, se ___ (dar) cuenta de que había cometido un error.",
+      "answer": "dio",
+      "explain": "\"Darse cuenta de algo\" = осознать что-либо. Претерит от dar (3 л. ед.ч.): dio."
+    },
+    {
+      "id": "c1-19",
+      "level": "C1",
+      "topic": "discurso indirecto",
+      "type": "fill",
+      "prompt": "Me dijo que (venir) ___ tan pronto como pudiera.",
+      "answer": "vendría",
+      "explain": "В косвенной речи после глагола в прошедшем времени futuro переходит в condicional: vendrá → vendría."
+    },
+    {
+      "id": "c1-20",
+      "level": "C1",
+      "topic": "subjuntivo — antecedente negado",
+      "type": "fill",
+      "prompt": "No hay nadie que (saber) ___ resolver este acertijo.",
+      "answer": "sepa",
+      "explain": "Когда антецедент отрицается (\"nadie\"), придаточное относительное требует subjuntivo: que sepa."
+    },
+    {
+      "id": "c1-21",
+      "level": "C1",
+      "topic": "estructuras enfáticas",
+      "type": "fill",
+      "prompt": "Fue precisamente entonces ___ comprendí todo.",
+      "answer": "cuando",
+      "explain": "Конструкция \"fue... cuando\" (эмфатическое выделение) используется для акцента на моменте времени."
+    },
+    {
+      "id": "c1-22",
+      "level": "C1",
+      "topic": "por / para avanzado",
+      "type": "fill",
+      "prompt": "Lo hizo ___ despecho, no por amor.",
+      "answer": "por",
+      "explain": "\"Por\" указывает причину/мотив действия: lo hizo por despecho (сделал это из злости/обиды)."
+    }
+  ],
+  "READINGS": [
+    {
+      "id": "r-a1-1",
+      "level": "A1",
+      "type": "texto",
+      "title": "Mi rutina diaria",
+      "text": "Me llamo Ana. Todos los días me levanto a las siete. Desayuno café con tostadas y después voy al trabajo en autobús. Trabajo en una oficina pequeña hasta las cinco de la tarde. Por la noche, ceno con mi familia y veo la televisión un poco. Los fines de semana me gusta caminar por el parque con mi perro."
+    },
+    {
+      "id": "r-a1-2",
+      "level": "A1",
+      "type": "texto",
+      "title": "Mi familia",
+      "text": "Tengo una familia grande. Mi padre se llama Carlos y es profesor. Mi madre se llama Elena y trabaja en un hospital. Tengo dos hermanos: Pablo y Lucía. Pablo tiene quince años y Lucía tiene diez. Vivimos en una casa cerca del centro de la ciudad. Los domingos comemos todos juntos en casa de mis abuelos."
+    },
+    {
+      "id": "r-a1-3",
+      "level": "A1",
+      "type": "noticia",
+      "title": "El mercado del pueblo",
+      "text": "Cada sábado hay un mercado en la plaza del pueblo. Los agricultores venden frutas, verduras y queso fresco. También hay música y mucha gente. Muchas familias van a comprar pan y flores. El mercado empieza a las nueve de la mañana y termina a las dos de la tarde."
+    },
+    {
+      "id": "r-a2-1",
+      "level": "A2",
+      "type": "texto",
+      "title": "Un viaje inolvidable",
+      "text": "El verano pasado viajé a Colombia con dos amigos. Llegamos a Bogotá y luego fuimos a Cartagena en avión. Nos encantó la ciudad amurallada, con sus calles coloridas y su comida deliciosa. Un día visitamos una playa cercana y nadamos en el mar durante horas. Aunque hacía mucho calor, fue una de las mejores experiencias de mi vida. Volví con muchas fotos y ganas de regresar pronto."
+    },
+    {
+      "id": "r-a2-2",
+      "level": "A2",
+      "type": "texto",
+      "title": "Mi infancia en el campo",
+      "text": "Cuando era pequeña, vivía en un pueblo pequeño con mis abuelos. Todas las mañanas ayudaba a mi abuela a dar de comer a las gallinas. Por las tardes jugaba con los otros niños del pueblo hasta que se ponía el sol. No teníamos muchos juguetes, pero éramos muy felices. Ahora vivo en la ciudad, pero siempre recuerdo esos años con mucho cariño."
+    },
+    {
+      "id": "r-a2-3",
+      "level": "A2",
+      "type": "noticia",
+      "title": "Una nueva biblioteca en el barrio",
+      "text": "La semana pasada abrió una nueva biblioteca pública en el barrio de San Miguel. El edificio tiene tres pisos y una sala especial para niños. Los vecinos están muy contentos porque antes tenían que ir al centro para leer o estudiar. La biblioteca también organiza talleres de lectura los sábados por la mañana. Ya hay más de quinientas personas inscritas."
+    },
+    {
+      "id": "r-b1-1",
+      "level": "B1",
+      "type": "noticia",
+      "title": "El auge del teletrabajo",
+      "text": "En los últimos años, cada vez más empresas permiten que sus empleados trabajen desde casa. Según varios estudios, el teletrabajo puede mejorar el equilibrio entre la vida personal y profesional, aunque también presenta retos: la comunicación entre compañeros es más difícil y algunas personas sienten que trabajan más horas que antes. Muchos expertos creen que el futuro estará marcado por un modelo mixto, en el que los empleados combinen días de oficina con días de trabajo remoto."
+    },
+    {
+      "id": "r-b1-2",
+      "level": "B1",
+      "type": "texto",
+      "title": "La comida rápida y sus consecuencias",
+      "text": "La comida rápida se ha convertido en parte de la vida cotidiana de millones de personas, sobre todo en las grandes ciudades. Es barata, rápida y está disponible en cualquier momento. Sin embargo, los médicos advierten que un consumo frecuente puede provocar problemas de salud como la obesidad o enfermedades del corazón. Por eso, cada vez más restaurantes ofrecen opciones más saludables, con ensaladas y platos bajos en grasa, para atraer a un público más consciente de su alimentación."
+    },
+    {
+      "id": "r-b1-3",
+      "level": "B1",
+      "type": "noticia",
+      "title": "Redes sociales y adolescentes",
+      "text": "Un nuevo estudio ha analizado el uso de las redes sociales entre los adolescentes de doce a diecisiete años. Los resultados muestran que pasan una media de tres horas diarias conectados, principalmente en aplicaciones de vídeo e imágenes. Los investigadores señalan que, aunque las redes ayudan a mantener el contacto con amigos, un uso excesivo puede afectar el sueño y el rendimiento escolar. Recomiendan establecer límites de tiempo claros y fomentar otras actividades al aire libre."
+    },
+    {
+      "id": "r-b2-1",
+      "level": "B2",
+      "type": "noticia",
+      "title": "El cambio climático y las ciudades",
+      "text": "Las ciudades de todo el mundo se enfrentan a retos cada vez más urgentes derivados del cambio climático: olas de calor más frecuentes, inundaciones repentinas y una calidad del aire cada vez peor. Ante esta situación, numerosos ayuntamientos han comenzado a rediseñar sus espacios públicos, incorporando más zonas verdes y sistemas de transporte menos contaminantes. Algunos especialistas sostienen que, si las autoridades no actúan con rapidez, los costes de adaptación serán mucho mayores en las próximas décadas. Otros, en cambio, defienden que ya se están produciendo avances significativos, aunque de forma desigual entre países ricos y pobres."
+    },
+    {
+      "id": "r-b2-2",
+      "level": "B2",
+      "type": "texto",
+      "title": "Inteligencia artificial: ¿aliada o amenaza?",
+      "text": "La inteligencia artificial ha dejado de ser un concepto futurista para convertirse en una herramienta presente en casi todos los sectores: la medicina, la educación, la industria y el entretenimiento. Sus defensores destacan su capacidad para automatizar tareas repetitivas y analizar enormes cantidades de datos en segundos, lo cual libera tiempo para actividades más creativas. Sin embargo, también existen voces críticas que advierten sobre la pérdida de empleos, los sesgos algorítmicos y la falta de regulación adecuada. El debate, lejos de resolverse, parece intensificarse a medida que la tecnología avanza más rápido que las leyes que deberían controlarla."
+    },
+    {
+      "id": "r-b2-3",
+      "level": "B2",
+      "type": "noticia",
+      "title": "Turismo sostenible en auge",
+      "text": "Cada vez más viajeros buscan alternativas al turismo masivo, optando por experiencias que respeten el entorno natural y las comunidades locales. Este modelo, conocido como turismo sostenible, propone reducir el impacto ambiental de los desplazamientos, apoyar la economía local y fomentar un consumo más responsable durante el viaje. Algunas agencias ya ofrecen paquetes que incluyen alojamiento ecológico y actividades gestionadas directamente por habitantes de la zona. Aunque todavía representa una parte pequeña del mercado turístico global, muchos analistas coinciden en que esta tendencia seguirá creciendo en los próximos años."
+    },
+    {
+      "id": "r-c1-1",
+      "level": "C1",
+      "type": "novela",
+      "title": "Cuento corto: El reloj de la plaza",
+      "text": "Nadie recordaba cuándo se había instalado el reloj de la plaza, pero todos coincidían en que, desde entonces, el pueblo nunca había vuelto a ser el mismo. Decían los más viejos que sus manecillas, en lugar de avanzar, retrocedían levemente cada vez que alguien contaba una mentira frente a él. Al principio nadie le prestó atención, hasta que el alcalde, célebre por sus promesas incumplidas, notó con estupor que el reloj marcaba una hora que ya había pasado dos veces esa misma tarde. Desde aquel día, los habitantes comenzaron a medir la sinceridad de sus vecinos observando, de reojo, si las agujas seguían su curso natural o si, por el contrario, se atrevían a desandar el tiempo."
+    },
+    {
+      "id": "r-c1-2",
+      "level": "C1",
+      "type": "texto",
+      "title": "Ensayo: Sobre el silencio en la era digital",
+      "text": "Vivimos rodeados de notificaciones, mensajes instantáneos y un flujo constante de información que rara vez nos concede una pausa genuina. Paradójicamente, cuanto más conectados estamos, más difícil nos resulta habitar el silencio: ese espacio antes reservado para la reflexión se ha convertido, para muchos, en una fuente de incomodidad casi insoportable. Algunos filósofos contemporáneos sostienen que esta huida constante del silencio no es casual, sino sintomática de una sociedad que teme enfrentarse a sus propios pensamientos. Recuperar la capacidad de estar a solas, sin distracciones, no debería entenderse como un lujo, sino como una competencia esencial para preservar la salud mental en un mundo cada vez más ruidoso."
+    },
+    {
+      "id": "r-c1-3",
+      "level": "C1",
+      "type": "noticia",
+      "title": "La crisis del agua en zonas áridas",
+      "text": "Diversas regiones del planeta enfrentan una escasez de agua sin precedentes, agravada por patrones climáticos cada vez más extremos y por una gestión de los recursos hídricos que, en muchos casos, ha resultado insuficiente. Los expertos coinciden en que la desalinización y la reutilización de aguas residuales podrían mitigar parcialmente el problema, aunque advierten que estas soluciones requieren inversiones considerables y no están exentas de controversia, particularmente por su impacto ambiental y energético. Mientras tanto, comunidades enteras se ven obligadas a modificar drásticamente sus hábitos de consumo, en lo que varios analistas ya describen como un anticipo de los conflictos que podrían definir buena parte del siglo venidero."
+    }
+  ],
+  "LISTENING": [
+    {
+      "id": "v1",
+      "level": "A1",
+      "title": "Dreaming Spanish — Superbeginner (comprensible desde cero)",
+      "channel": "Dreaming Spanish",
+      "url": "https://www.youtube.com/playlist?list=PLlpPf-YgbU7GbOHc3siOGQ5KmVSngZucl"
+    },
+    {
+      "id": "v2",
+      "level": "A1",
+      "title": "Butterfly Spanish — уроки грамматики и лексики для начинающих",
+      "channel": "Butterfly Spanish",
+      "url": "https://www.youtube.com/@ButterflySpanish"
+    },
+    {
+      "id": "v3",
+      "level": "A2",
+      "title": "Dreaming Spanish — основной канал (comprensible input)",
+      "channel": "Dreaming Spanish",
+      "url": "https://www.youtube.com/@DreamingSpanish"
+    },
+    {
+      "id": "v4",
+      "level": "A2",
+      "title": "SpanishPod101 — структурированные уроки",
+      "channel": "SpanishPod101",
+      "url": "https://www.youtube.com/channel/UCydVvh3Wg4VPvllLHFoe5_A"
+    },
+    {
+      "id": "v5",
+      "level": "B1",
+      "title": "Easy Spanish — уличные интервью с субтитрами",
+      "channel": "Easy Spanish",
+      "url": "https://www.youtube.com/playlist?list=PLA5UIoabheFMo9oB_AF7JftV34ecOalvM"
+    },
+    {
+      "id": "v6",
+      "level": "B1",
+      "title": "Spanishland School — грамматика и разговорные темы",
+      "channel": "Spanishland School",
+      "url": "https://www.youtube.com/channel/UCrMqdq1osi5ECCBkia2jsNw"
+    },
+    {
+      "id": "v7",
+      "level": "B2",
+      "title": "Easy Spanish — интервью для продолжающих",
+      "channel": "Easy Spanish",
+      "url": "https://www.youtube.com/playlist?list=PLA5UIoabheFMo9oB_AF7JftV34ecOalvM"
+    },
+    {
+      "id": "v8",
+      "level": "B2",
+      "title": "Spanishland School — темы для среднего+ уровня",
+      "channel": "Spanishland School",
+      "url": "https://www.youtube.com/channel/UCrMqdq1osi5ECCBkia2jsNw"
+    },
+    {
+      "id": "v9",
+      "level": "C1",
+      "title": "Hola Spanish — продвинутая грамматика и нюансы языка",
+      "channel": "Hola Spanish",
+      "url": "https://www.youtube.com/c/HolaSpanish"
+    },
+    {
+      "id": "v10",
+      "level": "C1",
+      "title": "SpanishPod101 — продвинутые аудио-уроки",
+      "channel": "SpanishPod101",
+      "url": "https://www.youtube.com/channel/UCydVvh3Wg4VPvllLHFoe5_A"
+    }
+  ],
+  "TRANSLATE_FROM_ES": [
+    {
+      "id": "tf-a1-1",
+      "level": "A1",
+      "title": "Mi rutina",
+      "text": "Me llamo Pedro. Vivo en Madrid con mi familia. Todos los días voy al colegio en autobús. Por la mañana desayuno pan con mantequilla. Después de clase, juego al fútbol con mis amigos. Por la noche, ceno con mis padres y mi hermana. Los fines de semana visitamos a mis abuelos.",
+      "reference": "Меня зовут Педро. Я живу в Мадриде со своей семьёй. Каждый день я езжу в школу на автобусе. Утром я завтракаю хлебом с маслом. После уроков я играю в футбол с друзьями. Вечером я ужинаю с родителями и сестрой. По выходным мы навещаем моих бабушку и дедушку."
+    },
+    {
+      "id": "tf-a1-2",
+      "level": "A1",
+      "title": "Mi ciudad",
+      "text": "Mi ciudad es pequeña pero muy bonita. Hay un parque grande en el centro. Cerca de mi casa hay una panadería y una farmacia. Los domingos, el mercado está abierto por la mañana. Me gusta pasear por las calles antiguas. En verano, mucha gente va a la piscina municipal.",
+      "reference": "Мой город маленький, но очень красивый. В центре есть большой парк. Рядом с моим домом есть булочная и аптека. По воскресеньям утром открыт рынок. Мне нравится гулять по старым улицам. Летом много людей ходят в городской бассейн."
+    },
+    {
+      "id": "tf-a2-1",
+      "level": "A2",
+      "title": "Vacaciones en la costa",
+      "text": "El mes pasado fui de vacaciones a la costa con mi familia. Llegamos el sábado por la tarde y buscamos un hotel cerca de la playa. Al día siguiente nadamos en el mar y tomamos el sol durante horas. Por la noche cenamos en un restaurante de pescado muy famoso. También visitamos un pequeño museo sobre la historia del pueblo. El último día compramos regalos para nuestros amigos. Volvimos a casa cansados pero muy felices.",
+      "reference": "В прошлом месяце я ездил в отпуск на побережье со своей семьёй. Мы приехали в субботу днём и нашли отель недалеко от пляжа. На следующий день мы купались в море и часами загорали. Вечером мы поужинали в очень известном рыбном ресторане. Мы также посетили небольшой музей об истории посёлка. В последний день мы купили подарки для друзей. Мы вернулись домой уставшими, но очень счастливыми."
+    },
+    {
+      "id": "tf-a2-2",
+      "level": "A2",
+      "title": "Mi infancia",
+      "text": "Cuando era pequeño, vivía en un pueblo cerca de las montañas. Mi abuela cocinaba pan casero todos los sábados. Yo jugaba con mis primos en el jardín hasta que anochecía. No teníamos televisión, así que leíamos muchos libros. Los inviernos eran fríos, pero siempre había una chimenea encendida en casa. Recuerdo esos años como los más felices de mi vida.",
+      "reference": "Когда я был маленьким, я жил в деревне недалеко от гор. Моя бабушка каждую субботу пекла домашний хлеб. Я играл с двоюродными братьями в саду, пока не темнело. У нас не было телевизора, поэтому мы много читали. Зимы были холодными, но дома всегда горел камин. Я помню те годы как самые счастливые в своей жизни."
+    },
+    {
+      "id": "tf-b1-1",
+      "level": "B1",
+      "title": "El teletrabajo",
+      "text": "Cada vez más personas trabajan desde casa gracias a la tecnología. Esta forma de trabajar tiene muchas ventajas, como ahorrar tiempo y dinero en transporte. Sin embargo, también presenta algunos problemas, por ejemplo la dificultad para separar la vida laboral de la personal. Algunos expertos creen que el futuro del trabajo será una mezcla entre la oficina y el hogar. Otros piensan que las empresas deberían ofrecer más flexibilidad a sus empleados. En cualquier caso, está claro que la manera de trabajar está cambiando rápidamente.",
+      "reference": "Всё больше людей работают из дома благодаря технологиям. У такого формата работы много преимуществ, например экономия времени и денег на транспорте. Однако есть и проблемы, например сложность разделения рабочей и личной жизни. Некоторые эксперты считают, что будущее работы — это смесь офиса и дома. Другие думают, что компаниям следует давать сотрудникам больше гибкости. В любом случае очевидно, что способ работы быстро меняется."
+    },
+    {
+      "id": "tf-b1-2",
+      "level": "B1",
+      "title": "Ciudades sin coches",
+      "text": "En los últimos años, muchas ciudades han empezado a prohibir los coches en el centro histórico. El objetivo es reducir la contaminación y mejorar la calidad del aire. Algunos comerciantes se quejan porque creen que perderán clientes. Sin embargo, varios estudios muestran que las calles peatonales atraen a más gente los fines de semana. Además, el transporte público se ha vuelto más eficiente en muchas de estas ciudades. Los expertos recomiendan combinar estas medidas con más carriles para bicicletas.",
+      "reference": "В последние годы многие города начали запрещать автомобили в историческом центре. Цель — снизить загрязнение и улучшить качество воздуха. Некоторые торговцы жалуются, считая, что потеряют клиентов. Однако несколько исследований показывают, что пешеходные улицы привлекают больше людей по выходным. Кроме того, во многих из этих городов общественный транспорт стал эффективнее. Эксперты рекомендуют сочетать эти меры с увеличением велодорожек."
+    },
+    {
+      "id": "tf-b2-1",
+      "level": "B2",
+      "title": "IA y educación",
+      "text": "La inteligencia artificial está transformando la manera en que los estudiantes aprenden. Por un lado, permite personalizar la enseñanza según el ritmo de cada alumno, lo cual puede mejorar los resultados académicos. Por otro lado, algunos profesores temen que los estudiantes dependan demasiado de estas herramientas y pierdan la capacidad de pensar de forma crítica. Diversos países ya han comenzado a regular el uso de la inteligencia artificial en las aulas, estableciendo límites claros sobre qué tareas pueden delegarse a la tecnología. Mientras tanto, los defensores argumentan que, si se utiliza correctamente, esta tecnología podría reducir las desigualdades educativas. El debate, sin duda, continuará durante los próximos años, a medida que la tecnología siga evolucionando.",
+      "reference": "Искусственный интеллект меняет то, как учатся студенты. С одной стороны, он позволяет персонализировать обучение под темп каждого ученика, что может улучшить академические результаты. С другой стороны, некоторые преподаватели опасаются, что студенты будут слишком зависеть от этих инструментов и потеряют способность критически мыслить. Многие страны уже начали регулировать использование искусственного интеллекта в классах, устанавливая чёткие границы того, какие задачи можно доверять технологии. Тем временем сторонники утверждают, что при правильном использовании эта технология может снизить образовательное неравенство. Дискуссия, несомненно, продолжится в ближайшие годы по мере развития технологий."
+    },
+    {
+      "id": "tf-b2-2",
+      "level": "B2",
+      "title": "Ciudades más verdes",
+      "text": "Numerosas capitales europeas han decidido replantear el diseño de sus espacios públicos con el fin de hacerlos más habitables. Estos cambios incluyen la ampliación de aceras, la creación de nuevos parques y la reducción del espacio destinado a los vehículos privados. Aunque algunos residentes iniciales se mostraron escépticos, encuestas recientes indican que la mayoría valora positivamente estas transformaciones. Los urbanistas sostienen que ciudades más verdes no solo mejoran la salud de sus habitantes, sino que también fortalecen la economía local. No obstante, aplicar estas reformas exige una inversión considerable y una planificación a largo plazo que no todos los gobiernos están dispuestos a asumir.",
+      "reference": "Многие европейские столицы решили пересмотреть дизайн своих общественных пространств, чтобы сделать их более пригодными для жизни. Эти изменения включают расширение тротуаров, создание новых парков и сокращение пространства для частного транспорта. Хотя некоторые жители поначалу отнеслись скептически, недавние опросы показывают, что большинство положительно оценивает эти перемены. Урбанисты утверждают, что более зелёные города не только улучшают здоровье жителей, но и укрепляют местную экономику. Тем не менее, проведение этих реформ требует значительных инвестиций и долгосрочного планирования, на которое готовы не все правительства."
+    },
+    {
+      "id": "tf-c1-1",
+      "level": "C1",
+      "title": "Sobre la memoria",
+      "text": "Hay quienes sostienen que la memoria no es sino una forma refinada de la imaginación, capaz de reconstruir el pasado según las necesidades emocionales del presente. Bajo esta perspectiva, cada recuerdo estaría teñido, inevitablemente, por la persona en la que nos hemos convertido desde que ocurrió el hecho recordado. Quizá por ello dos hermanos, testigos de una misma infancia, puedan narrar episodios completamente distintos sin que ninguno de los dos mienta deliberadamente. Esta fragilidad de la memoria plantea preguntas incómodas sobre la fiabilidad de los testimonios personales, especialmente cuando estos se emplean como base de decisiones importantes. Con todo, resulta imposible renunciar por completo al recuerdo, pues es, en última instancia, el material con el que construimos nuestra propia identidad.",
+      "reference": "Некоторые утверждают, что память — это не более чем изощрённая форма воображения, способная реконструировать прошлое в соответствии с эмоциональными потребностями настоящего. С этой точки зрения каждое воспоминание неизбежно окрашено тем, кем мы стали с момента произошедшего события. Возможно, именно поэтому два брата, свидетели одного и того же детства, могут рассказывать совершенно разные эпизоды, при этом ни один из них сознательно не лжёт. Эта хрупкость памяти поднимает неудобные вопросы о надёжности личных свидетельств, особенно когда они используются как основа важных решений. И всё же полностью отказаться от воспоминаний невозможно, ведь именно они, в конечном счёте, служат материалом, из которого мы строим собственную идентичность."
+    },
+    {
+      "id": "tf-c1-2",
+      "level": "C1",
+      "title": "Sobre el descanso",
+      "text": "Existe una creciente corriente de pensamiento que cuestiona la obsesión contemporánea por la productividad constante, defendiendo en su lugar la importancia del ocio genuino. Sus defensores argumentan que una sociedad incapaz de descansar sin sentir culpa termina, paradójicamente, siendo menos creativa e innovadora. No se trata, insisten, de rechazar el trabajo, sino de reconocer que la mente necesita períodos de inactividad para procesar ideas y generar nuevas conexiones. Frente a esta postura, otros advierten que tal discurso resulta más fácil de sostener desde posiciones de privilegio económico, donde el descanso no implica una amenaza inmediata a la subsistencia. El debate, lejos de ser meramente filosófico, tiene implicaciones directas en cómo las empresas diseñan sus políticas laborales.",
+      "reference": "Набирает силу течение мысли, ставящее под сомнение современную одержимость постоянной продуктивностью и отстаивающее вместо этого важность подлинного досуга. Его сторонники утверждают, что общество, неспособное отдыхать без чувства вины, в итоге, как ни парадоксально, становится менее креативным и инновационным. Речь идёт не об отказе от работы, настаивают они, а о признании того, что разуму нужны периоды бездействия для обработки идей и создания новых связей. В противовес этой позиции другие предупреждают, что подобный дискурс легче отстаивать с позиций экономической привилегированности, где отдых не представляет непосредственной угрозы существованию. Эта дискуссия, далёкая от чисто философской, имеет прямые последствия для того, как компании выстраивают свою кадровую политику."
+    }
+  ],
+  "TRANSLATE_TO_ES": [
+    {
+      "id": "ta-a1-1",
+      "level": "A1",
+      "title": "Моя рутина",
+      "text": "Меня зовут Мария. Я живу в маленьком городе. Каждое утро я пью кофе и ем тост. Потом я иду на работу пешком. Вечером я готовлю ужин для своей семьи. По субботам я хожу в парк с собакой.",
+      "reference": "Me llamo María. Vivo en una ciudad pequeña. Cada mañana bebo café y como una tostada. Luego voy al trabajo a pie. Por la noche preparo la cena para mi familia. Los sábados voy al parque con mi perro."
+    },
+    {
+      "id": "ta-a1-2",
+      "level": "A1",
+      "title": "Моя семья",
+      "text": "Это моя семья. У меня есть брат и сестра. Наш дом небольшой, но уютный. У нас есть кот и собака. Мы обедаем вместе каждый день. Мне нравится моя семья.",
+      "reference": "Esta es mi familia. Tengo un hermano y una hermana. Nuestra casa es pequeña pero acogedora. Tenemos un gato y un perro. Comemos juntos todos los días. Me gusta mi familia."
+    },
+    {
+      "id": "ta-a2-1",
+      "level": "A2",
+      "title": "Поездка в Италию",
+      "text": "В прошлом году я ездил в Италию с друзьями. Мы прилетели в Рим и остановились в маленькой гостинице. Каждый день мы гуляли по старому городу и фотографировали здания. Однажды мы поели настоящую итальянскую пиццу в маленьком ресторане. Погода была тёплой и солнечной всю неделю. Это было незабываемое путешествие.",
+      "reference": "El año pasado viajé a Italia con mis amigos. Llegamos en avión a Roma y nos alojamos en un hotel pequeño. Todos los días paseábamos por el casco antiguo y sacábamos fotos de los edificios. Un día comimos pizza italiana auténtica en un restaurante pequeño. El tiempo fue cálido y soleado toda la semana. Fue un viaje inolvidable."
+    },
+    {
+      "id": "ta-a2-2",
+      "level": "A2",
+      "title": "Лето у бабушки",
+      "text": "Когда я была маленькой, я жила у бабушки летом. Мы вставали рано и завтракали в саду. Бабушка учила меня готовить традиционные блюда. По вечерам мы слушали радио, потому что телевизора не было. Мне было грустно, когда лето заканчивалось. Сейчас я скучаю по тем временам.",
+      "reference": "Cuando era pequeña, vivía en casa de mi abuela en verano. Nos levantábamos temprano y desayunábamos en el jardín. Mi abuela me enseñaba a cocinar platos tradicionales. Por las noches escuchábamos la radio porque no teníamos televisor. Me ponía triste cuando terminaba el verano. Ahora extraño esos tiempos."
+    },
+    {
+      "id": "ta-b1-1",
+      "level": "B1",
+      "title": "Соцсети",
+      "text": "Социальные сети изменили то, как люди общаются друг с другом. С одной стороны, они помогают поддерживать связь с друзьями, живущими далеко. С другой стороны, многие специалисты считают, что чрезмерное использование социальных сетей может негативно влиять на психическое здоровье. Некоторые компании уже вводят ограничения на использование телефонов на рабочем месте. Лично я думаю, что важно найти баланс между онлайн- и офлайн-жизнью.",
+      "reference": "Las redes sociales han cambiado la forma en que las personas se comunican entre sí. Por un lado, ayudan a mantener el contacto con amigos que viven lejos. Por otro lado, muchos expertos creen que el uso excesivo de las redes sociales puede afectar negativamente la salud mental. Algunas empresas ya están introduciendo restricciones sobre el uso de teléfonos en el lugar de trabajo. Personalmente, creo que es importante encontrar un equilibrio entre la vida en línea y fuera de línea."
+    },
+    {
+      "id": "ta-b1-2",
+      "level": "B1",
+      "title": "Здоровое питание",
+      "text": "В последние годы всё больше людей интересуются здоровым питанием. Многие рестораны теперь предлагают вегетарианские и веганские блюда в своём меню. Врачи рекомендуют есть больше овощей и фруктов и меньше сахара. Однако быстрая и дешёвая еда всё ещё очень популярна среди молодёжи. Изменить привычки питания непросто, но это возможно с небольшими шагами каждый день.",
+      "reference": "En los últimos años, cada vez más personas se interesan por la alimentación saludable. Muchos restaurantes ahora ofrecen platos vegetarianos y veganos en su menú. Los médicos recomiendan comer más verduras y frutas y menos azúcar. Sin embargo, la comida rápida y barata sigue siendo muy popular entre los jóvenes. Cambiar los hábitos alimenticios no es fácil, pero es posible con pequeños pasos cada día."
+    },
+    {
+      "id": "ta-b2-1",
+      "level": "B2",
+      "title": "Изменение климата",
+      "text": "Изменение климата уже влияет на повседневную жизнь миллионов людей по всему миру. Засухи становятся более частыми в некоторых регионах, тогда как в других участились катастрофические наводнения. Учёные предупреждают, что, если правительства не примут срочные меры, последствия будут ещё более серьёзными в ближайшие десятилетия. Многие эксперты считают, что переход на возобновляемые источники энергии должен стать приоритетом для всех стран. Тем не менее, этот переход требует значительных инвестиций, которые не все государства готовы сделать.",
+      "reference": "El cambio climático ya está afectando la vida cotidiana de millones de personas en todo el mundo. Las sequías se están volviendo más frecuentes en algunas regiones, mientras que en otras se han intensificado las inundaciones catastróficas. Los científicos advierten que, si los gobiernos no toman medidas urgentes, las consecuencias serán aún más graves en las próximas décadas. Muchos expertos consideran que la transición hacia fuentes de energía renovables debería ser una prioridad para todos los países. Sin embargo, esta transición requiere inversiones considerables que no todos los estados están dispuestos a realizar."
+    },
+    {
+      "id": "ta-b2-2",
+      "level": "B2",
+      "title": "Удалённая работа",
+      "text": "Пандемия навсегда изменила отношение компаний к удалённой работе. Многие организации поняли, что сотрудники могут быть продуктивными вне офиса, и решили сохранить гибридный формат работы. Это изменение принесло новые вызовы, такие как поддержание корпоративной культуры на расстоянии. С другой стороны, сотрудники получили больше свободы в организации своего времени. Эксперты по управлению персоналом считают, что будущее труда будет определяться именно этим балансом между гибкостью и структурой.",
+      "reference": "La pandemia cambió para siempre la actitud de las empresas hacia el trabajo remoto. Muchas organizaciones comprendieron que los empleados podían ser productivos fuera de la oficina y decidieron mantener un formato híbrido de trabajo. Este cambio trajo nuevos desafíos, como mantener la cultura corporativa a distancia. Por otro lado, los empleados obtuvieron más libertad para organizar su tiempo. Los expertos en gestión de personal consideran que el futuro del trabajo estará definido precisamente por este equilibrio entre flexibilidad y estructura."
+    },
+    {
+      "id": "ta-c1-1",
+      "level": "C1",
+      "title": "О мудрости",
+      "text": "Существует расхожее мнение, будто настоящая мудрость приходит исключительно с возрастом, однако жизненный опыт показывает, что дело обстоит куда сложнее. Немало пожилых людей так и не пересматривают убеждения, усвоенные в юности, тогда как некоторые совсем молодые люди демонстрируют поразительную проницательность перед лицом трудных обстоятельств. Возможно, мудрость связана не столько с количеством прожитых лет, сколько со способностью подвергать сомнению собственные предположения и учиться на ошибках. Если это действительно так, то воспитание такой способности должно было бы стать одной из главных задач образования, а не просто побочным следствием старения.",
+      "reference": "Existe una creencia extendida según la cual la verdadera sabiduría llega exclusivamente con la edad; sin embargo, la experiencia vital demuestra que el asunto es mucho más complejo. No son pocos los ancianos que nunca llegan a revisar las creencias adquiridas en su juventud, mientras que algunas personas muy jóvenes muestran una perspicacia asombrosa ante circunstancias difíciles. Quizá la sabiduría no dependa tanto de la cantidad de años vividos como de la capacidad de cuestionar las propias suposiciones y aprender de los errores. Si esto fuera realmente así, cultivar dicha capacidad debería convertirse en uno de los objetivos principales de la educación, y no en una mera consecuencia secundaria del envejecimiento."
+    },
+    {
+      "id": "ta-c1-2",
+      "level": "C1",
+      "title": "Об успехе",
+      "text": "Современное общество нередко приравнивает успех исключительно к профессиональным достижениям, оставляя в стороне другие формы благополучия, такие как крепкие отношения или душевное спокойствие. Подобное узкое понимание успеха может подталкивать людей к постоянной гонке, в которой любая пауза воспринимается как поражение. Некоторые психологи предупреждают, что такая модель мышления способна привести к хроническому переутомлению и чувству неудовлетворённости, даже при внешне блестящей карьере. Пересмотр этого понятия, возможно, потребует не только индивидуальных усилий, но и изменений на уровне организаций и общественных норм.",
+      "reference": "La sociedad contemporánea suele equiparar el éxito exclusivamente con los logros profesionales, dejando de lado otras formas de bienestar, como las relaciones sólidas o la tranquilidad de espíritu. Esta concepción tan estrecha del éxito puede empujar a las personas hacia una carrera constante, en la que cualquier pausa se percibe como un fracaso. Algunos psicólogos advierten que este modelo de pensamiento puede conducir a un agotamiento crónico y a una sensación de insatisfacción, incluso en el caso de una carrera aparentemente brillante. Replantear este concepto probablemente exigirá no solo esfuerzos individuales, sino también cambios a nivel organizativo y en las normas sociales."
+    }
+  ],
+  "THEORY": [
+    {
+      "id": "th-a1-1",
+      "level": "A1",
+      "title": "Ser y estar: два глагола «быть»",
+      "topics": ["ser / estar"],
+      "body": "\nВ испанском два глагола переводятся как «быть» — <b>ser</b> и <b>estar</b> — и путать их нельзя, смысл фразы может измениться кардинально.<br><br>\n<b>Ser</b> используется для постоянных, неизменных характеристик:<br>\n— профессия и род занятий: <i>Soy médico</i> (я врач)<br>\n— национальность и происхождение: <i>Es de España</i> (он из Испании)<br>\n— характер и внешность: <i>Ella es simpática</i> (она приятная в общении)<br>\n— материал: <i>La mesa es de madera</i> (стол деревянный)<br>\n— время и дата: <i>Son las tres</i> (сейчас три часа)<br><br>\n<b>Estar</b> используется для временных состояний и местоположения:<br>\n— местоположение (всегда estar, даже для зданий): <i>Madrid está en España</i><br>\n— временное физическое/эмоциональное состояние: <i>Estoy cansado</i> (я устал)<br>\n— результат действия: <i>La puerta está abierta</i> (дверь открыта)<br>\n— estar + gerundio (действие сейчас): <i>Estoy comiendo</i><br><br>\nСпряжение в настоящем времени:<br>\nser: soy, eres, es, somos, sois, son<br>\nestar: estoy, estás, está, estamos, estáis, están<br><br>\nОбрати внимание: некоторые прилагательные меняют смысл в зависимости от глагола: <i>Es aburrido</i> (он скучный человек) vs <i>Está aburrido</i> (ему сейчас скучно); <i>Es listo</i> (он умный) vs <i>Está listo</i> (он готов)."
+    },
+    {
+      "id": "th-a1-2",
+      "level": "A1",
+      "title": "Артикли и согласование прилагательных",
+      "topics": ["artículos", "adjetivos — género"],
+      "body": "\nВ испанском у существительных есть род (мужской/женский) и число, и артикль, и прилагательное должны с ним согласовываться.<br><br>\n<b>Определённые артикли</b> (когда предмет уже известен): el (м.р. ед.ч.), la (ж.р. ед.ч.), los (м.р. мн.ч.), las (ж.р. мн.ч.). Пример: <i>el libro</i>, <i>la casa</i>, <i>los libros</i>, <i>las casas</i>.<br><br>\n<b>Неопределённые артикли</b> (когда предмет упоминается впервые): un, una, unos, unas. Пример: <i>un perro</i>, <i>una gata</i>.<br><br>\nКак определить род существительного: слова на <b>-o</b> обычно мужского рода (el libro), слова на <b>-a</b> — женского (la mesa), но есть исключения: <i>el día</i> (день, м.р.), <i>la mano</i> (рука, ж.р.), <i>el problema</i>, <i>el mapa</i> (м.р., хотя оканчиваются на -a).<br><br>\n<b>Прилагательные</b> согласуются в роде и числе с существительным, к которому относятся, и обычно ставятся ПОСЛЕ него: <i>un coche rojo</i> (красная машина), <i>una casa roja</i>, <i>unos coches rojos</i>, <i>unas casas rojas</i>. Прилагательные на -e или на согласную часто не меняются по родам: <i>un chico inteligente</i> / <i>una chica inteligente</i>."
+    },
+    {
+      "id": "th-a1-3",
+      "level": "A1",
+      "title": "Множественное число существительных",
+      "topics": ["plural"],
+      "body": "\nПравила образования множественного числа в испанском довольно логичны:<br><br>\n1. Если слово оканчивается на гласную — добавляем <b>-s</b>: <i>casa → casas</i>, <i>libro → libros</i>, <i>coche → coches</i>.<br>\n2. Если слово оканчивается на согласную — добавляем <b>-es</b>: <i>ciudad → ciudades</i>, <i>profesor → profesores</i>, <i>flor → flores</i>.<br>\n3. Если слово оканчивается на <b>-z</b>, буква z меняется на <b>c</b> перед -es: <i>lápiz → lápices</i>, <i>vez → veces</i>.<br>\n4. Слова, оканчивающиеся на безударную -s, во множественном числе не меняются: <i>el lunes → los lunes</i>, <i>la crisis → las crisis</i>.<br><br>\nАртикль тоже меняется на множественное число: <i>el libro → los libros</i>, <i>la casa → las casas</i>. Не забывай менять и прилагательные: <i>el coche rojo → los coches rojos</i>."
+    },
+    {
+      "id": "th-a1-4",
+      "level": "A1",
+      "title": "Настоящее время правильных глаголов",
+      "topics": [
+        "presente -ar",
+        "presente -er",
+        "presente -ir",
+        "presente ser"
+      ],
+      "body": "\nВ испанском три группы правильных глаголов по окончанию инфинитива: <b>-ar</b>, <b>-er</b>, <b>-ir</b>. У каждой — свой набор окончаний в настоящем времени (presente de indicativo).<br><br>\n<b>-ar (hablar — говорить):</b> habl<b>o</b>, habl<b>as</b>, habl<b>a</b>, habl<b>amos</b>, habl<b>áis</b>, habl<b>an</b><br>\n<b>-er (comer — есть):</b> com<b>o</b>, com<b>es</b>, com<b>e</b>, com<b>emos</b>, com<b>éis</b>, com<b>en</b><br>\n<b>-ir (vivir — жить):</b> viv<b>o</b>, viv<b>es</b>, viv<b>e</b>, viv<b>imos</b>, viv<b>ís</b>, viv<b>en</b><br><br>\nОбрати внимание, что у -er и -ir глаголов формы совпадают везде, кроме nosotros/vosotros (-emos/-éis у -er, -imos/-ís у -ir).<br><br>\nГлагол <b>ser</b> (быть) неправильный и не подчиняется этим схемам: soy, eres, es, somos, sois, son.<br><br>\nНастоящее время используется для: привычных действий (<i>Trabajo todos los días</i>), общих истин (<i>El agua hierve a 100 grados</i>) и текущих состояний (<i>Vivo en Madrid</i>)."
+    },
+    {
+      "id": "th-a1-5",
+      "level": "A1",
+      "title": "Tener, hay, ir + a",
+      "topics": ["verbo tener", "hay", "ir + a"],
+      "body": "\nТри очень частотные конструкции для начинающих:<br><br>\n<b>Tener</b> (иметь) — неправильный глагол: tengo, tienes, tiene, tenemos, tenéis, tienen. Используется для обладания (<i>Tengo un coche</i>), возраста (<i>Tengo veinte años</i> — дословно «имею двадцать лет») и в конструкции <b>tener que + infinitivo</b> (быть должным что-то сделать): <i>Tengo que estudiar</i>.<br><br>\n<b>Hay</b> — особая неизменяемая форма глагола haber, означает «есть/имеется», используется и в единственном, и во множественном числе: <i>Hay un libro en la mesa</i> (есть одна книга), <i>Hay muchos libros</i> (есть много книг). Никогда не меняется по лицам и числам, в отличие от tener.<br><br>\n<b>Ir a + infinitivo</b> — конструкция ближайшего будущего (аналог английского \"going to\"): <i>Voy a estudiar</i> (я собираюсь учиться), <i>Vamos a comer</i> (мы собираемся поесть). Спряжение ir: voy, vas, va, vamos, vais, van."
+    },
+    {
+      "id": "th-a1-6",
+      "level": "A1",
+      "title": "Gustar и притяжательные местоимения",
+      "topics": ["gustar", "posesivos"],
+      "body": "\n<b>Gustar</b> (нравиться) устроен не так, как в русском: подлежащим в испанском предложении становится тот предмет, который нравится, а человек, которому нравится, выражается косвенным местоимением.<br><br>\nСхема: <i>(a + человек,) me/te/le/nos/os/les + gusta/gustan + предмет</i>.<br>\n— Если предмет один: <i>Me gusta el café</i> (мне нравится кофе — дословно «кофе нравится мне»)<br>\n— Если предметов много: <i>Me gustan los gatos</i> (мне нравятся кошки)<br>\n— Если после gustar инфинитив глагола — всегда единственное число: <i>Me gusta bailar</i>.<br><br>\nПохожим образом ведут себя глаголы <i>encantar</i> (обожать), <i>interesar</i> (интересовать), <i>doler</i> (болеть).<br><br>\n<b>Притяжательные местоимения</b> (краткая форма, перед существительным): mi/mis (мой), tu/tus (твой), su/sus (его/её/их/Ваш), nuestro/nuestra/nuestros/nuestras (наш), vuestro/vuestra/vuestros/vuestras (ваш). Они согласуются в числе (а nuestro/vuestro ещё и в роде) с предметом обладания, а не с обладателем: <i>su perro</i> (его/её собака), <i>nuestra casa</i> (наш дом, ж.р., т.к. casa женского рода)."
+    },
+    {
+      "id": "th-a2-1",
+      "level": "A2",
+      "title": "Pretérito indefinido (простое прошедшее)",
+      "topics": ["pretérito indefinido", "pretérito irregular"],
+      "body": "\nPretérito indefinido используется для завершённых действий в прошлом с чётко определённым моментом времени (вчера, в прошлом году, три дня назад).<br><br>\n<b>Правильные окончания:</b><br>\n-ar (hablar): habl<b>é</b>, habl<b>aste</b>, habl<b>ó</b>, habl<b>amos</b>, habl<b>asteis</b>, habl<b>aron</b><br>\n-er/-ir (comer/vivir): com<b>í</b>, com<b>iste</b>, com<b>ió</b>, com<b>imos</b>, com<b>isteis</b>, com<b>ieron</b><br><br>\n<b>Частые неправильные глаголы</b> (с особой основой, без ударений в окончаниях yo/él):<br>\nser/ir: fui, fuiste, fue, fuimos, fuisteis, fueron (совпадают!)<br>\ntener: tuve, tuviste, tuvo, tuvimos, tuvisteis, tuvieron<br>\nhacer: hice, hiciste, hizo, hicimos, hicisteis, hicieron<br>\nestar: estuve, estuviste, estuvo, estuvimos, estuvisteis, estuvieron<br>\npoder: pude, pudiste, pudo, pudimos, pudisteis, pudieron<br><br>\nПример: <i>Ayer fui al cine y vi una película muy buena</i> (вчера я пошёл в кино и посмотрел очень хороший фильм)."
+    },
+    {
+      "id": "th-a2-2",
+      "level": "A2",
+      "title": "Imperfecto и его разница с pretérito",
+      "topics": ["imperfecto", "pretérito vs imperfecto"],
+      "body": "\n<b>Imperfecto</b> описывает привычные/повторяющиеся действия в прошлом, фоновые описания и состояния без чёткой границы окончания.<br><br>\nОкончания:<br>\n-ar (hablar): habl<b>aba</b>, habl<b>abas</b>, habl<b>aba</b>, habl<b>ábamos</b>, habl<b>abais</b>, habl<b>aban</b><br>\n-er/-ir (comer/vivir): com<b>ía</b>, com<b>ías</b>, com<b>ía</b>, com<b>íamos</b>, com<b>íais</b>, com<b>ían</b><br>\nНеправильных глаголов всего три: ser (era, eras, era, éramos, erais, eran), ir (iba, ibas, iba, íbamos, ibais, iban), ver (veía, veías...).<br><br>\n<b>Разница pretérito vs imperfecto:</b> pretérito — конкретное законченное событие («что произошло»), imperfecto — фон, привычка, описание («как было»/«что обычно происходило»). Часто они встречаются в одном предложении: <i>Mientras cocinaba (imperfecto, фон), sonó el teléfono (pretérito, конкретное событие)</i>.<br><br>\nЕщё пример: <i>De niño, vivía en un pueblo</i> (imperfecto — привычное состояние в детстве) vs <i>El año pasado viví en Madrid</i> (pretérito — законченный период с чёткими рамками)."
+    },
+    {
+      "id": "th-a2-3",
+      "level": "A2",
+      "title": "Futuro simple",
+      "topics": ["futuro simple"],
+      "body": "\nFuturo simple образуется одинаково для всех трёх спряжений: <b>инфинитив + окончания</b> -é, -ás, -á, -emos, -éis, -án.<br><br>\nhablar: hablar<b>é</b>, hablar<b>ás</b>, hablar<b>á</b>, hablar<b>emos</b>, hablar<b>éis</b>, hablar<b>án</b><br>\ncomer: comeré, comerás, comerá...<br>\nvivir: viviré, vivirás, vivirá...<br><br>\nНекоторые глаголы меняют основу (но окончания остаются те же самые):<br>\ntener → tendr-: tendré, tendrás...<br>\nhacer → har-: haré, harás...<br>\ndecir → dir-: diré, dirás...<br>\npoder → podr-: podré, podrás...<br>\nsalir → saldr-: saldré, saldrás...<br><br>\nИспользуется для: планов и предсказаний о будущем (<i>Mañana viajaré a Barcelona</i>), а также — что важно — для предположений о настоящем (<i>¿Dónde está Juan? — Estará en casa</i>, «наверное, он дома»)."
+    },
+    {
+      "id": "th-a2-4",
+      "level": "A2",
+      "title": "Местоимения прямого и косвенного дополнения",
+      "topics": ["objeto directo", "objeto indirecto"],
+      "body": "\n<b>Прямое дополнение</b> (отвечает на вопрос «кого? что?») заменяется местоимениями: me, te, lo/la, nos, os, los/las. Lo/la/los/las согласуются в роде и числе с заменяемым словом: <i>¿Compraste el pan? Sí, lo compré</i> (el pan → lo, м.р.); <i>¿Viste a María? Sí, la vi</i> (a María → la, ж.р.).<br><br>\n<b>Косвенное дополнение</b> (отвечает на вопрос «кому? для кого?») заменяется местоимениями: me, te, le, nos, os, les. Le/les не меняются по роду: <i>Le di un regalo a mi madre</i> (le = a mi madre).<br><br>\nМестоимения обычно ставятся <b>перед</b> спрягаемым глаголом: <i>Lo compré</i>. Но присоединяются <b>после</b> инфинитива, герундия и утвердительного императива: <i>Voy a comprarlo</i>, <i>Estoy comiéndolo</i>, <i>¡Cómpralo!</i>.<br><br>\nЕсли в предложении есть и косвенное, и прямое дополнение вместе, косвенное идёт первым, а le/les перед lo/la/los/las превращается в <b>se</b>: <i>Se lo di</i> (= le di eso a él/ella)."
+    },
+    {
+      "id": "th-a2-5",
+      "level": "A2",
+      "title": "Возвратные глаголы и estar + gerundio",
+      "topics": ["reflexivos", "estar + gerundio"],
+      "body": "\n<b>Возвратные глаголы</b> (в инфинитиве оканчиваются на -se: levantarse, ducharse, vestirse) требуют возвратного местоимения, согласованного с подлежащим: me, te, se, nos, os, se.<br><br>\nlevantarse: <b>me</b> levanto, <b>te</b> levantas, <b>se</b> levanta, <b>nos</b> levantamos, <b>os</b> levantáis, <b>se</b> levantan.<br><br>\nМестоимение ставится перед спрягаемым глаголом (<i>Me levanto a las siete</i>) или присоединяется к инфинитиву/герундию/императиву (<i>Voy a levantarme</i>, <i>¡Levántate!</i>).<br><br>\n<b>Estar + gerundio</b> — конструкция для действия, происходящего именно в данный момент («сейчас, прямо сейчас»). Герундий образуется: -ar → -ando (hablando), -er/-ir → -iendo (comiendo, viviendo). У некоторых глаголов герундий неправильный: leer → leyendo, dormir → durmiendo, pedir → pidiendo, ir → yendo.<br><br>\nПример: <i>Ahora mismo estoy leyendo un libro</i> (прямо сейчас я читаю книгу) — отличается от простого presente (<i>Leo libros</i> — я вообще читаю книги, привычка)."
+    },
+    {
+      "id": "th-a2-6",
+      "level": "A2",
+      "title": "Сравнения и tener que / hay que",
+      "topics": [
+        "comparativos",
+        "superlativos",
+        "comparativos — igualdad",
+        "tener que / hay que",
+        "tener que"
+      ],
+      "body": "\n<b>Сравнение превосходства/уступительности:</b> más + прилагательное + que (больше... чем), menos + прилагательное + que (меньше... чем): <i>Mi hermano es más alto que yo</i>.<br><br>\n<b>Сравнение равенства:</b> tan + прилагательное + como (так же... как): <i>Ana es tan alta como su hermano</i>.<br><br>\n<b>Превосходная степень:</b> el/la/los/las + más/menos + прилагательное + de: <i>Es el restaurante más caro de la ciudad</i> (самый дорогой ресторан в городе).<br><br>\nНеправильные формы сравнения: bueno → mejor (лучше), malo → peor (хуже), grande → mayor (старше/больше), pequeño → menor (младше/меньше).<br><br>\n<b>Tener que + infinitivo</b> — личная обязанность конкретного человека: <i>Tengo que estudiar</i> (я должен учиться, именно я).<br>\n<b>Hay que + infinitivo</b> — безличная обязанность, касающаяся всех вообще: <i>Hay que estudiar mucho para aprobar</i> (нужно много учиться, без указания конкретного лица)."
+    },
+    {
+      "id": "th-b1-1",
+      "level": "B1",
+      "title": "Por vs Para",
+      "topics": ["por / para"],
+      "body": "\nPor и para — одна из самых частых путаниц у изучающих испанский. Вот основные правила.<br><br>\n<b>Para используется для:</b><br>\n— цели/предназначения: <i>Estudio para aprender</i> (учусь, чтобы научиться)<br>\n— получателя: <i>Este regalo es para ti</i><br>\n— срока/дедлайна: <i>Para el lunes debo terminarlo</i><br>\n— направления движения (пункт назначения): <i>Salgo para Madrid</i><br>\n— личного мнения: <i>Para mí, es una buena idea</i><br><br>\n<b>Por используется для:</b><br>\n— причины/мотива: <i>Lo hizo por amor</i> (сделал это из-за любви)<br>\n— обмена: <i>Te doy diez euros por ese libro</i><br>\n— способа передвижения/связи: <i>Viajamos por tren</i>, <i>Hablamos por teléfono</i><br>\n— продолжительности: <i>Viví allí por dos años</i><br>\n— движения через место: <i>Paseamos por el parque</i><br>\n— неопределённого времени суток: <i>Por la mañana</i>, <i>por la noche</i><br><br>\nХороший способ запомнить: <b>para</b> смотрит вперёд — к цели/адресату, <b>por</b> смотрит назад — к причине/источнику."
+    },
+    {
+      "id": "th-b1-2",
+      "level": "B1",
+      "title": "Pretérito perfecto compuesto",
+      "topics": ["pretérito perfecto"],
+      "body": "\nОбразуется: <b>haber</b> (he, has, ha, hemos, habéis, han) + <b>participio</b> (-ar → -ado, -er/-ir → -ido).<br><br>\nhe hablado, has comido, ha vivido, hemos trabajado, habéis salido, han llegado.<br><br>\n<b>Неправильные причастия</b> (важно запомнить наизусть):<br>\nhacer → hecho, decir → dicho, ver → visto, poner → puesto, escribir → escrito, volver → vuelto, romper → roto, abrir → abierto, morir → muerto, descubrir → descubierto.<br><br>\n<b>Используется для:</b><br>\n— действий в незавершённом временном отрезке (сегодня, на этой неделе, в этом году): <i>Hoy he trabajado mucho</i><br>\n— жизненного опыта (когда-либо/никогда): <i>¿Alguna vez has estado en Argentina?</i><br>\n— недавних действий, важных для настоящего момента: <i>Ha llegado el paquete</i> (и он уже здесь сейчас).<br><br>\nВажно: participio в этой конструкции не согласуется в роде/числе (в отличие от пассивного залога) — всегда одна форма: <i>Ella ha comido</i>, <i>Ellas han comido</i>."
+    },
+    {
+      "id": "th-b1-3",
+      "level": "B1",
+      "title": "Относительные местоимения",
+      "topics": ["pronombres relativos"],
+      "body": "\nОтносительные местоимения связывают главное предложение с придаточным, заменяя повторение существительного.<br><br>\n<b>Que</b> — самое частотное и универсальное, для людей и предметов: <i>El hombre que vive al lado es médico</i>, <i>El libro que leí era interesante</i>.<br><br>\n<b>Quien/quienes</b> — только для людей, чаще после запятой или предлога: <i>Mi hermano, quien vive en Chile, me llamó</i>, <i>La persona con quien hablé era muy amable</i>.<br><br>\n<b>Donde</b> — для мест: <i>La ciudad donde nací es muy pequeña</i>.<br><br>\n<b>El cual / la cual / los cuales / las cuales</b> — более формальный вариант, часто после предлогов: <i>La empresa para la cual trabajo...</i><br><br>\n<b>Lo que</b> — для абстрактной идеи, не конкретного предмета («то, что»): <i>No entiendo lo que dices</i>.<br><br>\nСовет: в разговорной речи почти всегда можно использовать <b>que</b>, остальные формы добавляют формальности и точности."
+    },
+    {
+      "id": "th-b1-4",
+      "level": "B1",
+      "title": "Subjuntivo: введение",
+      "topics": [
+        "subjuntivo — formación",
+        "subjuntivo — deseo",
+        "subjuntivo vs indicativo",
+        "subjuntivo — ojalá"
+      ],
+      "body": "\nSubjuntivo — не время, а наклонение: оно выражает не факт, а желание, сомнение, эмоцию или гипотезу.<br><br>\n<b>Формирование presente de subjuntivo:</b> берём форму «yo» в presente indicativo, убираем -o и добавляем «противоположные» окончания (у -ar глаголов — окончания -er/-ir, и наоборот):<br>\nhablar → hable, hables, hable, hablemos, habléis, hablen<br>\ncomer → coma, comas, coma, comamos, comáis, coman<br>\nvivir → viva, vivas, viva, vivamos, viváis, vivan<br><br>\n<b>Когда использовать subjuntivo:</b><br>\n— после глаголов желания с «que» и разным субъектом: <i>Quiero que vengas</i> (я хочу, чтобы ты пришёл — два разных субъекта)<br>\n— после ojalá (всегда!): <i>Ojalá apruebe el examen</i><br>\n— после отрицания уверенности: <i>No creo que sea verdad</i> (но: <i>Creo que es verdad</i> — indicativo, т.к. утверждение)<br><br>\nГлавное правило: если есть уверенность/факт — indicativo, если есть желание/сомнение/эмоция/гипотеза — subjuntivo."
+    },
+    {
+      "id": "th-b1-5",
+      "level": "B1",
+      "title": "Кондиционал (условное наклонение)",
+      "topics": [
+        "condicional simple",
+        "futuro de probabilidad",
+        "condicional — cortesía"
+      ],
+      "body": "\nCondicional simple образуется: <b>инфинитив + окончания имперфекта</b> (-ía, -ías, -ía, -íamos, -íais, -ían) — те же окончания для всех трёх спряжений.<br><br>\nhablaría, hablarías, hablaría, hablaríamos, hablaríais, hablarían.<br><br>\nИспользует те же неправильные основы, что и futuro simple: tendría (tener), podría (poder), haría (hacer), diría (decir), saldría (salir).<br><br>\n<b>Используется для:</b><br>\n— гипотетических советов: <i>Yo que tú, hablaría con ella</i> (на твоём месте я бы поговорил с ней)<br>\n— вежливых просьб: <i>¿Podrías ayudarme?</i> (не мог бы ты мне помочь?)<br>\n— вежливых желаний: <i>Me gustaría viajar más</i><br><br>\nОтдельно стоит запомнить: <b>futuro simple</b> тоже может выражать предположение, но о настоящем: <i>¿Dónde está Ana? — Estará en el trabajo</i> (наверное, она на работе) — это не про будущее время, а про вероятность прямо сейчас."
+    },
+    {
+      "id": "th-b1-6",
+      "level": "B1",
+      "title": "Императив: утвердительный, отрицательный, формальный",
+      "topics": [
+        "imperativo afirmativo",
+        "imperativo negativo",
+        "imperativo formal"
+      ],
+      "body": "\n<b>Утвердительный императив (tú)</b> у большинства глаголов совпадает с формой «él/ella» в presente: habla (говори), come (ешь), vive (живи), piensa (думай, от pensar).<br>\nИсключения нужно запомнить: ten (tener), ven (venir), haz (hacer), sal (salir), pon (poner), sé (ser), di (decir), ve (ir).<br><br>\n<b>Отрицательный императив</b> ВСЕГДА образуется от формы subjuntivo presente — никогда от утвердительной формы: <i>no hables</i> (а не *no habla), <i>no comas</i>, <i>no vivas</i>, <i>no tengas</i>.<br><br>\n<b>Формальный императив (usted/ustedes)</b> тоже берётся из subjuntivo presente, и в утвердительной, и в отрицательной форме: <i>hable</i> (говорите, Вы), <i>no hable</i>, <i>hablen</i> (говорите, Вы мн.ч.), <i>no hablen</i>.<br><br>\nМестоимения-дополнения присоединяются к утвердительному императиву (<i>¡Dímelo!</i> — скажи мне это) и ставятся перед отрицательным (<i>¡No me lo digas!</i>)."
+    },
+    {
+      "id": "th-b2-1",
+      "level": "B2",
+      "title": "Условные предложения 2 и 3 типа",
+      "topics": [
+        "condicional tipo 2",
+        "condicional tipo 3",
+        "subjuntivo imperfecto"
+      ],
+      "body": "\n<b>Тип 2 (гипотетическое условие в настоящем/будущем, маловероятное или нереальное):</b><br>\nSi + imperfecto de subjuntivo, + condicional simple.<br>\n<i>Si tuviera más tiempo, aprendería piano</i> (если бы у меня было больше времени, я бы учился играть на пианино).<br><br>\n<b>Тип 3 (нереальное условие в прошлом — уже поздно, событие не произошло):</b><br>\nSi + pluscuamperfecto de subjuntivo, + condicional compuesto.<br>\n<i>Si hubiera estudiado más, habría aprobado el examen</i> (если бы я больше учился, я бы сдал экзамен — но не сдал).<br><br>\n<b>Формирование imperfecto de subjuntivo:</b> берём форму «ellos» в pretérito indefinido, убираем -ron и добавляем -ra (или -se, вариант):<br>\nhablar → hablaron → habla<b>ra</b>, hablaras, hablara, habláramos, hablarais, hablaran<br>\ntener → tuvieron → tuvie<b>ra</b>, tuvieras, tuviera...<br>\nir/ser → fueron → fue<b>ra</b>, fueras, fuera...<br><br>\nНе путай с типом 1 (реальное условие): <i>Si tengo tiempo, voy al gimnasio</i> (si + presente indicativo, + presente/futuro) — это просто обычное условие, не гипотеза."
+    },
+    {
+      "id": "th-b2-2",
+      "level": "B2",
+      "title": "Voz pasiva (пассивный залог)",
+      "topics": ["voz pasiva"],
+      "body": "\nПассивный залог образуется: <b>ser</b> (в нужном времени) + <b>participio</b>, причём participio согласуется в роде и числе с подлежащим (в отличие от pretérito perfecto).<br><br>\n<i>La novela fue escrita por Cervantes</i> (роман был написан Сервантесом) — fue (ser в pretérito) + escrita (согласовано с la novela, ж.р.).<br>\n<i>Los puentes fueron construidos en 1920</i> — fueron + construidos (согласовано с los puentes, м.р. мн.ч.).<br><br>\nАгент действия (кто совершил действие) вводится через <b>por</b>: <i>escrita por Cervantes</i>.<br><br>\nВ испанском пассив с ser используется реже, чем в русском или английском — гораздо чаще используется <b>пассивная возвратная конструкция (se + глагол)</b>, особенно когда деятель неизвестен или неважен: <i>Se construyeron tres hospitales</i> (были построены три больницы) звучит естественнее, чем <i>Fueron construidos tres hospitales</i>.<br><br>\nПравило выбора: если важно назвать деятеля («кем сделано») — используй ser+participio+por; если деятель неважен — используй se+глагол."
+    },
+    {
+      "id": "th-b2-3",
+      "level": "B2",
+      "title": "Pluscuamperfecto и Futuro compuesto",
+      "topics": ["pluscuamperfecto", "futuro compuesto"],
+      "body": "\nЭто два «сложных» времени, которые показывают действие относительно другого момента времени, а не относительно «сейчас».<br><br>\n<b>Pluscuamperfecto de indicativo</b> (había + participio) — действие, завершившееся ДО другого действия в прошлом:<br>\n<i>Cuando llegué a la fiesta, ellos ya se habían ido</i> (когда я пришёл на вечеринку, они уже ушли — уход произошёл раньше моего прихода).<br>\nhabía hablado, habías hablado, había hablado, habíamos hablado, habíais hablado, habían hablado.<br><br>\n<b>Futuro compuesto</b> (habrá + participio) — действие, которое БУДЕТ завершено к определённому моменту в будущем:<br>\n<i>Para las ocho, ya habremos terminado la cena</i> (к восьми мы уже закончим ужинать).<br>\nhabré hablado, habrás hablado, habrá hablado, habremos hablado, habréis hablado, habrán hablado.<br><br>\nМысленная шкала времени: pluscuamperfecto — «до прошлого», pretérito/imperfecto — «прошлое», presente — «сейчас», futuro compuesto — «до будущего момента», futuro simple — «будущее»."
+    },
+    {
+      "id": "th-b2-4",
+      "level": "B2",
+      "title": "Герундий (gerundio)",
+      "topics": ["gerundio", "gerundio causal"],
+      "body": "\nГерундий образуется: -ar → <b>-ando</b> (hablando), -er/-ir → <b>-iendo</b> (comiendo, viviendo).<br><br>\n<b>Неправильные формы</b> (важно запомнить): leer → leyendo, oír → oyendo, dormir → durmiendo, morir → muriendo, pedir → pidiendo, decir → diciendo, poder → pudiendo, ir → yendo.<br><br>\n<b>Основное использование</b> — вместе с estar для описания действия в процессе: <i>Estoy trabajando</i>.<br><br>\nНо герундий также используется <b>самостоятельно</b>, в начале или середине фразы, чтобы выразить:<br>\n— способ действия: <i>Aprendió español viajando por Latinoamérica</i> (выучил испанский, путешествуя)<br>\n— причину: <i>Estudiando mucho, aprobó el examen fácilmente</i> (поскольку много учился, легко сдал экзамен)<br>\n— одновременность: <i>Caminando por la calle, vi a mi amigo</i> (гуляя по улице, я увидел друга)<br><br>\nВажно: в отличие от английского -ing, испанский герундий НЕ используется как подлежащее (нельзя сказать *Fumando es malo*, нужно <i>Fumar es malo</i> — курить вредно, инфинитив)."
+    },
+    {
+      "id": "th-b2-5",
+      "level": "B2",
+      "title": "Subjuntivo: сомнение, эмоции, уступка",
+      "topics": ["subjuntivo — duda/emoción", "concesivas"],
+      "body": "\nSubjuntivo используется не только после «quiero que», но и в целом ряде других конструкций.<br><br>\n<b>После выражений эмоции</b> (радость, удивление, сожаление, страх) с придаточным «que»: <i>Me alegra que estés aquí</i> (я рад, что ты здесь), <i>Me sorprende que no me llamaras</i> (меня удивляет, что ты мне не позвонил), <i>Siento que no puedas venir</i>.<br><br>\n<b>После выражений сомнения</b>: <i>Dudo que sea verdad</i>, <i>Es posible que llueva</i>.<br><br>\n<b>Aunque (хотя/даже если) — двойное значение:</b><br>\n— с indicativo, если факт известен и реален: <i>Aunque llueve, salgo</i> (хотя [действительно] идёт дождь, я выхожу)<br>\n— с subjuntivo, если ситуация гипотетическая или говорящий не уверен: <i>Aunque llueva, saldré</i> (даже если пойдёт дождь [неизвестно, пойдёт ли], я выйду)<br><br>\nОбщее правило subjuntivo: как только появляется субъективность, неопределённость или эмоциональная оценка ситуации (а не просто факт) — с высокой вероятностью нужен subjuntivo."
+    },
+    {
+      "id": "th-b2-6",
+      "level": "B2",
+      "title": "Разные полезные конструкции",
+      "topics": [
+        "verbos con preposición",
+        "verbos de cambio",
+        "lo que",
+        "cuál vs qué"
+      ],
+      "body": "\n<b>Глаголы с фиксированным предлогом</b> — нужно запоминать целиком: acostumbrarse <b>a</b> (привыкать к), soñar <b>con</b> (мечтать о), reírse <b>de</b> (смеяться над), depender <b>de</b> (зависеть от), consistir <b>en</b> (заключаться в), tratarse <b>de</b> (речь идёт о).<br><br>\n<b>Глаголы изменения состояния</b> («стать»):<br>\n— <b>ponerse</b> + прилагательное — временное физическое/эмоциональное изменение: <i>se puso nervioso</i><br>\n— <b>volverse</b> + прилагательное — более устойчивая перемена характера: <i>se volvió muy desconfiado</i><br>\n— <b>hacerse</b> + прилагательное/существительное — изменение через собственные усилия: <i>se hizo rico</i><br>\n— <b>llegar a ser</b> + существительное — постепенный, долгий результат: <i>llegó a ser presidente</i><br><br>\n<b>Lo que</b> — «то, что» для абстрактных идей: <i>No sé lo que quiere</i>.<br><br>\n<b>Cuál vs qué:</b> «qué» спрашивает об определении/категории (<i>¿Qué es esto?</i>), «cuál» — о выборе из вариантов, особенно перед «ser» (<i>¿Cuál es tu color favorito?</i>)."
+    },
+    {
+      "id": "th-c1-1",
+      "level": "C1",
+      "title": "Por/Para: продвинутые нюансы",
+      "topics": ["por / para avanzado"],
+      "body": "\nНа продвинутом уровне por и para входят в устойчивые идиоматические выражения, которые стоит запомнить целиком.<br><br>\n<b>С por:</b><br>\n— <i>tomar/confundir por</i> — принять за: <i>Lo tomaron por un experto</i><br>\n— <i>estar por + infinitivo</i> — быть на грани/собираться (в некоторых регионах = ещё не сделано): <i>Está por confirmar</i><br>\n— <i>por si acaso</i> — на всякий случай<br>\n— <i>por lo visto</i> — судя по всему<br>\n— <i>por lo tanto</i> — следовательно<br><br>\n<b>С para:</b><br>\n— <i>para colmo</i> — в довершение всего<br>\n— <i>no ser para tanto</i> — не стоит того, чтобы так реагировать<br>\n— <i>para siempre</i> — навсегда<br><br>\nНа этом уровне важно не столько заучивать общее правило, сколько накапливать конкретные устойчивые выражения — por и para здесь работают как часть идиомы, а не по «логике» причины/цели."
+    },
+    {
+      "id": "th-c1-2",
+      "level": "C1",
+      "title": "Перифрастические конструкции (perífrasis verbales)",
+      "topics": ["perífrasis verbales", "perífrasis — volver a"],
+      "body": "\nПерифразы — устойчивые сочетания «спрягаемый глагол + (предлог) + инфинитив/герундио/причастие», которые вместе выражают оттенок значения, не переводимый одним словом.<br><br>\n<b>Llevar + период времени + gerundio</b> — как долго что-то длится (и продолжается сейчас): <i>Llevo dos años estudiando español</i> (я уже два года учу испанский — и всё ещё учу).<br><br>\n<b>Acabar de + infinitivo</b> — только что что-то сделать: <i>Acabo de llegar</i> (я только что пришёл).<br><br>\n<b>Volver a + infinitivo</b> — сделать что-то снова: <i>Volví a intentarlo</i> (я попробовал ещё раз).<br><br>\n<b>Seguir/continuar + gerundio</b> — продолжать делать: <i>Sigue trabajando allí</i> (он всё ещё там работает).<br><br>\n<b>Ponerse a + infinitivo</b> — начать делать (резко, внезапно): <i>Se puso a llorar</i> (он расплакался).<br><br>\n<b>Dejar de + infinitivo</b> — перестать делать: <i>Dejé de fumar</i> (я бросил курить).<br><br>\nЭти конструкции очень частотны в естественной речи носителей и отличают продвинутый уровень от среднего."
+    },
+    {
+      "id": "th-c1-3",
+      "level": "C1",
+      "title": "Эмфатические конструкции",
+      "topics": ["estructuras enfáticas"],
+      "body": "\nЭмфатические (выделительные) конструкции служат для того, чтобы подчеркнуть какую-то часть высказывания — то, что в русском часто делается интонацией или частицей «именно».<br><br>\n<b>Lo + прилагательное/наречие + que</b> — усиливает степень признака: <i>No te imaginas lo difícil que fue</i> (ты не представляешь, насколько это было трудно), <i>Lo bien que canta</i> (как же хорошо он поёт).<br><br>\n<b>Ser... que / ser... cuando / ser... donde</b> (cleft sentence) — выделяет конкретный элемент фразы: <i>Fue entonces cuando comprendí todo</i> (именно тогда я всё понял), <i>Fue en París donde nos conocimos</i> (именно в Париже мы познакомились), <i>Fue Juan quien lo hizo</i> (это именно Хуан это сделал).<br><br>\n<b>Es que...</b> — вводит объяснение/оправдание: <i>Es que no tuve tiempo</i> (дело в том, что у меня не было времени).<br><br>\nЭти конструкции придают речи естественность и «взрослость» — их активно используют носители в устной речи для акцента."
+    },
+    {
+      "id": "th-c1-4",
+      "level": "C1",
+      "title": "Дискурсивные коннекторы",
+      "topics": ["conectores discursivos", "sea como sea"],
+      "body": "\nНа продвинутом уровне важно уметь связывать мысли не только через «y», «pero», «porque», но и через более формальные и точные коннекторы, характерные для письменной и аргументированной речи.<br><br>\n<b>Противопоставление:</b> sin embargo, no obstante (тем не менее), en cambio (в то время как), si bien (хотя).<br><br>\n<b>Следствие:</b> por (lo) tanto, así pues, en consecuencia (следовательно).<br><br>\n<b>Добавление:</b> además (кроме того), asimismo (равным образом), es más (более того).<br><br>\n<b>Уступка:</b> aun así (даже так), con todo (тем не менее), pese a ello (несмотря на это).<br><br>\n<b>Заключение:</b> en definitiva, en resumen (в итоге, подытоживая).<br><br>\nОтдельное устойчивое выражение — <b>sea como sea</b> («как бы то ни было / во что бы то ни стало»), часто в начале фразы для усиления решимости: <i>Sea como sea, terminaremos el proyecto a tiempo</i>."
+    },
+    {
+      "id": "th-c1-5",
+      "level": "C1",
+      "title": "Устойчивые словосочетания и номинализация",
+      "topics": [
+        "colocaciones",
+        "nominalización",
+        "nominalización / registro formal"
+      ],
+      "body": "\n<b>Colocaciones</b> — устойчивые сочетания слов, которые носители используют «как есть», не задумываясь, и которые нельзя переводить дословно:<br>\n— <i>darse cuenta de</i> — осознать<br>\n— <i>tener en cuenta</i> — принимать во внимание<br>\n— <i>llevar a cabo</i> — осуществить, провести (мероприятие)<br>\n— <i>hacer caso</i> — обращать внимание, слушаться<br>\n— <i>tomar una decisión</i> — принять решение<br>\n— <i>prestar atención</i> — уделять внимание<br><br>\n<b>Номинализация</b> — превращение глагола в существительное, характерное для формального/письменного регистра: вместо <i>decidieron cerrar la fábrica</i> (они решили закрыть завод) более формально сказать <i>tomaron la decisión de cerrar la fábrica</i> или даже <i>la decisión de cerrar la fábrica sorprendió a todos</i>.<br><br>\nНоминализация делает речь более официальной, безличной и «весомой» — типична для новостей, отчётов, академических текстов."
+    },
+    {
+      "id": "th-c1-6",
+      "level": "C1",
+      "title": "Продвинутый subjuntivo",
+      "topics": [
+        "concesivas complejas",
+        "concesivas — por muy...que",
+        "subjuntivo relativo indefinido",
+        "subjuntivo — antecedente negado"
+      ],
+      "body": "\nНа этом уровне subjuntivo встречается в более сложных структурах.<br><br>\n<b>Por más/mucho que + subjuntivo</b> — «сколько бы ни»: <i>Por más que lo intento, no consigo entenderlo</i> (заметь: с реальным фактическим смыслом здесь используется indicativo — <i>intento</i>, а не intente — потому что говорящий действительно пытается, это не гипотеза).<br>\n<i>Por muy difícil que sea, lo lograremos</i> (какой бы трудной ни была задача) — здесь всегда subjuntivo, так как конструкция «por muy + прилагательное + que» гипотетична по своей структуре.<br><br>\n<b>Subjuntivo в относительных придаточных с неопределённым антецедентом</b> — когда мы говорим о предмете/человеке, который ещё не найден или не идентифицирован: <i>Busco un asistente que sepa hablar tres idiomas</i> (ищу помощника — ещё неизвестно, какого именно, поэтому subjuntivo). Сравни: <i>Tengo un asistente que sabe hablar tres idiomas</i> (конкретный, известный человек — indicativo).<br><br>\n<b>Subjuntivo после отрицательного антецедента</b>: <i>No hay nadie que sepa resolver esto</i> (нет никого, кто бы это умел) — «nadie» отрицает существование, поэтому subjuntivo обязателен."
+    }
+  ],
+  "VOCAB": [
+    {
+      "id": "v-a1-1",
+      "level": "A1",
+      "word": "casa",
+      "translation": "дом",
+      "accept": ["дом", "домик"],
+      "context": "Mi casa está cerca del parque."
+    },
+    {
+      "id": "v-a1-2",
+      "level": "A1",
+      "word": "amigo",
+      "translation": "друг",
+      "accept": ["друг", "приятель"],
+      "context": "Mi amigo vive en Madrid."
+    },
+    {
+      "id": "v-a1-3",
+      "level": "A1",
+      "word": "comida",
+      "translation": "еда",
+      "accept": ["еда", "пища"],
+      "context": "La comida está muy rica."
+    },
+    {
+      "id": "v-a1-4",
+      "level": "A1",
+      "word": "trabajo",
+      "translation": "работа",
+      "accept": ["работа"],
+      "context": "Tengo mucho trabajo hoy."
+    },
+    {
+      "id": "v-a1-5",
+      "level": "A1",
+      "word": "agua",
+      "translation": "вода",
+      "accept": ["вода"],
+      "context": "Necesito un vaso de agua."
+    },
+    {
+      "id": "v-a1-6",
+      "level": "A1",
+      "word": "libro",
+      "translation": "книга",
+      "accept": ["книга"],
+      "context": "Este libro es muy interesante."
+    },
+    {
+      "id": "v-a1-7",
+      "level": "A1",
+      "word": "día",
+      "translation": "день",
+      "accept": ["день"],
+      "context": "Hoy es un buen día."
+    },
+    {
+      "id": "v-a1-8",
+      "level": "A1",
+      "word": "noche",
+      "translation": "ночь",
+      "accept": ["ночь"],
+      "context": "Por la noche veo la televisión."
+    },
+    {
+      "id": "v-a1-9",
+      "level": "A1",
+      "word": "ciudad",
+      "translation": "город",
+      "accept": ["город"],
+      "context": "Vivo en una ciudad grande."
+    },
+    {
+      "id": "v-a1-10",
+      "level": "A1",
+      "word": "tiempo",
+      "translation": "время",
+      "accept": ["время", "погода"],
+      "context": "No tengo tiempo para eso."
+    },
+    {
+      "id": "v-a1-11",
+      "level": "A1",
+      "word": "familia",
+      "translation": "семья",
+      "accept": ["семья"],
+      "context": "Mi familia es muy grande."
+    },
+    {
+      "id": "v-a1-12",
+      "level": "A1",
+      "word": "escuela",
+      "translation": "школа",
+      "accept": ["школа"],
+      "context": "Los niños van a la escuela."
+    },
+    {
+      "id": "v-a1-13",
+      "level": "A1",
+      "word": "coche",
+      "translation": "машина",
+      "accept": ["машина", "автомобиль"],
+      "context": "Voy al trabajo en coche."
+    },
+    {
+      "id": "v-a1-14",
+      "level": "A1",
+      "word": "dinero",
+      "translation": "деньги",
+      "accept": ["деньги"],
+      "context": "No tengo mucho dinero."
+    },
+    {
+      "id": "v-a2-1",
+      "level": "A2",
+      "word": "viaje",
+      "translation": "путешествие",
+      "accept": ["путешествие", "поездка"],
+      "context": "Hicimos un viaje a Italia."
+    },
+    {
+      "id": "v-a2-2",
+      "level": "A2",
+      "word": "recuerdo",
+      "translation": "воспоминание",
+      "accept": ["воспоминание"],
+      "context": "Tengo un buen recuerdo de esas vacaciones."
+    },
+    {
+      "id": "v-a2-3",
+      "level": "A2",
+      "word": "costumbre",
+      "translation": "привычка",
+      "accept": ["привычка", "обычай"],
+      "context": "Es una costumbre muy antigua."
+    },
+    {
+      "id": "v-a2-4",
+      "level": "A2",
+      "word": "empresa",
+      "translation": "компания",
+      "accept": ["компания", "фирма", "предприятие"],
+      "context": "Trabaja en una empresa grande."
+    },
+    {
+      "id": "v-a2-5",
+      "level": "A2",
+      "word": "reunión",
+      "translation": "встреча",
+      "accept": ["встреча", "собрание"],
+      "context": "Tenemos una reunión a las diez."
+    },
+    {
+      "id": "v-a2-6",
+      "level": "A2",
+      "word": "barrio",
+      "translation": "район",
+      "accept": ["район", "квартал"],
+      "context": "Vivo en un barrio tranquilo."
+    },
+    {
+      "id": "v-a2-7",
+      "level": "A2",
+      "word": "paisaje",
+      "translation": "пейзаж",
+      "accept": ["пейзаж", "вид"],
+      "context": "El paisaje de la montaña es precioso."
+    },
+    {
+      "id": "v-a2-8",
+      "level": "A2",
+      "word": "entrevista",
+      "translation": "собеседование",
+      "accept": ["собеседование", "интервью"],
+      "context": "Mañana tengo una entrevista de trabajo."
+    },
+    {
+      "id": "v-a2-9",
+      "level": "A2",
+      "word": "alegría",
+      "translation": "радость",
+      "accept": ["радость"],
+      "context": "Sintió una gran alegría al verlos."
+    },
+    {
+      "id": "v-a2-10",
+      "level": "A2",
+      "word": "vergüenza",
+      "translation": "стыд",
+      "accept": ["стыд", "смущение"],
+      "context": "Me dio vergüenza hablar en público."
+    },
+    {
+      "id": "v-a2-11",
+      "level": "A2",
+      "word": "paciencia",
+      "translation": "терпение",
+      "accept": ["терпение"],
+      "context": "Hay que tener paciencia con los niños."
+    },
+    {
+      "id": "v-a2-12",
+      "level": "A2",
+      "word": "costa",
+      "translation": "побережье",
+      "accept": ["побережье", "берег"],
+      "context": "Pasamos el verano en la costa."
+    },
+    {
+      "id": "v-a2-13",
+      "level": "A2",
+      "word": "horario",
+      "translation": "расписание",
+      "accept": ["расписание", "график"],
+      "context": "¿Cuál es tu horario de trabajo?"
+    },
+    {
+      "id": "v-a2-14",
+      "level": "A2",
+      "word": "equipaje",
+      "translation": "багаж",
+      "accept": ["багаж"],
+      "context": "Perdí mi equipaje en el aeropuerto."
+    },
+    {
+      "id": "v-b1-1",
+      "level": "B1",
+      "word": "logro",
+      "translation": "достижение",
+      "accept": ["достижение"],
+      "context": "Graduarse fue un gran logro para ella."
+    },
+    {
+      "id": "v-b1-2",
+      "level": "B1",
+      "word": "desafío",
+      "translation": "вызов",
+      "accept": ["вызов", "трудность"],
+      "context": "Aprender un idioma nuevo es un desafío."
+    },
+    {
+      "id": "v-b1-3",
+      "level": "B1",
+      "word": "ventaja",
+      "translation": "преимущество",
+      "accept": ["преимущество", "плюс"],
+      "context": "Trabajar desde casa tiene muchas ventajas."
+    },
+    {
+      "id": "v-b1-4",
+      "level": "B1",
+      "word": "desventaja",
+      "translation": "недостаток",
+      "accept": ["недостаток", "минус"],
+      "context": "Esa decisión también tiene desventajas."
+    },
+    {
+      "id": "v-b1-5",
+      "level": "B1",
+      "word": "objetivo",
+      "translation": "цель",
+      "accept": ["цель"],
+      "context": "Mi objetivo es aprender español en un año."
+    },
+    {
+      "id": "v-b1-6",
+      "level": "B1",
+      "word": "herramienta",
+      "translation": "инструмент",
+      "accept": ["инструмент"],
+      "context": "Internet es una herramienta muy útil."
+    },
+    {
+      "id": "v-b1-7",
+      "level": "B1",
+      "word": "esfuerzo",
+      "translation": "усилие",
+      "accept": ["усилие", "старание"],
+      "context": "Consiguió el trabajo con mucho esfuerzo."
+    },
+    {
+      "id": "v-b1-8",
+      "level": "B1",
+      "word": "investigación",
+      "translation": "исследование",
+      "accept": ["исследование"],
+      "context": "Publicaron una nueva investigación sobre el clima."
+    },
+    {
+      "id": "v-b1-9",
+      "level": "B1",
+      "word": "sociedad",
+      "translation": "общество",
+      "accept": ["общество"],
+      "context": "La sociedad está cambiando rápidamente."
+    },
+    {
+      "id": "v-b1-10",
+      "level": "B1",
+      "word": "rasgo",
+      "translation": "черта",
+      "accept": ["черта", "особенность"],
+      "context": "La honestidad es su mejor rasgo."
+    },
+    {
+      "id": "v-b1-11",
+      "level": "B1",
+      "word": "acuerdo",
+      "translation": "соглашение",
+      "accept": ["соглашение", "договорённость"],
+      "context": "Llegaron a un acuerdo después de horas de debate."
+    },
+    {
+      "id": "v-b1-12",
+      "level": "B1",
+      "word": "suceso",
+      "translation": "событие",
+      "accept": ["событие", "происшествие"],
+      "context": "Fue un suceso inesperado."
+    },
+    {
+      "id": "v-b1-13",
+      "level": "B1",
+      "word": "propuesta",
+      "translation": "предложение",
+      "accept": ["предложение"],
+      "context": "Presentaron una propuesta interesante."
+    },
+    {
+      "id": "v-b1-14",
+      "level": "B1",
+      "word": "medio ambiente",
+      "translation": "окружающая среда",
+      "accept": ["окружающая среда", "экология"],
+      "context": "Debemos cuidar el medio ambiente."
+    },
+    {
+      "id": "v-b2-1",
+      "level": "B2",
+      "word": "exigir",
+      "translation": "требовать",
+      "accept": ["требовать"],
+      "context": "Los empleados exigen mejores condiciones."
+    },
+    {
+      "id": "v-b2-2",
+      "level": "B2",
+      "word": "fomentar",
+      "translation": "способствовать",
+      "accept": ["способствовать", "поощрять"],
+      "context": "El gobierno quiere fomentar el turismo rural."
+    },
+    {
+      "id": "v-b2-3",
+      "level": "B2",
+      "word": "desempeñar",
+      "translation": "выполнять",
+      "accept": ["выполнять", "исполнять"],
+      "context": "Desempeña un papel clave en la empresa."
+    },
+    {
+      "id": "v-b2-4",
+      "level": "B2",
+      "word": "abarcar",
+      "translation": "охватывать",
+      "accept": ["охватывать"],
+      "context": "El proyecto abarca varios países."
+    },
+    {
+      "id": "v-b2-5",
+      "level": "B2",
+      "word": "plantear",
+      "translation": "ставить вопрос",
+      "accept": ["ставить вопрос", "предлагать", "поднимать вопрос"],
+      "context": "El informe plantea varias preguntas importantes."
+    },
+    {
+      "id": "v-b2-6",
+      "level": "B2",
+      "word": "destacar",
+      "translation": "выделяться",
+      "accept": ["выделяться", "подчёркивать"],
+      "context": "Quiero destacar la importancia de este tema."
+    },
+    {
+      "id": "v-b2-7",
+      "level": "B2",
+      "word": "carecer",
+      "translation": "не иметь",
+      "accept": ["не иметь", "испытывать нехватку"],
+      "context": "La región carece de recursos básicos."
+    },
+    {
+      "id": "v-b2-8",
+      "level": "B2",
+      "word": "suscitar",
+      "translation": "вызывать",
+      "accept": ["вызывать"],
+      "context": "La noticia suscitó mucha polémica."
+    },
+    {
+      "id": "v-b2-9",
+      "level": "B2",
+      "word": "ámbito",
+      "translation": "сфера",
+      "accept": ["сфера", "область"],
+      "context": "Trabaja en el ámbito de la educación."
+    },
+    {
+      "id": "v-b2-10",
+      "level": "B2",
+      "word": "rentable",
+      "translation": "рентабельный",
+      "accept": ["рентабельный", "выгодный"],
+      "context": "El nuevo modelo de negocio es muy rentable."
+    },
+    {
+      "id": "v-b2-11",
+      "level": "B2",
+      "word": "imprescindible",
+      "translation": "незаменимый",
+      "accept": ["незаменимый", "необходимый"],
+      "context": "El agua es imprescindible para la vida."
+    },
+    {
+      "id": "v-b2-12",
+      "level": "B2",
+      "word": "matizar",
+      "translation": "уточнять",
+      "accept": ["уточнять"],
+      "context": "Quiero matizar lo que dije antes."
+    },
+    {
+      "id": "v-b2-13",
+      "level": "B2",
+      "word": "constatar",
+      "translation": "констатировать",
+      "accept": ["констатировать", "убедиться"],
+      "context": "Los investigadores constataron un aumento significativo."
+    },
+    {
+      "id": "v-b2-14",
+      "level": "B2",
+      "word": "índole",
+      "translation": "характер",
+      "accept": ["характер", "природа"],
+      "context": "Es un problema de índole económica."
+    },
+    {
+      "id": "v-c1-1",
+      "level": "C1",
+      "word": "idiosincrasia",
+      "translation": "самобытность",
+      "accept": ["самобытность", "особенность характера"],
+      "context": "Cada país tiene su propia idiosincrasia."
+    },
+    {
+      "id": "v-c1-2",
+      "level": "C1",
+      "word": "controvertido",
+      "translation": "спорный",
+      "accept": ["спорный"],
+      "context": "Es un tema muy controvertido."
+    },
+    {
+      "id": "v-c1-3",
+      "level": "C1",
+      "word": "paulatino",
+      "translation": "постепенный",
+      "accept": ["постепенный"],
+      "context": "Se observa un declive paulatino en las ventas."
+    },
+    {
+      "id": "v-c1-4",
+      "level": "C1",
+      "word": "contundente",
+      "translation": "убедительный",
+      "accept": ["убедительный", "весомый"],
+      "context": "Presentó pruebas contundentes."
+    },
+    {
+      "id": "v-c1-5",
+      "level": "C1",
+      "word": "desasosiego",
+      "translation": "беспокойство",
+      "accept": ["беспокойство", "тревога"],
+      "context": "Sintió un profundo desasosiego."
+    },
+    {
+      "id": "v-c1-6",
+      "level": "C1",
+      "word": "pormenor",
+      "translation": "подробность",
+      "accept": ["подробность", "деталь"],
+      "context": "Explicó todos los pormenores del acuerdo."
+    },
+    {
+      "id": "v-c1-7",
+      "level": "C1",
+      "word": "arraigado",
+      "translation": "укоренившийся",
+      "accept": ["укоренившийся"],
+      "context": "Es una tradición muy arraigada en la cultura."
+    },
+    {
+      "id": "v-c1-8",
+      "level": "C1",
+      "word": "vislumbrar",
+      "translation": "предвидеть",
+      "accept": ["предвидеть", "смутно различать"],
+      "context": "Empezaba a vislumbrar una solución."
+    },
+    {
+      "id": "v-c1-9",
+      "level": "C1",
+      "word": "encauzar",
+      "translation": "направлять",
+      "accept": ["направлять"],
+      "context": "Intentaron encauzar el debate hacia soluciones prácticas."
+    },
+    {
+      "id": "v-c1-10",
+      "level": "C1",
+      "word": "ineludible",
+      "translation": "неизбежный",
+      "accept": ["неизбежный"],
+      "context": "Es una responsabilidad ineludible."
+    },
+    {
+      "id": "v-c1-11",
+      "level": "C1",
+      "word": "desentrañar",
+      "translation": "разгадать",
+      "accept": ["разгадать", "распутать"],
+      "context": "Los científicos intentan desentrañar el misterio."
+    },
+    {
+      "id": "v-c1-12",
+      "level": "C1",
+      "word": "sopesar",
+      "translation": "взвешивать",
+      "accept": ["взвешивать"],
+      "context": "Hay que sopesar los pros y los contras."
+    },
+    {
+      "id": "v-c1-13",
+      "level": "C1",
+      "word": "reticente",
+      "translation": "несклонный",
+      "accept": ["несклонный", "сдержанный"],
+      "context": "Se mostró reticente a aceptar el cambio."
+    },
+    {
+      "id": "v-c1-14",
+      "level": "C1",
+      "word": "subyacente",
+      "translation": "лежащий в основе",
+      "accept": ["лежащий в основе", "подспудный"],
+      "context": "Hay un problema subyacente que nadie menciona."
+    }
+  ],
+  "CONJUGATIONS": [
+    {
+      "id": "cj-a1-1",
+      "level": "A1",
+      "verb": "hablar",
+      "verbMeaning": "говорить",
+      "tense": "presente",
+      "tenseLabel": "Presente (настоящее время)",
+      "forms": ["hablo", "hablas", "habla", "hablamos", "habláis", "hablan"],
+      "example": {
+        "es": "Ella habla tres idiomas.",
+        "ru": "Она говорит на трёх языках."
+      }
+    },
+    {
+      "id": "cj-a1-2",
+      "level": "A1",
+      "verb": "comer",
+      "verbMeaning": "есть, кушать",
+      "tense": "presente",
+      "tenseLabel": "Presente (настоящее время)",
+      "forms": ["como", "comes", "come", "comemos", "coméis", "comen"],
+      "example": {
+        "es": "Nosotros comemos paella los domingos.",
+        "ru": "Мы едим паэлью по воскресеньям."
+      }
+    },
+    {
+      "id": "cj-a1-3",
+      "level": "A1",
+      "verb": "vivir",
+      "verbMeaning": "жить",
+      "tense": "presente",
+      "tenseLabel": "Presente (настоящее время)",
+      "forms": ["vivo", "vives", "vive", "vivimos", "vivís", "viven"],
+      "example": {
+        "es": "Ellos viven en las afueras de la ciudad.",
+        "ru": "Они живут на окраине города."
+      }
+    },
+    {
+      "id": "cj-a1-4",
+      "level": "A1",
+      "verb": "ser",
+      "verbMeaning": "быть",
+      "tense": "presente",
+      "tenseLabel": "Presente (настоящее время)",
+      "forms": ["soy", "eres", "es", "somos", "sois", "son"],
+      "example": {
+        "es": "Tú eres muy simpático.",
+        "ru": "Ты очень симпатичный."
+      }
+    },
+    {
+      "id": "cj-a1-5",
+      "level": "A1",
+      "verb": "tener",
+      "verbMeaning": "иметь",
+      "tense": "presente",
+      "tenseLabel": "Presente (настоящее время)",
+      "forms": ["tengo", "tienes", "tiene", "tenemos", "tenéis", "tienen"],
+      "example": {
+        "es": "Yo tengo dos hermanos.",
+        "ru": "У меня два брата."
+      }
+    },
+    {
+      "id": "cj-a1-6",
+      "level": "A1",
+      "verb": "ir",
+      "verbMeaning": "идти, ехать",
+      "tense": "presente",
+      "tenseLabel": "Presente (настоящее время)",
+      "forms": ["voy", "vas", "va", "vamos", "vais", "van"],
+      "example": {
+        "es": "Nosotros vamos al cine los viernes.",
+        "ru": "Мы ходим в кино по пятницам."
+      }
+    },
+    {
+      "id": "cj-a2-1",
+      "level": "A2",
+      "verb": "hablar",
+      "verbMeaning": "говорить",
+      "tense": "preterito",
+      "tenseLabel": "Pretérito indefinido (прошедшее законченное)",
+      "forms": [
+        "hablé",
+        "hablaste",
+        "habló",
+        "hablamos",
+        "hablasteis",
+        "hablaron"
+      ],
+      "example": {
+        "es": "Ayer hablé con mi jefe sobre el proyecto.",
+        "ru": "Вчера я поговорил с начальником о проекте."
+      }
+    },
+    {
+      "id": "cj-a2-2",
+      "level": "A2",
+      "verb": "comer",
+      "verbMeaning": "есть, кушать",
+      "tense": "imperfecto",
+      "tenseLabel": "Imperfecto (прошедшее привычное)",
+      "forms": ["comía", "comías", "comía", "comíamos", "comíais", "comían"],
+      "example": {
+        "es": "De niño, comía mucho chocolate.",
+        "ru": "В детстве я ел много шоколада."
+      }
+    },
+    {
+      "id": "cj-a2-3",
+      "level": "A2",
+      "verb": "ir",
+      "verbMeaning": "идти, ехать",
+      "tense": "preterito",
+      "tenseLabel": "Pretérito indefinido (прошедшее законченное)",
+      "forms": ["fui", "fuiste", "fue", "fuimos", "fuisteis", "fueron"],
+      "example": {
+        "es": "El año pasado fuimos a Portugal.",
+        "ru": "В прошлом году мы ездили в Португалию."
+      }
+    },
+    {
+      "id": "cj-a2-4",
+      "level": "A2",
+      "verb": "tener",
+      "verbMeaning": "иметь",
+      "tense": "preterito",
+      "tenseLabel": "Pretérito indefinido (прошедшее законченное)",
+      "forms": ["tuve", "tuviste", "tuvo", "tuvimos", "tuvisteis", "tuvieron"],
+      "example": {
+        "es": "Ella tuvo un problema con el coche.",
+        "ru": "У неё возникла проблема с машиной."
+      }
+    },
+    {
+      "id": "cj-a2-5",
+      "level": "A2",
+      "verb": "vivir",
+      "verbMeaning": "жить",
+      "tense": "futuro",
+      "tenseLabel": "Futuro simple (простое будущее)",
+      "forms": [
+        "viviré",
+        "vivirás",
+        "vivirá",
+        "viviremos",
+        "viviréis",
+        "vivirán"
+      ],
+      "example": {
+        "es": "En el futuro viviremos en otra ciudad.",
+        "ru": "В будущем мы будем жить в другом городе."
+      }
+    },
+    {
+      "id": "cj-a2-6",
+      "level": "A2",
+      "verb": "ser",
+      "verbMeaning": "быть",
+      "tense": "imperfecto",
+      "tenseLabel": "Imperfecto (прошедшее привычное)",
+      "forms": ["era", "eras", "era", "éramos", "erais", "eran"],
+      "example": {
+        "es": "Cuando era joven, era muy tímido.",
+        "ru": "Когда я был молодым, я был очень застенчивым."
+      }
+    },
+    {
+      "id": "cj-b1-1",
+      "level": "B1",
+      "verb": "hablar",
+      "verbMeaning": "говорить",
+      "tense": "subj-presente",
+      "tenseLabel": "Subjuntivo presente",
+      "forms": ["hable", "hables", "hable", "hablemos", "habléis", "hablen"],
+      "example": {
+        "es": "Espero que hables con ella pronto.",
+        "ru": "Надеюсь, ты скоро поговоришь с ней."
+      }
+    },
+    {
+      "id": "cj-b1-2",
+      "level": "B1",
+      "verb": "tener",
+      "verbMeaning": "иметь",
+      "tense": "condicional",
+      "tenseLabel": "Condicional simple",
+      "forms": [
+        "tendría",
+        "tendrías",
+        "tendría",
+        "tendríamos",
+        "tendríais",
+        "tendrían"
+      ],
+      "example": {
+        "es": "Yo tendría más tiempo si no trabajara tanto.",
+        "ru": "У меня было бы больше времени, если бы я не работал так много."
+      }
+    },
+    {
+      "id": "cj-b1-3",
+      "level": "B1",
+      "verb": "comer",
+      "verbMeaning": "есть, кушать",
+      "tense": "pret-perfecto",
+      "tenseLabel": "Pretérito perfecto compuesto",
+      "forms": [
+        "he comido",
+        "has comido",
+        "ha comido",
+        "hemos comido",
+        "habéis comido",
+        "han comido"
+      ],
+      "example": {
+        "es": "Hoy no he comido nada todavía.",
+        "ru": "Сегодня я ещё ничего не ел."
+      }
+    },
+    {
+      "id": "cj-b1-4",
+      "level": "B1",
+      "verb": "ser",
+      "verbMeaning": "быть",
+      "tense": "subj-presente",
+      "tenseLabel": "Subjuntivo presente",
+      "forms": ["sea", "seas", "sea", "seamos", "seáis", "sean"],
+      "example": {
+        "es": "Ojalá el examen sea fácil.",
+        "ru": "Хоть бы экзамен оказался лёгким."
+      }
+    },
+    {
+      "id": "cj-b1-5",
+      "level": "B1",
+      "verb": "poder",
+      "verbMeaning": "мочь",
+      "tense": "condicional",
+      "tenseLabel": "Condicional simple",
+      "forms": [
+        "podría",
+        "podrías",
+        "podría",
+        "podríamos",
+        "podríais",
+        "podrían"
+      ],
+      "example": {
+        "es": "¿Podrías ayudarme con esto?",
+        "ru": "Не мог бы ты помочь мне с этим?"
+      }
+    },
+    {
+      "id": "cj-b1-6",
+      "level": "B1",
+      "verb": "vivir",
+      "verbMeaning": "жить",
+      "tense": "pret-perfecto",
+      "tenseLabel": "Pretérito perfecto compuesto",
+      "forms": [
+        "he vivido",
+        "has vivido",
+        "ha vivido",
+        "hemos vivido",
+        "habéis vivido",
+        "han vivido"
+      ],
+      "example": {
+        "es": "¿Alguna vez has vivido en el extranjero?",
+        "ru": "Ты когда-нибудь жил за границей?"
+      }
+    },
+    {
+      "id": "cj-b2-1",
+      "level": "B2",
+      "verb": "hablar",
+      "verbMeaning": "говорить",
+      "tense": "subj-imperfecto",
+      "tenseLabel": "Subjuntivo imperfecto",
+      "forms": [
+        "hablara",
+        "hablaras",
+        "hablara",
+        "habláramos",
+        "hablarais",
+        "hablaran"
+      ],
+      "example": {
+        "es": "Si hablaras español mejor, conseguirías ese trabajo.",
+        "ru": "Если бы ты говорил по-испански лучше, ты бы получил эту работу."
+      }
+    },
+    {
+      "id": "cj-b2-2",
+      "level": "B2",
+      "verb": "tener",
+      "verbMeaning": "иметь",
+      "tense": "pluscuamperfecto",
+      "tenseLabel": "Pluscuamperfecto de indicativo",
+      "forms": [
+        "había tenido",
+        "habías tenido",
+        "había tenido",
+        "habíamos tenido",
+        "habíais tenido",
+        "habían tenido"
+      ],
+      "example": {
+        "es": "Cuando llegamos, ya habían tenido la reunión.",
+        "ru": "Когда мы приехали, у них уже была встреча."
+      }
+    },
+    {
+      "id": "cj-b2-3",
+      "level": "B2",
+      "verb": "ir",
+      "verbMeaning": "идти, ехать",
+      "tense": "subj-imperfecto",
+      "tenseLabel": "Subjuntivo imperfecto",
+      "forms": ["fuera", "fueras", "fuera", "fuéramos", "fuerais", "fueran"],
+      "example": {
+        "es": "Quería que fuéramos juntos a la fiesta.",
+        "ru": "Я хотел, чтобы мы пошли на вечеринку вместе."
+      }
+    },
+    {
+      "id": "cj-b2-4",
+      "level": "B2",
+      "verb": "comer",
+      "verbMeaning": "есть, кушать",
+      "tense": "futuro-compuesto",
+      "tenseLabel": "Futuro compuesto",
+      "forms": [
+        "habré comido",
+        "habrás comido",
+        "habrá comido",
+        "habremos comido",
+        "habréis comido",
+        "habrán comido"
+      ],
+      "example": {
+        "es": "Para las ocho, ya habremos comido.",
+        "ru": "К восьми мы уже поедим."
+      }
+    },
+    {
+      "id": "cj-b2-5",
+      "level": "B2",
+      "verb": "ser",
+      "verbMeaning": "быть",
+      "tense": "pluscuamperfecto",
+      "tenseLabel": "Pluscuamperfecto de indicativo",
+      "forms": [
+        "había sido",
+        "habías sido",
+        "había sido",
+        "habíamos sido",
+        "habíais sido",
+        "habían sido"
+      ],
+      "example": {
+        "es": "Antes de mudarse, había sido profesor durante diez años.",
+        "ru": "До переезда он был учителем десять лет."
+      }
+    },
+    {
+      "id": "cj-b2-6",
+      "level": "B2",
+      "verb": "poder",
+      "verbMeaning": "мочь",
+      "tense": "subj-imperfecto",
+      "tenseLabel": "Subjuntivo imperfecto",
+      "forms": [
+        "pudiera",
+        "pudieras",
+        "pudiera",
+        "pudiéramos",
+        "pudierais",
+        "pudieran"
+      ],
+      "example": {
+        "es": "Ojalá pudiera viajar más a menudo.",
+        "ru": "Хоть бы я мог путешествовать чаще."
+      }
+    },
+    {
+      "id": "cj-c1-1",
+      "level": "C1",
+      "verb": "hablar",
+      "verbMeaning": "говорить",
+      "tense": "condicional-compuesto",
+      "tenseLabel": "Condicional compuesto",
+      "forms": [
+        "habría hablado",
+        "habrías hablado",
+        "habría hablado",
+        "habríamos hablado",
+        "habríais hablado",
+        "habrían hablado"
+      ],
+      "example": {
+        "es": "Yo habría hablado con él si hubiera tenido la oportunidad.",
+        "ru": "Я бы поговорил с ним, если бы у меня была возможность."
+      }
+    },
+    {
+      "id": "cj-c1-2",
+      "level": "C1",
+      "verb": "tener",
+      "verbMeaning": "иметь",
+      "tense": "subj-pluscuamperfecto",
+      "tenseLabel": "Subjuntivo pluscuamperfecto",
+      "forms": [
+        "hubiera tenido",
+        "hubieras tenido",
+        "hubiera tenido",
+        "hubiéramos tenido",
+        "hubierais tenido",
+        "hubieran tenido"
+      ],
+      "example": {
+        "es": "Ojalá hubiera tenido más paciencia entonces.",
+        "ru": "Хоть бы у меня тогда было больше терпения."
+      }
+    },
+    {
+      "id": "cj-c1-3",
+      "level": "C1",
+      "verb": "ir",
+      "verbMeaning": "идти, ехать",
+      "tense": "condicional-compuesto",
+      "tenseLabel": "Condicional compuesto",
+      "forms": [
+        "habría ido",
+        "habrías ido",
+        "habría ido",
+        "habríamos ido",
+        "habríais ido",
+        "habrían ido"
+      ],
+      "example": {
+        "es": "Habríamos ido a la playa si hubiera hecho sol.",
+        "ru": "Мы бы поехали на пляж, если бы было солнечно."
+      }
+    },
+    {
+      "id": "cj-c1-4",
+      "level": "C1",
+      "verb": "ser",
+      "verbMeaning": "быть",
+      "tense": "subj-pluscuamperfecto",
+      "tenseLabel": "Subjuntivo pluscuamperfecto",
+      "forms": [
+        "hubiera sido",
+        "hubieras sido",
+        "hubiera sido",
+        "hubiéramos sido",
+        "hubierais sido",
+        "hubieran sido"
+      ],
+      "example": {
+        "es": "Si hubiera sido más valiente, habría aceptado el reto.",
+        "ru": "Если бы я был смелее, я бы принял вызов."
+      }
+    },
+    {
+      "id": "cj-c1-5",
+      "level": "C1",
+      "verb": "poder",
+      "verbMeaning": "мочь",
+      "tense": "condicional-compuesto",
+      "tenseLabel": "Condicional compuesto",
+      "forms": [
+        "habría podido",
+        "habrías podido",
+        "habría podido",
+        "habríamos podido",
+        "habríais podido",
+        "habrían podido"
+      ],
+      "example": {
+        "es": "Habría podido terminar antes si me hubieran ayudado.",
+        "ru": "Я бы смог закончить раньше, если бы мне помогли."
+      }
+    },
+    {
+      "id": "cj-c1-6",
+      "level": "C1",
+      "verb": "comer",
+      "verbMeaning": "есть, кушать",
+      "tense": "subj-pluscuamperfecto",
+      "tenseLabel": "Subjuntivo pluscuamperfecto",
+      "forms": [
+        "hubiera comido",
+        "hubieras comido",
+        "hubiera comido",
+        "hubiéramos comido",
+        "hubierais comido",
+        "hubieran comido"
+      ],
+      "example": {
+        "es": "Dudaba que hubieran comido algo tan raro.",
+        "ru": "Он сомневался, что они ели что-то настолько странное."
+      }
+    }
+  ],
+  "CONJ_PERSONS": [
+    "yo",
+    "tú",
+    "él / ella / usted",
+    "nosotros",
+    "vosotros",
+    "ellos / ellas / ustedes"
+  ],
+  "PLACEMENT": [
+    {
+      "level": "A1",
+      "prompt": "Yo ___ estudiante.",
+      "options": ["soy", "estoy", "es", "eres"],
+      "answer": "soy"
+    },
+    {
+      "level": "A1",
+      "prompt": "Ella tiene ___ libros en su mesa.",
+      "options": ["unos", "una", "un", "unas"],
+      "answer": "unos"
+    },
+    {
+      "level": "A1",
+      "prompt": "Nosotros (vivir) ___ en Barcelona.",
+      "options": ["vivimos", "viven", "vivo", "vive"],
+      "answer": "vivimos"
+    },
+    {
+      "level": "A2",
+      "prompt": "Ayer (yo/ir) ___ al cine con mis amigos.",
+      "options": ["fui", "iba", "voy", "iré"],
+      "answer": "fui"
+    },
+    {
+      "level": "A2",
+      "prompt": "Cuando era niño, (yo) ___ en un pueblo pequeño.",
+      "options": ["vivía", "viví", "vivo", "he vivido"],
+      "answer": "vivía"
+    },
+    {
+      "level": "A2",
+      "prompt": "Mi hermana es ___ alta que yo.",
+      "options": ["más", "tan", "muy", "mucho"],
+      "answer": "más"
+    },
+    {
+      "level": "B1",
+      "prompt": "Espero que ___ un buen fin de semana.",
+      "options": ["tengas", "tienes", "tendrás", "tuvieras"],
+      "answer": "tengas"
+    },
+    {
+      "level": "B1",
+      "prompt": "Este café es ___ mí.",
+      "options": ["para", "por", "a", "de"],
+      "answer": "para"
+    },
+    {
+      "level": "B1",
+      "prompt": "Esta semana ya (yo/terminar) ___ el informe.",
+      "options": ["he terminado", "terminé", "terminaba", "terminaré"],
+      "answer": "he terminado"
+    },
+    {
+      "level": "B2",
+      "prompt": "Si (yo) ___ más tiempo, viajaría más.",
+      "options": ["tuviera", "tengo", "tendría", "tuve"],
+      "answer": "tuviera"
+    },
+    {
+      "level": "B2",
+      "prompt": "La casa ___ construida en 1990.",
+      "options": ["fue", "estuvo", "era", "fuera"],
+      "answer": "fue"
+    },
+    {
+      "level": "B2",
+      "prompt": "Aunque ___ mucho dinero, no sería feliz sin amigos.",
+      "options": ["tuviera", "tengo", "tendré", "tuve"],
+      "answer": "tuviera"
+    },
+    {
+      "level": "C1",
+      "prompt": "Por más que lo ___, no logro convencerlo.",
+      "options": ["intento", "intentara", "intentaré", "intentaba"],
+      "answer": "intento"
+    },
+    {
+      "level": "C1",
+      "prompt": "Busco a alguien que ___ resolver este problema.",
+      "options": ["sepa", "sabe", "sabrá", "supo"],
+      "answer": "sepa"
+    },
+    {
+      "level": "C1",
+      "prompt": "No te imaginas ___ difícil que fue la decisión.",
+      "options": ["lo", "que", "cuán", "el"],
+      "answer": "lo"
+    }
+  ]
+}

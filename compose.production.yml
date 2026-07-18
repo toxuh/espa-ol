@@ -1,6 +1,20 @@
 name: espanol-diario
 
 services:
+  migrate:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: migrator
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-espanol_diario}:${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}@db:5432/${POSTGRES_DB:-espanol_diario}?schema=public
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - internal
+    restart: "no"
+
   app:
     build:
       context: .
@@ -10,8 +24,8 @@ services:
       APP_TIMEZONE: ${APP_TIMEZONE:-Europe/Madrid}
       NODE_ENV: production
     depends_on:
-      db:
-        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
     expose:
       - "3000"
     healthcheck:

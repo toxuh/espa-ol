@@ -129,3 +129,11 @@
     @apply font-sans;
   }
 }
+
+.prose-content b {
+  font-weight: 650;
+}
+
+.prose-content i {
+  color: var(--muted-foreground);
+}

@@ -1,21 +1,31 @@
 # syntax=docker/dockerfile:1.7
 
-FROM node:22-bookworm-slim AS dependencies
+FROM node:22-bookworm-slim AS base
+RUN apt-get update \
+  && apt-get install --yes --no-install-recommends openssl \
+  && rm -rf /var/lib/apt/lists/*
+
+FROM base AS dependencies
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 
-FROM node:22-bookworm-slim AS builder
+FROM dependencies AS migrator
+WORKDIR /app
+COPY prisma.config.ts tsconfig.json ./
+COPY prisma ./prisma
+COPY src/content ./src/content
+RUN npx prisma generate
+CMD ["sh", "-c", "npx prisma migrate deploy && npx prisma db seed"]
+
+FROM base AS builder
 WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
-RUN apt-get update \
-  && apt-get install --yes --no-install-recommends openssl \
-  && rm -rf /var/lib/apt/lists/*
 COPY --from=dependencies /app/node_modules ./node_modules
 COPY . .
 RUN npm run build
 
-FROM node:22-bookworm-slim AS runner
+FROM base AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
