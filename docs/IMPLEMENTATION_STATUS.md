@@ -17,6 +17,7 @@
 - Экраны практики, теории, истории и агрегированного прогресса.
 - Prisma 7 + PostgreSQL 17, health endpoint и локальный development compose.
 - Production Dockerfile с отдельным migrator target и production compose для существующего Traefik.
+- Production compose публикует Next.js на host-порту `8888` NAS (`APP_PORT` позволяет переопределить его), сохраняя внутренний порт `3000` для Traefik и healthcheck.
 - Production build использует официальный Webpack fallback: повторный Turbopack build зависал в локальной среде; development остаётся на Turbopack.
 
 ## Проверено локально

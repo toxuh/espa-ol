@@ -2,16 +2,16 @@
 
 ## Контекст
 
-Целевой хост — домашний Synology DS923+, где уже работают другие Docker-проекты и Traefik. Español Diario не должен поднимать второй reverse proxy и не должен занимать публичные host-порты без необходимости.
+Целевой хост — домашний Synology DS923+, где уже работают другие Docker-проекты и Traefik. Español Diario не поднимает второй reverse proxy. По принятому решению приложение также публикуется на host-порту `8888` для прямого доступа из LAN; Traefik продолжает обращаться к внутреннему порту контейнера.
 
 ## Контейнеры проекта
 
 Минимальная production-схема:
 
-| Сервис | Назначение                | Публичный порт                               |
-| ------ | ------------------------- | -------------------------------------------- |
-| `app`  | Next.js production server | нет; доступен Traefik по Docker-сети         |
-| `db`   | PostgreSQL                | нет; доступен только внутренней сети compose |
+| Сервис | Назначение                | Публичный порт                                       |
+| ------ | ------------------------- | ---------------------------------------------------- |
+| `app`  | Next.js production server | `8888` на NAS; также доступен Traefik по Docker-сети |
+| `db`   | PostgreSQL                | нет; доступен только внутренней сети compose         |
 
 Одноразовый job `migrate` выполняет `prisma migrate deploy` и идемпотентный `prisma db seed` перед каждым запуском новой версии. `app` зависит от его успешного завершения. Development-команды и `prisma migrate dev` в production не используются.
 
@@ -33,6 +33,8 @@ Compose проекта должен содержать labels для:
 - healthcheck path, например `/api/health`.
 
 Точные domain, entrypoint, cert resolver и имя Docker-сети пока не фиксируются в репозитории и перечислены в `OPEN_DECISIONS.md`.
+
+Host-порт задаётся переменной `APP_PORT` и по умолчанию равен `8888`. Внутри контейнера Next.js продолжает слушать `3000`, поэтому прямой адрес в локальной сети — `http://<nas-address>:8888`, а проверка состояния — `http://<nas-address>:8888/api/health`.
 
 ## Данные PostgreSQL
 
@@ -66,6 +68,7 @@ POSTGRES_USER=espanol_diario
 POSTGRES_PASSWORD=...
 APP_TIMEZONE=Europe/Madrid
 NEXT_PUBLIC_APP_NAME=Español Diario
+APP_PORT=8888
 TRAEFIK_HOST=...
 TRAEFIK_NETWORK=...
 ```

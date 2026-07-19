@@ -36,7 +36,7 @@
 | Prisma/PostgreSQL                       | предметная схема, миграции и seed готовы             |
 | Учебный цикл                            | профили, placement, день, теория, история и прогресс |
 | Docker Compose                          | development DB и production app/db/migrator готовы   |
-| Развёртывание на NAS                    | не выполнено                                         |
+| Развёртывание на NAS                    | compose готов к публикации приложения на порту 8888  |
 
 Точные ограничения и ещё не закрытые production-пункты перечислены в `docs/IMPLEMENTATION_STATUS.md`.
 
@@ -52,6 +52,8 @@ npm run dev
 ```
 
 Приложение будет доступно на `http://localhost:3000`, healthcheck — на `http://localhost:3000/api/health`.
+
+Production compose публикует приложение на NAS по адресу `http://<nas-address>:8888`; порт можно переопределить переменной `APP_PORT`.
 
 ## Проверка
 
