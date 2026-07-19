@@ -9,7 +9,7 @@
 3. [TARGET_ARCHITECTURE.md](TARGET_ARCHITECTURE.md) — как это будет устроено на Next.js, Prisma и PostgreSQL.
 4. [DATA_MODEL.md](DATA_MODEL.md) — сущности, связи и правила хранения данных.
 5. [MIGRATION_PLAN.md](MIGRATION_PLAN.md) — последовательность реализации и критерии функционального паритета.
-6. [DEPLOYMENT.md](DEPLOYMENT.md) — контейнеры, Traefik, PostgreSQL и эксплуатация на Synology.
+6. [DEPLOYMENT.md](DEPLOYMENT.md) — контейнеры, PostgreSQL и эксплуатация на Synology.
 7. [OPEN_DECISIONS.md](OPEN_DECISIONS.md) — вопросы, которые пока намеренно не зафиксированы окончательно.
 8. [IMPLEMENTATION_STATUS.md](IMPLEMENTATION_STATUS.md) — что уже собрано и какой срез рекомендуется следующим.
 

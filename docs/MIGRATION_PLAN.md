@@ -112,7 +112,7 @@
 
 - Multi-stage Dockerfile.
 - Production compose для app и db.
-- Подключение app к существующей external-сети Traefik.
+- Публикация app на host-порту `8888` NAS без внешнего прокси.
 - PostgreSQL volume вне эфемерного слоя контейнера.
 - Healthchecks и restart policy.
 - Миграции перед запуском новой версии.

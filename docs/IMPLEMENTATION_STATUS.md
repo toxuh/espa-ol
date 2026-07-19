@@ -16,8 +16,8 @@
 - Completion полного дня, итоговая точность и идемпотентное обновление streak.
 - Экраны практики, теории, истории и агрегированного прогресса.
 - Prisma 7 + PostgreSQL 17, health endpoint и локальный development compose.
-- Production Dockerfile с отдельным migrator target и production compose для существующего Traefik.
-- Production compose публикует Next.js на host-порту `8888` NAS (`APP_PORT` позволяет переопределить его), сохраняя внутренний порт `3000` для Traefik и healthcheck.
+- Production Dockerfile с отдельным migrator target и production compose для прямого LAN-доступа.
+- Production compose публикует Next.js на host-порту `8888` NAS (`APP_PORT` позволяет переопределить его), сохраняя внутренний порт `3000` для healthcheck.
 - Production build использует официальный Webpack fallback: повторный Turbopack build зависал в локальной среде; development остаётся на Turbopack.
 
 ## Проверено локально
@@ -33,7 +33,7 @@
 - интеграционные тесты изоляции двух профилей и конкурентных first-try запросов;
 - детальная карточка старого дня и календарная сетка вместо текущего списка;
 - расширенный анализ с автоматической подборкой правил и примеров как в HTML (базовая точность по темам уже есть);
-- реальные значения hostname/network/TLS resolver с NAS;
+
 - фактический backup/restore прогон на NAS;
 - deployment и проверка рестарта Synology.
 
