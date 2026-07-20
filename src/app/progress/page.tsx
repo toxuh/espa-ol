@@ -5,7 +5,6 @@ import Link from "next/link";
 
 import { ActivityCalendar } from "@/components/activity-calendar";
 import { ProfileRequired } from "@/components/profile-required";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -68,24 +67,44 @@ function ProgressPageContent() {
   }, []);
   if (!stats)
     return (
-      <main className="mx-auto max-w-5xl px-6 py-10">
+      <main className="page-shell max-w-5xl">
         <p>{error || "Считаем прогресс…"}</p>
       </main>
     );
   return (
-    <main className="mx-auto w-full max-w-5xl space-y-7 px-6 py-10">
-      <div>
-        <Badge variant="secondary">Уровень {stats.profile.level}</Badge>
-        <h1 className="mt-2 text-3xl font-semibold">Прогресс</h1>
-        <p className="text-muted-foreground">
-          Серия: 🔥 {stats.profile.streak} · начато дней: {stats.days.started} ·
-          завершено: {stats.days.completed}
+    <main className="page-shell max-w-5xl">
+      <section>
+        <p className="eyebrow">Уровень {stats.profile.level}</p>
+        <h1 className="page-heading mt-1">Ваш прогресс</h1>
+        <p className="page-lede mt-3">
+          Здесь виден не только результат, но и следующий лучший шаг для
+          занятий.
         </p>
-        <p className="text-sm text-muted-foreground">
-          Дата начала:{" "}
+        <div className="mt-5 grid grid-cols-3 gap-2 sm:max-w-xl sm:gap-3">
+          <div className="soft-panel p-3 sm:p-4">
+            <p className="font-mono text-2xl font-semibold">
+              {stats.profile.streak}
+            </p>
+            <p className="text-xs text-muted-foreground">дней подряд</p>
+          </div>
+          <div className="soft-panel p-3 sm:p-4">
+            <p className="font-mono text-2xl font-semibold">
+              {stats.days.started}
+            </p>
+            <p className="text-xs text-muted-foreground">начато</p>
+          </div>
+          <div className="soft-panel p-3 sm:p-4">
+            <p className="font-mono text-2xl font-semibold">
+              {stats.days.completed}
+            </p>
+            <p className="text-xs text-muted-foreground">завершено</p>
+          </div>
+        </div>
+        <p className="mt-3 text-xs text-muted-foreground">
+          С нами с{" "}
           {new Date(stats.profile.joinedAt).toLocaleDateString("ru-RU")}
         </p>
-      </div>
+      </section>
       <section className="grid gap-4 md:grid-cols-3">
         {Object.entries(stats.categories).map(([kind, value]) => (
           <Card key={kind}>
@@ -97,7 +116,7 @@ function ProgressPageContent() {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-2">
-              <div className="text-3xl font-semibold">
+              <div className="font-mono text-3xl font-semibold tabular-nums">
                 {value.accuracy === null ? "—" : `${value.accuracy}%`}
               </div>
               <Progress value={value.accuracy ?? 0} />

@@ -57,11 +57,15 @@ function History() {
       .catch((caught) => setError(caught.message));
   }, []);
   return (
-    <main className="mx-auto w-full max-w-4xl space-y-6 px-6 py-10">
-      <div>
-        <Badge variant="secondary">Календарь занятий</Badge>
-        <h1 className="mt-2 text-3xl font-semibold">История</h1>
-      </div>
+    <main className="page-shell max-w-5xl">
+      <section>
+        <p className="eyebrow">Календарь занятий</p>
+        <h1 className="page-heading mt-1">История</h1>
+        <p className="page-lede mt-3">
+          Возвращайтесь к любому дню и смотрите, что получилось хорошо, а что
+          стоит повторить.
+        </p>
+      </section>
       {error && <p className="text-destructive">{error}</p>}
       {days.length === 0 ? (
         <p className="text-muted-foreground">
@@ -87,8 +91,8 @@ function History() {
           <div className="grid gap-3">
             {days.map((day) => (
               <Card key={day.id}>
-                <CardHeader className="flex-row items-center justify-between space-y-0">
-                  <div className="flex items-center gap-3">
+                <CardHeader className="gap-4 sm:grid-cols-[1fr_auto]">
+                  <div className="flex min-w-0 items-center gap-3">
                     {day.completedAt ? (
                       <CheckCircle2 className="text-emerald-600" />
                     ) : (
@@ -109,7 +113,7 @@ function History() {
                       </p>
                     </div>
                   </div>
-                  <div className="text-right">
+                  <div className="flex items-center gap-2 sm:block sm:text-right">
                     {day.grammar.accuracy !== null ? (
                       <Badge>{day.grammar.accuracy}% грамматика</Badge>
                     ) : (

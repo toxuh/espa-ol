@@ -44,8 +44,11 @@ function Practice() {
   const { data, error, busyId, attempt, activity } = useDay();
   if (!data)
     return (
-      <main className="mx-auto w-full max-w-5xl px-6 py-10">
-        <p>{error || "Генерируем задания на сегодня…"}</p>
+      <main className="page-shell">
+        <div className="soft-panel h-40 animate-pulse" />
+        <p className="text-muted-foreground">
+          {error || "Генерируем задания на сегодня…"}
+        </p>
       </main>
     );
   const { plan } = data.day;
@@ -68,20 +71,34 @@ function Practice() {
   const done = exerciseDone + activityDone;
 
   return (
-    <main className="mx-auto w-full max-w-6xl space-y-7 px-4 py-8 sm:px-6">
-      <section className="space-y-3">
-        <div className="flex flex-wrap items-center justify-between gap-3">
+    <main className="page-shell">
+      <section className="soft-panel space-y-5 overflow-hidden p-5 sm:p-7">
+        <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <Badge variant="secondary">
-              {new Date(data.day.localDate).toLocaleDateString("ru-RU")}
-            </Badge>
-            <h1 className="mt-2 text-3xl font-semibold">Практика дня</h1>
+            <p className="eyebrow">Сегодняшний маршрут</p>
+            <h1 className="page-heading mt-1">Практика дня</h1>
+            <p className="mt-2 text-sm text-muted-foreground">
+              {new Date(data.day.localDate).toLocaleDateString("ru-RU", {
+                day: "numeric",
+                month: "long",
+                weekday: "long",
+              })}
+            </p>
           </div>
-          <span className="text-sm text-muted-foreground">
-            {done} из {total} заданий и активностей
-          </span>
+          <div className="rounded-2xl bg-accent px-4 py-3 text-right text-accent-foreground">
+            <span className="block font-mono text-2xl font-semibold tabular-nums">
+              {done}/{total}
+            </span>
+            <span className="text-xs">завершено</span>
+          </div>
         </div>
-        <Progress value={(done / total) * 100} />
+        <div className="space-y-2">
+          <div className="flex justify-between text-xs text-muted-foreground">
+            <span>Прогресс дня</span>
+            <span>{Math.round((done / total) * 100)}%</span>
+          </div>
+          <Progress value={(done / total) * 100} className="h-2.5" />
+        </div>
         {data.day.completedAt && (
           <Alert>
             <Trophy />
@@ -98,19 +115,23 @@ function Practice() {
         {error && <p className="text-sm text-destructive">{error}</p>}
       </section>
 
-      <Tabs defaultValue="grammar">
-        <TabsList className="h-auto flex-wrap">
-          <TabsTrigger value="grammar">
+      <Tabs defaultValue="grammar" className="gap-5">
+        <TabsList className="h-auto w-full justify-start overflow-x-auto rounded-2xl border border-border/70 bg-card/80 p-1.5 shadow-sm">
+          <TabsTrigger className="h-10 flex-none px-3" value="grammar">
             Грамматика ({plan.grammarIds.length})
           </TabsTrigger>
-          <TabsTrigger value="vocab">
+          <TabsTrigger className="h-10 flex-none px-3" value="vocab">
             Слова ({plan.vocabIds.length})
           </TabsTrigger>
-          <TabsTrigger value="conjugation">
+          <TabsTrigger className="h-10 flex-none px-3" value="conjugation">
             Спряжения ({plan.conjugationIds.length})
           </TabsTrigger>
-          <TabsTrigger value="skills">Чтение и переводы</TabsTrigger>
-          <TabsTrigger value="analysis">Анализ</TabsTrigger>
+          <TabsTrigger className="h-10 flex-none px-3" value="skills">
+            Чтение и переводы
+          </TabsTrigger>
+          <TabsTrigger className="h-10 flex-none px-3" value="analysis">
+            Анализ
+          </TabsTrigger>
         </TabsList>
         <TabsContent value="grammar" className="mt-5 space-y-7">
           <ExerciseGrid

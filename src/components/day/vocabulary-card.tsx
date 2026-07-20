@@ -102,13 +102,15 @@ export function VocabularyExercise({
             )}
           </div>
         ) : (
-          <form className="flex gap-2" onSubmit={submit}>
+          <form className="flex flex-col gap-2 sm:flex-row" onSubmit={submit}>
             <Input
               value={answer}
               onChange={(event) => setAnswer(event.target.value)}
               placeholder="Перевод на русский"
             />
-            <Button disabled={busy}>Проверить</Button>
+            <Button className="h-10 sm:h-8" disabled={busy}>
+              Проверить
+            </Button>
           </form>
         )}
       </CardContent>

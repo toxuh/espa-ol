@@ -29,7 +29,7 @@ export function ActivityCalendar({
   );
 
   return (
-    <div className="grid gap-5 lg:grid-cols-2">
+    <div className="grid gap-8 lg:grid-cols-2">
       {months.map((month) => {
         const year = month.getUTCFullYear();
         const monthIndex = month.getUTCMonth();
@@ -43,7 +43,7 @@ export function ActivityCalendar({
         ];
         return (
           <section key={`${year}-${monthIndex}`}>
-            <h3 className="mb-3 font-medium capitalize">
+            <h3 className="mb-3 font-heading font-semibold capitalize">
               {monthFormatter.format(month)}
             </h3>
             <div className="grid grid-cols-7 gap-1 text-center text-xs text-muted-foreground">
@@ -53,7 +53,7 @@ export function ActivityCalendar({
                 </span>
               ))}
             </div>
-            <div className="grid grid-cols-7 gap-1">
+            <div className="grid grid-cols-7 gap-0.5 sm:gap-1">
               {cells.map((day, index) => {
                 if (day === null)
                   return (
@@ -72,7 +72,7 @@ export function ActivityCalendar({
                     type="button"
                     disabled={!activity || !onSelect}
                     aria-label={activity ? `Открыть занятия за ${key}` : key}
-                    className={`aspect-square rounded-md border text-sm ${className} ${selected === key ? "ring-2 ring-primary ring-offset-2" : ""}`}
+                    className={`aspect-square min-h-9 rounded-lg border font-mono text-xs transition-transform enabled:hover:-translate-y-0.5 sm:text-sm ${className} ${selected === key ? "ring-2 ring-primary ring-offset-2 ring-offset-card" : ""}`}
                     onClick={() => activity && onSelect?.(key)}
                   >
                     {day}

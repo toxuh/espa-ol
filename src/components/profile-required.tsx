@@ -14,7 +14,11 @@ export function ProfileRequired({
 }) {
   const { ready, profile } = useProfile();
   if (!ready)
-    return <p className="p-8 text-muted-foreground">Загрузка профиля…</p>;
+    return (
+      <main className="page-shell">
+        <div className="soft-panel h-40 animate-pulse" />
+      </main>
+    );
   if (!profile)
     return (
       <Empty
@@ -44,9 +48,15 @@ function Empty({
   label: string;
 }) {
   return (
-    <main className="mx-auto flex min-h-[60vh] max-w-xl flex-col items-center justify-center gap-4 px-6 text-center">
-      <p>{text}</p>
-      <Button asChild>
+    <main className="mx-auto flex min-h-[60vh] w-full max-w-xl flex-col items-center justify-center gap-5 px-6 text-center">
+      <span className="grid size-14 place-items-center rounded-2xl bg-primary text-2xl font-semibold text-primary-foreground">
+        Ñ
+      </span>
+      <div>
+        <h1 className="text-2xl font-semibold">Нужен ещё один шаг</h1>
+        <p className="mt-2 text-muted-foreground">{text}</p>
+      </div>
+      <Button className="h-11" asChild>
         <Link href={href}>{label}</Link>
       </Button>
     </main>

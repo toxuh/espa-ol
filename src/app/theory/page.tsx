@@ -26,7 +26,7 @@ function Theory() {
   const { data, error, busyId, attempt } = useDay();
   if (!data)
     return (
-      <main className="mx-auto w-full max-w-4xl px-6 py-10">
+      <main className="page-shell max-w-4xl">
         <p>{error || "Подбираем тему дня…"}</p>
       </main>
     );
@@ -34,7 +34,7 @@ function Theory() {
   const lesson = lessonId ? (data.content[lessonId] as TheoryLesson) : null;
   if (!lesson)
     return (
-      <main className="mx-auto w-full max-w-4xl px-6 py-10">
+      <main className="page-shell max-w-4xl">
         <p>Для этого уровня пока нет урока.</p>
       </main>
     );
@@ -50,8 +50,15 @@ function Theory() {
     (id) => data.attempts[id],
   ).length;
   return (
-    <main className="mx-auto w-full max-w-5xl space-y-7 px-6 py-10">
-      <Card>
+    <main className="page-shell max-w-5xl">
+      <section>
+        <p className="eyebrow">Теория дня</p>
+        <h1 className="page-heading mt-1">Разберём одну тему глубже</h1>
+        <p className="page-lede mt-3">
+          Короткое объяснение, примеры и закрепление — без лишней воды.
+        </p>
+      </section>
+      <Card className="border-primary/20">
         <CardHeader>
           <div className="flex flex-wrap gap-2">
             <Badge>{lesson.level}</Badge>
@@ -59,12 +66,14 @@ function Theory() {
               {data.day.plan.theoryIsReview ? "Повторение" : "Новая тема"}
             </Badge>
           </div>
-          <CardTitle className="text-3xl">{lesson.title}</CardTitle>
+          <CardTitle className="text-2xl tracking-tight sm:text-3xl">
+            {lesson.title}
+          </CardTitle>
           <CardDescription>{lesson.topics.join(" · ")}</CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           {lesson.objectives?.length ? (
-            <section className="rounded-lg bg-muted p-4">
+            <section className="rounded-xl bg-muted p-4 sm:p-5">
               <h2 className="font-semibold">После урока вы сможете</h2>
               <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
                 {lesson.objectives.map((objective) => (
@@ -86,7 +95,10 @@ function Theory() {
               <h2 className="text-xl font-semibold">Примеры</h2>
               <div className="mt-3 grid gap-3 sm:grid-cols-2">
                 {lesson.examples.map((example) => (
-                  <div key={example.es} className="rounded-lg border p-3">
+                  <div
+                    key={example.es}
+                    className="rounded-xl border bg-background/60 p-4"
+                  >
                     <p className="font-medium" lang="es">
                       {example.es}
                     </p>
@@ -99,7 +111,7 @@ function Theory() {
             </section>
           ) : null}
           {lesson.commonMistakes?.length ? (
-            <section className="rounded-lg border border-amber-300 bg-amber-50 p-4 dark:bg-amber-950/20">
+            <section className="rounded-xl border border-amber-300 bg-amber-50 p-4 dark:bg-amber-950/20">
               <h2 className="font-semibold">Типичные ошибки</h2>
               <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
                 {lesson.commonMistakes.map((mistake) => (
@@ -109,7 +121,7 @@ function Theory() {
             </section>
           ) : null}
           {lesson.summary?.length ? (
-            <section className="rounded-lg bg-muted p-4">
+            <section className="rounded-xl bg-muted p-4 sm:p-5">
               <h2 className="font-semibold">Короткая шпаргалка</h2>
               <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
                 {lesson.summary.map((item) => (
@@ -131,7 +143,10 @@ function Theory() {
           {data.day.plan.theoryExerciseIds.map((id) => {
             const exercise = data.content[id] as GrammarExercise;
             return (
-              <details key={id} className="rounded-lg border p-4">
+              <details
+                key={id}
+                className="rounded-xl border bg-background/50 p-4 open:border-primary/30"
+              >
                 <summary className="cursor-pointer font-medium">
                   {exercise.topic}: правило и пример
                 </summary>

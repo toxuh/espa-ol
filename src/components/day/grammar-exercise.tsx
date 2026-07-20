@@ -82,14 +82,18 @@ export function GrammarExerciseCard({
           </div>
         )}
         {exercise.type === "fill" && (
-          <form className="flex gap-2" onSubmit={submit}>
+          <form className="flex flex-col gap-2 sm:flex-row" onSubmit={submit}>
             <Input
               value={givenAnswer}
               onChange={(event) => setAnswer(event.target.value)}
               disabled={Boolean(attempt)}
               placeholder="Введите ответ"
             />
-            {!attempt && <Button disabled={busy}>Проверить</Button>}
+            {!attempt && (
+              <Button className="h-10 sm:h-8" disabled={busy}>
+                Проверить
+              </Button>
+            )}
           </form>
         )}
         {!attempt && exercise.type === "fill" && (

@@ -89,11 +89,15 @@ function Placement() {
   }
 
   return (
-    <main className="mx-auto w-full max-w-2xl space-y-6 px-6 py-10">
-      <div>
-        <Badge variant="secondary">A1–C1</Badge>
-        <h1 className="mt-3 text-3xl font-semibold">Определение уровня</h1>
-      </div>
+    <main className="page-shell max-w-3xl">
+      <section>
+        <p className="eyebrow">A1–C1</p>
+        <h1 className="page-heading mt-1">Найдём ваш уровень</h1>
+        <p className="page-lede mt-3">
+          Пройдите короткий тест или выберите уровень сами. Решение всегда можно
+          изменить позже.
+        </p>
+      </section>
       {!started ? (
         <>
           <Card>
@@ -106,6 +110,7 @@ function Placement() {
             </CardHeader>
             <CardContent>
               <Button
+                className="h-11 w-full sm:w-auto"
                 onClick={() => setStarted(true)}
                 disabled={questions.length !== 15}
               >
@@ -120,11 +125,12 @@ function Placement() {
                 Уровень позже можно изменить тем же способом.
               </CardDescription>
             </CardHeader>
-            <CardContent className="flex flex-wrap gap-2">
+            <CardContent className="grid grid-cols-5 gap-2">
               {CEFR_LEVELS.map((level) => (
                 <Button
                   key={level}
                   variant="outline"
+                  className="h-11"
                   disabled={busy}
                   onClick={() => chooseManual(level)}
                 >
@@ -135,7 +141,7 @@ function Placement() {
           </Card>
         </>
       ) : questions[index] ? (
-        <Card>
+        <Card className="border-primary/20">
           <CardHeader>
             <div className="flex items-center justify-between">
               <Badge>
@@ -146,14 +152,16 @@ function Placement() {
               </span>
             </div>
             <Progress value={(index / questions.length) * 100} />
-            <CardTitle className="pt-3">{questions[index].prompt}</CardTitle>
+            <CardTitle className="pt-3 text-lg sm:text-xl">
+              {questions[index].prompt}
+            </CardTitle>
           </CardHeader>
           <CardContent className="grid gap-2">
             {questions[index].options.map((option) => (
               <Button
                 key={option}
                 variant="outline"
-                className="justify-start"
+                className="h-auto min-h-11 justify-start whitespace-normal px-4 py-3 text-left"
                 disabled={busy}
                 onClick={() => chooseAnswer(option)}
               >
