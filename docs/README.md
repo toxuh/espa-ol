@@ -12,6 +12,7 @@
 6. [DEPLOYMENT.md](DEPLOYMENT.md) — контейнеры, PostgreSQL и эксплуатация на Synology.
 7. [OPEN_DECISIONS.md](OPEN_DECISIONS.md) — вопросы, которые пока намеренно не зафиксированы окончательно.
 8. [IMPLEMENTATION_STATUS.md](IMPLEMENTATION_STATUS.md) — что уже собрано и какой срез рекомендуется следующим.
+9. [CONTENT_EXPANSION_PLAN.md](CONTENT_EXPANSION_PLAN.md) — аудит seed-контента, целевая структура каталога и план его расширения.
 
 ## Источники истины
 
