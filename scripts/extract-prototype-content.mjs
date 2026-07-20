@@ -3,7 +3,7 @@ import vm from "node:vm";
 
 const sourcePath = new URL("../temp/espanol-diario.html", import.meta.url);
 const outputPath = new URL(
-  "../src/content/prototype-content.json",
+  "../temp/prototype-content-extracted.json",
   import.meta.url,
 );
 
@@ -37,7 +37,7 @@ vm.runInContext(
   { filename: "espanol-diario.html" },
 );
 
-await mkdir(new URL("../src/content/", import.meta.url), { recursive: true });
+await mkdir(new URL("../temp/", import.meta.url), { recursive: true });
 await writeFile(outputPath, `${JSON.stringify(context.result, null, 2)}\n`);
 
 for (const name of names) {

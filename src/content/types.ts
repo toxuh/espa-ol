@@ -4,6 +4,7 @@ export type CefrLevel = (typeof CEFR_LEVELS)[number];
 
 export interface GrammarExercise {
   id: string;
+  revision: number;
   level: CefrLevel;
   topic: string;
   type: "mcq" | "fill";
@@ -15,6 +16,7 @@ export interface GrammarExercise {
 
 export interface ReadingContent {
   id: string;
+  revision: number;
   level: CefrLevel;
   type: string;
   title: string;
@@ -23,6 +25,7 @@ export interface ReadingContent {
 
 export interface ListeningContent {
   id: string;
+  revision: number;
   level: CefrLevel;
   title: string;
   channel: string;
@@ -31,6 +34,7 @@ export interface ListeningContent {
 
 export interface TranslationContent {
   id: string;
+  revision: number;
   level: CefrLevel;
   title: string;
   text: string;
@@ -39,6 +43,7 @@ export interface TranslationContent {
 
 export interface TheoryLesson {
   id: string;
+  revision: number;
   level: CefrLevel;
   title: string;
   topics: string[];
@@ -47,6 +52,7 @@ export interface TheoryLesson {
 
 export interface VocabularyCard {
   id: string;
+  revision: number;
   level: CefrLevel;
   word: string;
   translation: string;
@@ -56,6 +62,7 @@ export interface VocabularyCard {
 
 export interface ConjugationCard {
   id: string;
+  revision: number;
   level: CefrLevel;
   verb: string;
   verbMeaning: string;
@@ -66,13 +73,15 @@ export interface ConjugationCard {
 }
 
 export interface PlacementQuestion {
+  id: string;
+  revision: number;
   level: CefrLevel;
   prompt: string;
   options: string[];
   answer: string;
 }
 
-export interface PrototypeContent {
+export interface ContentCatalog {
   LEVELS: CefrLevel[];
   LEVEL_NAMES: Record<CefrLevel, string>;
   GRAMMAR: GrammarExercise[];
@@ -85,4 +94,34 @@ export interface PrototypeContent {
   CONJUGATIONS: ConjugationCard[];
   CONJ_PERSONS: string[];
   PLACEMENT: PlacementQuestion[];
+}
+
+export type ContentData =
+  | GrammarExercise
+  | ReadingContent
+  | ListeningContent
+  | TranslationContent
+  | TheoryLesson
+  | VocabularyCard
+  | ConjugationCard
+  | PlacementQuestion;
+
+export type CatalogContentKind =
+  | "GRAMMAR"
+  | "READING"
+  | "LISTENING"
+  | "TRANSLATE_FROM_ES"
+  | "TRANSLATE_TO_ES"
+  | "THEORY"
+  | "VOCABULARY"
+  | "CONJUGATION"
+  | "PLACEMENT";
+
+export interface CatalogItem {
+  sourceId: string;
+  kind: CatalogContentKind;
+  level: CefrLevel;
+  topic: string | null;
+  position: number;
+  data: ContentData;
 }

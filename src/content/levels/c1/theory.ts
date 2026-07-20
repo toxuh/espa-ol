@@ -1,0 +1,61 @@
+import type { TheoryLesson } from "../../types";
+
+export const c1Theory = [
+  {
+    id: "th-c1-1",
+    level: "C1",
+    title: "Por/Para: продвинутые нюансы",
+    topics: ["por / para avanzado"],
+    body: "\nНа продвинутом уровне por и para входят в устойчивые идиоматические выражения, которые стоит запомнить целиком.<br><br>\n<b>С por:</b><br>\n— <i>tomar/confundir por</i> — принять за: <i>Lo tomaron por un experto</i><br>\n— <i>estar por + infinitivo</i> — быть на грани/собираться (в некоторых регионах = ещё не сделано): <i>Está por confirmar</i><br>\n— <i>por si acaso</i> — на всякий случай<br>\n— <i>por lo visto</i> — судя по всему<br>\n— <i>por lo tanto</i> — следовательно<br><br>\n<b>С para:</b><br>\n— <i>para colmo</i> — в довершение всего<br>\n— <i>no ser para tanto</i> — не стоит того, чтобы так реагировать<br>\n— <i>para siempre</i> — навсегда<br><br>\nНа этом уровне важно не столько заучивать общее правило, сколько накапливать конкретные устойчивые выражения — por и para здесь работают как часть идиомы, а не по «логике» причины/цели.",
+    revision: 1,
+  },
+  {
+    id: "th-c1-2",
+    level: "C1",
+    title: "Перифрастические конструкции (perífrasis verbales)",
+    topics: ["perífrasis verbales", "perífrasis — volver a"],
+    body: "\nПерифразы — устойчивые сочетания «спрягаемый глагол + (предлог) + инфинитив/герундио/причастие», которые вместе выражают оттенок значения, не переводимый одним словом.<br><br>\n<b>Llevar + период времени + gerundio</b> — как долго что-то длится (и продолжается сейчас): <i>Llevo dos años estudiando español</i> (я уже два года учу испанский — и всё ещё учу).<br><br>\n<b>Acabar de + infinitivo</b> — только что что-то сделать: <i>Acabo de llegar</i> (я только что пришёл).<br><br>\n<b>Volver a + infinitivo</b> — сделать что-то снова: <i>Volví a intentarlo</i> (я попробовал ещё раз).<br><br>\n<b>Seguir/continuar + gerundio</b> — продолжать делать: <i>Sigue trabajando allí</i> (он всё ещё там работает).<br><br>\n<b>Ponerse a + infinitivo</b> — начать делать (резко, внезапно): <i>Se puso a llorar</i> (он расплакался).<br><br>\n<b>Dejar de + infinitivo</b> — перестать делать: <i>Dejé de fumar</i> (я бросил курить).<br><br>\nЭти конструкции очень частотны в естественной речи носителей и отличают продвинутый уровень от среднего.",
+    revision: 1,
+  },
+  {
+    id: "th-c1-3",
+    level: "C1",
+    title: "Эмфатические конструкции",
+    topics: ["estructuras enfáticas"],
+    body: "\nЭмфатические (выделительные) конструкции служат для того, чтобы подчеркнуть какую-то часть высказывания — то, что в русском часто делается интонацией или частицей «именно».<br><br>\n<b>Lo + прилагательное/наречие + que</b> — усиливает степень признака: <i>No te imaginas lo difícil que fue</i> (ты не представляешь, насколько это было трудно), <i>Lo bien que canta</i> (как же хорошо он поёт).<br><br>\n<b>Ser... que / ser... cuando / ser... donde</b> (cleft sentence) — выделяет конкретный элемент фразы: <i>Fue entonces cuando comprendí todo</i> (именно тогда я всё понял), <i>Fue en París donde nos conocimos</i> (именно в Париже мы познакомились), <i>Fue Juan quien lo hizo</i> (это именно Хуан это сделал).<br><br>\n<b>Es que...</b> — вводит объяснение/оправдание: <i>Es que no tuve tiempo</i> (дело в том, что у меня не было времени).<br><br>\nЭти конструкции придают речи естественность и «взрослость» — их активно используют носители в устной речи для акцента.",
+    revision: 1,
+  },
+  {
+    id: "th-c1-4",
+    level: "C1",
+    title: "Дискурсивные коннекторы",
+    topics: ["conectores discursivos", "sea como sea"],
+    body: "\nНа продвинутом уровне важно уметь связывать мысли не только через «y», «pero», «porque», но и через более формальные и точные коннекторы, характерные для письменной и аргументированной речи.<br><br>\n<b>Противопоставление:</b> sin embargo, no obstante (тем не менее), en cambio (в то время как), si bien (хотя).<br><br>\n<b>Следствие:</b> por (lo) tanto, así pues, en consecuencia (следовательно).<br><br>\n<b>Добавление:</b> además (кроме того), asimismo (равным образом), es más (более того).<br><br>\n<b>Уступка:</b> aun así (даже так), con todo (тем не менее), pese a ello (несмотря на это).<br><br>\n<b>Заключение:</b> en definitiva, en resumen (в итоге, подытоживая).<br><br>\nОтдельное устойчивое выражение — <b>sea como sea</b> («как бы то ни было / во что бы то ни стало»), часто в начале фразы для усиления решимости: <i>Sea como sea, terminaremos el proyecto a tiempo</i>.",
+    revision: 1,
+  },
+  {
+    id: "th-c1-5",
+    level: "C1",
+    title: "Устойчивые словосочетания и номинализация",
+    topics: [
+      "colocaciones",
+      "nominalización",
+      "nominalización / registro formal",
+    ],
+    body: "\n<b>Colocaciones</b> — устойчивые сочетания слов, которые носители используют «как есть», не задумываясь, и которые нельзя переводить дословно:<br>\n— <i>darse cuenta de</i> — осознать<br>\n— <i>tener en cuenta</i> — принимать во внимание<br>\n— <i>llevar a cabo</i> — осуществить, провести (мероприятие)<br>\n— <i>hacer caso</i> — обращать внимание, слушаться<br>\n— <i>tomar una decisión</i> — принять решение<br>\n— <i>prestar atención</i> — уделять внимание<br><br>\n<b>Номинализация</b> — превращение глагола в существительное, характерное для формального/письменного регистра: вместо <i>decidieron cerrar la fábrica</i> (они решили закрыть завод) более формально сказать <i>tomaron la decisión de cerrar la fábrica</i> или даже <i>la decisión de cerrar la fábrica sorprendió a todos</i>.<br><br>\nНоминализация делает речь более официальной, безличной и «весомой» — типична для новостей, отчётов, академических текстов.",
+    revision: 1,
+  },
+  {
+    id: "th-c1-6",
+    level: "C1",
+    title: "Продвинутый subjuntivo",
+    topics: [
+      "concesivas complejas",
+      "concesivas — por muy...que",
+      "subjuntivo relativo indefinido",
+      "subjuntivo — antecedente negado",
+    ],
+    body: "\nНа этом уровне subjuntivo встречается в более сложных структурах.<br><br>\n<b>Por más/mucho que + subjuntivo</b> — «сколько бы ни»: <i>Por más que lo intento, no consigo entenderlo</i> (заметь: с реальным фактическим смыслом здесь используется indicativo — <i>intento</i>, а не intente — потому что говорящий действительно пытается, это не гипотеза).<br>\n<i>Por muy difícil que sea, lo lograremos</i> (какой бы трудной ни была задача) — здесь всегда subjuntivo, так как конструкция «por muy + прилагательное + que» гипотетична по своей структуре.<br><br>\n<b>Subjuntivo в относительных придаточных с неопределённым антецедентом</b> — когда мы говорим о предмете/человеке, который ещё не найден или не идентифицирован: <i>Busco un asistente que sepa hablar tres idiomas</i> (ищу помощника — ещё неизвестно, какого именно, поэтому subjuntivo). Сравни: <i>Tengo un asistente que sabe hablar tres idiomas</i> (конкретный, известный человек — indicativo).<br><br>\n<b>Subjuntivo после отрицательного антецедента</b>: <i>No hay nadie que sepa resolver esto</i> (нет никого, кто бы это умел) — «nadie» отрицает существование, поэтому subjuntivo обязателен.",
+    revision: 1,
+  },
+] satisfies TheoryLesson[];

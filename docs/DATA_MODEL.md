@@ -18,7 +18,7 @@
 
 Единый реестр версионируемого контента. Колонки `kind`, `level`, `topic`, `position` индексируются для генератора; исходная структура конкретной карточки хранится в `data` JSON. `kind` различает grammar, reading, listening, оба направления перевода, theory, vocabulary, conjugation и placement.
 
-Такой формат выбран для точного переноса неоднородного HTML-банка без восьми почти одинаковых CRUD-таблиц. Контент доверенный и загружается только seed-скриптом.
+Такой формат выбран для точного переноса неоднородного HTML-банка без восьми почти одинаковых CRUD-таблиц. Контент доверенный и загружается только seed-скриптом после обязательной runtime-валидации.
 
 ### `DailyPlan`
 
@@ -43,11 +43,30 @@ Placement хранит метод (`PLACEMENT` или `MANUAL`), ответы, s
 
 ## Seed
 
-`scripts/extract-prototype-content.mjs` механически извлекает статические массивы из локального `temp/espanol-diario.html` в `src/content/prototype-content.json`. Результат коммитится, сам прототип — нет. `prisma/seed.ts` делает upsert по `sourceId`, сначала деактивируя отсутствующие записи. Seed идемпотентен и сейчас загружает 292 элемента.
+Канонический источник — детерминированный TypeScript-каталог в
+`src/content/levels/<level>/<kind>.ts`, явно собранный в
+`src/content/catalog.ts`. Общие уровни, темы и placement находятся в
+`src/content/shared/`. Zod-схемы из `src/content/schemas.ts` валидируют все 292
+элемента при импорте каталога.
+
+`npm run content:check` дополнительно проверяет уникальность ID, минимальный
+объём по уровню и виду, MCQ-ответы, ссылки, связи theory/topic и защищённые
+смысловые поля по `src/content/content-manifest.json`. Команда также печатает
+распределение по уровням, темам и расчётный горизонт ротации. При намеренном
+изменении защищённого смысла сначала увеличивается `revision`, затем manifest
+обновляется отдельной командой `npm run content:manifest`.
+
+`prisma/seed.ts` импортирует уже проверенный каталог, делает upsert по
+`sourceId` и сначала деактивирует отсутствующие записи. Seed идемпотентен.
+Архивный `scripts/extract-prototype-content.mjs` может извлечь исходный банк из
+локального прототипа только в игнорируемый файл
+`temp/prototype-content-extracted.json`; он больше не генерирует канонический
+каталог.
 
 После изменения схемы или контента:
 
 ```bash
+npm run content:check
 npx prisma migrate dev --name <change>
 npm run db:seed
 ```

@@ -1,0 +1,88 @@
+import type { ConjugationCard } from "../../types";
+
+export const a2Conjugations = [
+  {
+    id: "cj-a2-1",
+    level: "A2",
+    verb: "hablar",
+    verbMeaning: "говорить",
+    tense: "preterito",
+    tenseLabel: "Pretérito indefinido (прошедшее законченное)",
+    forms: ["hablé", "hablaste", "habló", "hablamos", "hablasteis", "hablaron"],
+    example: {
+      es: "Ayer hablé con mi jefe sobre el proyecto.",
+      ru: "Вчера я поговорил с начальником о проекте.",
+    },
+    revision: 1,
+  },
+  {
+    id: "cj-a2-2",
+    level: "A2",
+    verb: "comer",
+    verbMeaning: "есть, кушать",
+    tense: "imperfecto",
+    tenseLabel: "Imperfecto (прошедшее привычное)",
+    forms: ["comía", "comías", "comía", "comíamos", "comíais", "comían"],
+    example: {
+      es: "De niño, comía mucho chocolate.",
+      ru: "В детстве я ел много шоколада.",
+    },
+    revision: 1,
+  },
+  {
+    id: "cj-a2-3",
+    level: "A2",
+    verb: "ir",
+    verbMeaning: "идти, ехать",
+    tense: "preterito",
+    tenseLabel: "Pretérito indefinido (прошедшее законченное)",
+    forms: ["fui", "fuiste", "fue", "fuimos", "fuisteis", "fueron"],
+    example: {
+      es: "El año pasado fuimos a Portugal.",
+      ru: "В прошлом году мы ездили в Португалию.",
+    },
+    revision: 1,
+  },
+  {
+    id: "cj-a2-4",
+    level: "A2",
+    verb: "tener",
+    verbMeaning: "иметь",
+    tense: "preterito",
+    tenseLabel: "Pretérito indefinido (прошедшее законченное)",
+    forms: ["tuve", "tuviste", "tuvo", "tuvimos", "tuvisteis", "tuvieron"],
+    example: {
+      es: "Ella tuvo un problema con el coche.",
+      ru: "У неё возникла проблема с машиной.",
+    },
+    revision: 1,
+  },
+  {
+    id: "cj-a2-5",
+    level: "A2",
+    verb: "vivir",
+    verbMeaning: "жить",
+    tense: "futuro",
+    tenseLabel: "Futuro simple (простое будущее)",
+    forms: ["viviré", "vivirás", "vivirá", "viviremos", "viviréis", "vivirán"],
+    example: {
+      es: "En el futuro viviremos en otra ciudad.",
+      ru: "В будущем мы будем жить в другом городе.",
+    },
+    revision: 1,
+  },
+  {
+    id: "cj-a2-6",
+    level: "A2",
+    verb: "ser",
+    verbMeaning: "быть",
+    tense: "imperfecto",
+    tenseLabel: "Imperfecto (прошедшее привычное)",
+    forms: ["era", "eras", "era", "éramos", "erais", "eran"],
+    example: {
+      es: "Cuando era joven, era muy tímido.",
+      ru: "Когда я был молодым, я был очень застенчивым.",
+    },
+    revision: 1,
+  },
+] satisfies ConjugationCard[];

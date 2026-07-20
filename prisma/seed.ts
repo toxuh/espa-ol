@@ -1,7 +1,5 @@
 import "dotenv/config";
 
-import { readFile } from "node:fs/promises";
-
 import { PrismaPg } from "@prisma/adapter-pg";
 
 import {
@@ -10,7 +8,7 @@ import {
   Prisma,
   PrismaClient,
 } from "../src/generated/prisma/client";
-import type { PrototypeContent } from "../src/content/types";
+import { catalogItems } from "../src/content/catalog";
 
 const url = process.env.DATABASE_URL;
 if (!url) throw new Error("DATABASE_URL is required");
@@ -29,86 +27,14 @@ type SeedItem = {
 };
 
 async function main() {
-  const content = JSON.parse(
-    await readFile("src/content/prototype-content.json", "utf8"),
-  ) as PrototypeContent;
-  const items: SeedItem[] = [
-    ...content.GRAMMAR.map((item, position) => ({
-      sourceId: item.id,
-      kind: ContentKind.GRAMMAR,
-      level: item.level as CefrLevel,
-      topic: item.topic,
-      position,
-      data: item as unknown as Prisma.InputJsonValue,
-    })),
-    ...content.READINGS.map((item, position) => ({
-      sourceId: item.id,
-      kind: ContentKind.READING,
-      level: item.level as CefrLevel,
-      topic: null,
-      position,
-      data: item as unknown as Prisma.InputJsonValue,
-    })),
-    ...content.LISTENING.map((item, position) => ({
-      sourceId: item.id,
-      kind: ContentKind.LISTENING,
-      level: item.level as CefrLevel,
-      topic: null,
-      position,
-      data: item as unknown as Prisma.InputJsonValue,
-    })),
-    ...content.TRANSLATE_FROM_ES.map((item, position) => ({
-      sourceId: item.id,
-      kind: ContentKind.TRANSLATE_FROM_ES,
-      level: item.level as CefrLevel,
-      topic: null,
-      position,
-      data: item as unknown as Prisma.InputJsonValue,
-    })),
-    ...content.TRANSLATE_TO_ES.map((item, position) => ({
-      sourceId: item.id,
-      kind: ContentKind.TRANSLATE_TO_ES,
-      level: item.level as CefrLevel,
-      topic: null,
-      position,
-      data: item as unknown as Prisma.InputJsonValue,
-    })),
-    ...content.THEORY.map((item, position) => ({
-      sourceId: item.id,
-      kind: ContentKind.THEORY,
-      level: item.level as CefrLevel,
-      topic: item.topics[0] ?? null,
-      position,
-      data: item as unknown as Prisma.InputJsonValue,
-    })),
-    ...content.VOCAB.map((item, position) => ({
-      sourceId: item.id,
-      kind: ContentKind.VOCABULARY,
-      level: item.level as CefrLevel,
-      topic: null,
-      position,
-      data: item as unknown as Prisma.InputJsonValue,
-    })),
-    ...content.CONJUGATIONS.map((item, position) => ({
-      sourceId: item.id,
-      kind: ContentKind.CONJUGATION,
-      level: item.level as CefrLevel,
-      topic: null,
-      position,
-      data: item as unknown as Prisma.InputJsonValue,
-    })),
-    ...content.PLACEMENT.map((item, position) => ({
-      sourceId: `placement-${String(position + 1).padStart(2, "0")}`,
-      kind: ContentKind.PLACEMENT,
-      level: item.level as CefrLevel,
-      topic: null,
-      position,
-      data: {
-        ...item,
-        id: `placement-${String(position + 1).padStart(2, "0")}`,
-      },
-    })),
-  ];
+  const items: SeedItem[] = catalogItems.map((item) => ({
+    sourceId: item.sourceId,
+    kind: ContentKind[item.kind],
+    level: CefrLevel[item.level],
+    topic: item.topic,
+    position: item.position,
+    data: JSON.parse(JSON.stringify(item.data)) as Prisma.InputJsonValue,
+  }));
 
   await prisma.$transaction(async (tx) => {
     await tx.contentItem.updateMany({ data: { active: false } });

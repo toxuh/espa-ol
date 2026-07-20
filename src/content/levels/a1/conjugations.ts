@@ -1,0 +1,88 @@
+import type { ConjugationCard } from "../../types";
+
+export const a1Conjugations = [
+  {
+    id: "cj-a1-1",
+    level: "A1",
+    verb: "hablar",
+    verbMeaning: "говорить",
+    tense: "presente",
+    tenseLabel: "Presente (настоящее время)",
+    forms: ["hablo", "hablas", "habla", "hablamos", "habláis", "hablan"],
+    example: {
+      es: "Ella habla tres idiomas.",
+      ru: "Она говорит на трёх языках.",
+    },
+    revision: 1,
+  },
+  {
+    id: "cj-a1-2",
+    level: "A1",
+    verb: "comer",
+    verbMeaning: "есть, кушать",
+    tense: "presente",
+    tenseLabel: "Presente (настоящее время)",
+    forms: ["como", "comes", "come", "comemos", "coméis", "comen"],
+    example: {
+      es: "Nosotros comemos paella los domingos.",
+      ru: "Мы едим паэлью по воскресеньям.",
+    },
+    revision: 1,
+  },
+  {
+    id: "cj-a1-3",
+    level: "A1",
+    verb: "vivir",
+    verbMeaning: "жить",
+    tense: "presente",
+    tenseLabel: "Presente (настоящее время)",
+    forms: ["vivo", "vives", "vive", "vivimos", "vivís", "viven"],
+    example: {
+      es: "Ellos viven en las afueras de la ciudad.",
+      ru: "Они живут на окраине города.",
+    },
+    revision: 1,
+  },
+  {
+    id: "cj-a1-4",
+    level: "A1",
+    verb: "ser",
+    verbMeaning: "быть",
+    tense: "presente",
+    tenseLabel: "Presente (настоящее время)",
+    forms: ["soy", "eres", "es", "somos", "sois", "son"],
+    example: {
+      es: "Tú eres muy simpático.",
+      ru: "Ты очень симпатичный.",
+    },
+    revision: 1,
+  },
+  {
+    id: "cj-a1-5",
+    level: "A1",
+    verb: "tener",
+    verbMeaning: "иметь",
+    tense: "presente",
+    tenseLabel: "Presente (настоящее время)",
+    forms: ["tengo", "tienes", "tiene", "tenemos", "tenéis", "tienen"],
+    example: {
+      es: "Yo tengo dos hermanos.",
+      ru: "У меня два брата.",
+    },
+    revision: 1,
+  },
+  {
+    id: "cj-a1-6",
+    level: "A1",
+    verb: "ir",
+    verbMeaning: "идти, ехать",
+    tense: "presente",
+    tenseLabel: "Presente (настоящее время)",
+    forms: ["voy", "vas", "va", "vamos", "vais", "van"],
+    example: {
+      es: "Nosotros vamos al cine los viernes.",
+      ru: "Мы ходим в кино по пятницам.",
+    },
+    revision: 1,
+  },
+] satisfies ConjugationCard[];
