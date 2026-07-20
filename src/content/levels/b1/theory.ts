@@ -20,10 +20,10 @@ export const b1Theory = [
   {
     id: "th-b1-3",
     level: "B1",
-    title: "Относительные местоимения",
-    topics: ["pronombres relativos"],
-    body: "\nОтносительные местоимения связывают главное предложение с придаточным, заменяя повторение существительного.<br><br>\n<b>Que</b> — самое частотное и универсальное, для людей и предметов: <i>El hombre que vive al lado es médico</i>, <i>El libro que leí era interesante</i>.<br><br>\n<b>Quien/quienes</b> — только для людей, чаще после запятой или предлога: <i>Mi hermano, quien vive en Chile, me llamó</i>, <i>La persona con quien hablé era muy amable</i>.<br><br>\n<b>Donde</b> — для мест: <i>La ciudad donde nací es muy pequeña</i>.<br><br>\n<b>El cual / la cual / los cuales / las cuales</b> — более формальный вариант, часто после предлогов: <i>La empresa para la cual trabajo...</i><br><br>\n<b>Lo que</b> — для абстрактной идеи, не конкретного предмета («то, что»): <i>No entiendo lo que dices</i>.<br><br>\nСовет: в разговорной речи почти всегда можно использовать <b>que</b>, остальные формы добавляют формальности и точности.",
-    revision: 1,
+    title: "Местоимения и косвенная речь",
+    topics: ["pronombres relativos", "pronombres dobles", "estilo indirecto"],
+    body: "\n<b>Относительные местоимения</b> связывают главное предложение с придаточным, заменяя повторение существительного.<br><br>\n<b>Que</b> — самое частотное и универсальное, для людей и предметов: <i>El hombre que vive al lado es médico</i>, <i>El libro que leí era interesante</i>.<br><br>\n<b>Quien/quienes</b> — только для людей, чаще после запятой или предлога: <i>Mi hermano, quien vive en Chile, me llamó</i>, <i>La persona con quien hablé era muy amable</i>.<br><br>\n<b>Donde</b> — для мест: <i>La ciudad donde nací es muy pequeña</i>.<br><br>\n<b>El cual / la cual / los cuales / las cuales</b> — более формальный вариант, часто после предлогов: <i>La empresa para la cual trabajo...</i><br><br>\n<b>Lo que</b> — для абстрактной идеи, не конкретного предмета («то, что»): <i>No entiendo lo que dices</i>.<br><br>\n<b>Двойные местоимения:</b> косвенное дополнение ставится перед прямым; le/les перед lo/la/los/las превращается в <b>se</b>: <i>Le di el libro a María → Se lo di</i>.<br><br>\n<b>Косвенная речь:</b> после глагола сообщения в прошедшем времени настоящее обычно сдвигается в imperfecto: <i>«Estoy cansada» → Dijo que estaba cansada</i>. Сдвиг зависит от временной точки зрения говорящего, поэтому это не механическое правило для любой ситуации.",
+    revision: 2,
   },
   {
     id: "th-b1-4",
@@ -58,8 +58,9 @@ export const b1Theory = [
       "imperativo afirmativo",
       "imperativo negativo",
       "imperativo formal",
+      "pasiva refleja",
     ],
-    body: "\n<b>Утвердительный императив (tú)</b> у большинства глаголов совпадает с формой «él/ella» в presente: habla (говори), come (ешь), vive (живи), piensa (думай, от pensar).<br>\nИсключения нужно запомнить: ten (tener), ven (venir), haz (hacer), sal (salir), pon (poner), sé (ser), di (decir), ve (ir).<br><br>\n<b>Отрицательный императив</b> ВСЕГДА образуется от формы subjuntivo presente — никогда от утвердительной формы: <i>no hables</i> (а не *no habla), <i>no comas</i>, <i>no vivas</i>, <i>no tengas</i>.<br><br>\n<b>Формальный императив (usted/ustedes)</b> тоже берётся из subjuntivo presente, и в утвердительной, и в отрицательной форме: <i>hable</i> (говорите, Вы), <i>no hable</i>, <i>hablen</i> (говорите, Вы мн.ч.), <i>no hablen</i>.<br><br>\nМестоимения-дополнения присоединяются к утвердительному императиву (<i>¡Dímelo!</i> — скажи мне это) и ставятся перед отрицательным (<i>¡No me lo digas!</i>).",
-    revision: 1,
+    body: "\n<b>Утвердительный императив (tú)</b> у большинства глаголов совпадает с формой «él/ella» в presente: habla (говори), come (ешь), vive (живи), piensa (думай, от pensar).<br>\nИсключения нужно запомнить: ten (tener), ven (venir), haz (hacer), sal (salir), pon (poner), sé (ser), di (decir), ve (ir).<br><br>\n<b>Отрицательный императив</b> всегда образуется от формы subjuntivo presente — никогда от утвердительной формы: <i>no hables</i> (а не *no habla), <i>no comas</i>, <i>no vivas</i>, <i>no tengas</i>.<br><br>\n<b>Формальный императив (usted/ustedes)</b> тоже берётся из subjuntivo presente, и в утвердительной, и в отрицательной форме: <i>hable</i> (говорите, Вы), <i>no hable</i>, <i>hablen</i> (говорите, Вы мн.ч.), <i>no hablen</i>.<br><br>\nМестоимения-дополнения присоединяются к утвердительному императиву (<i>¡Dímelo!</i> — скажи мне это) и ставятся перед отрицательным (<i>¡No me lo digas!</i>).<br><br>\n<b>Пассивная конструкция с se</b> описывает действие без названного деятеля. Глагол согласуется с объектом: <i>Se habla español</i>, <i>Se venden libros</i>. Не путай её с безличным se, где глагол остаётся в единственном числе: <i>Se vive bien aquí</i>.",
+    revision: 2,
   },
 ] satisfies TheoryLesson[];

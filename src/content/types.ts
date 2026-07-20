@@ -12,6 +12,7 @@ export interface GrammarExercise {
   options?: string[];
   answer: string;
   explain: string;
+  solvedExample?: string;
 }
 
 export interface ReadingContent {
@@ -58,6 +59,7 @@ export interface VocabularyCard {
   translation: string;
   accept: string[];
   context: string;
+  contextTarget: string;
 }
 
 export interface ConjugationCard {

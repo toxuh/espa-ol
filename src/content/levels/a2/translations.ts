@@ -5,10 +5,10 @@ export const a2TranslationsFromEs = [
     id: "tf-a2-1",
     level: "A2",
     title: "Vacaciones en la costa",
-    text: "El mes pasado fui de vacaciones a la costa con mi familia. Llegamos el sábado por la tarde y buscamos un hotel cerca de la playa. Al día siguiente nadamos en el mar y tomamos el sol durante horas. Por la noche cenamos en un restaurante de pescado muy famoso. También visitamos un pequeño museo sobre la historia del pueblo. El último día compramos regalos para nuestros amigos. Volvimos a casa cansados pero muy felices.",
+    text: "El mes pasado fui de vacaciones a la costa con mi familia. Llegamos el sábado por la tarde y encontramos un hotel cerca de la playa. Al día siguiente nadamos en el mar y tomamos el sol durante horas. Por la noche cenamos en un restaurante de pescado muy famoso. También visitamos un pequeño museo sobre la historia del pueblo. El último día compramos regalos para nuestros amigos. Volvimos a casa cansados pero muy felices.",
     reference:
       "В прошлом месяце я ездил в отпуск на побережье со своей семьёй. Мы приехали в субботу днём и нашли отель недалеко от пляжа. На следующий день мы купались в море и часами загорали. Вечером мы поужинали в очень известном рыбном ресторане. Мы также посетили небольшой музей об истории посёлка. В последний день мы купили подарки для друзей. Мы вернулись домой уставшими, но очень счастливыми.",
-    revision: 1,
+    revision: 2,
   },
   {
     id: "tf-a2-2",

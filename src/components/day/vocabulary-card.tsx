@@ -47,7 +47,7 @@ export function VocabularyExercise({
       </CardHeader>
       <CardContent className="space-y-3">
         <div className="rounded-lg bg-muted p-3 leading-7">
-          <Context text={card.context} word={card.word} />
+          <Context text={card.context} word={card.contextTarget} />
         </div>
         <p className="text-sm text-muted-foreground">
           Переведите выделенное слово на русский.

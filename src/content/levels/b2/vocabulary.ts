@@ -8,6 +8,7 @@ export const b2Vocabulary = [
     translation: "требовать",
     accept: ["требовать"],
     context: "Los empleados exigen mejores condiciones.",
+    contextTarget: "exigen",
     revision: 1,
   },
   {
@@ -17,6 +18,7 @@ export const b2Vocabulary = [
     translation: "способствовать",
     accept: ["способствовать", "поощрять"],
     context: "El gobierno quiere fomentar el turismo rural.",
+    contextTarget: "fomentar",
     revision: 1,
   },
   {
@@ -26,6 +28,7 @@ export const b2Vocabulary = [
     translation: "выполнять",
     accept: ["выполнять", "исполнять"],
     context: "Desempeña un papel clave en la empresa.",
+    contextTarget: "Desempeña",
     revision: 1,
   },
   {
@@ -35,6 +38,7 @@ export const b2Vocabulary = [
     translation: "охватывать",
     accept: ["охватывать"],
     context: "El proyecto abarca varios países.",
+    contextTarget: "abarca",
     revision: 1,
   },
   {
@@ -44,6 +48,7 @@ export const b2Vocabulary = [
     translation: "ставить вопрос",
     accept: ["ставить вопрос", "предлагать", "поднимать вопрос"],
     context: "El informe plantea varias preguntas importantes.",
+    contextTarget: "plantea",
     revision: 1,
   },
   {
@@ -53,6 +58,7 @@ export const b2Vocabulary = [
     translation: "выделяться",
     accept: ["выделяться", "подчёркивать"],
     context: "Quiero destacar la importancia de este tema.",
+    contextTarget: "destacar",
     revision: 1,
   },
   {
@@ -62,6 +68,7 @@ export const b2Vocabulary = [
     translation: "не иметь",
     accept: ["не иметь", "испытывать нехватку"],
     context: "La región carece de recursos básicos.",
+    contextTarget: "carece",
     revision: 1,
   },
   {
@@ -71,6 +78,7 @@ export const b2Vocabulary = [
     translation: "вызывать",
     accept: ["вызывать"],
     context: "La noticia suscitó mucha polémica.",
+    contextTarget: "suscitó",
     revision: 1,
   },
   {
@@ -80,6 +88,7 @@ export const b2Vocabulary = [
     translation: "сфера",
     accept: ["сфера", "область"],
     context: "Trabaja en el ámbito de la educación.",
+    contextTarget: "ámbito",
     revision: 1,
   },
   {
@@ -89,6 +98,7 @@ export const b2Vocabulary = [
     translation: "рентабельный",
     accept: ["рентабельный", "выгодный"],
     context: "El nuevo modelo de negocio es muy rentable.",
+    contextTarget: "rentable",
     revision: 1,
   },
   {
@@ -98,6 +108,7 @@ export const b2Vocabulary = [
     translation: "незаменимый",
     accept: ["незаменимый", "необходимый"],
     context: "El agua es imprescindible para la vida.",
+    contextTarget: "imprescindible",
     revision: 1,
   },
   {
@@ -107,6 +118,7 @@ export const b2Vocabulary = [
     translation: "уточнять",
     accept: ["уточнять"],
     context: "Quiero matizar lo que dije antes.",
+    contextTarget: "matizar",
     revision: 1,
   },
   {
@@ -116,6 +128,7 @@ export const b2Vocabulary = [
     translation: "констатировать",
     accept: ["констатировать", "убедиться"],
     context: "Los investigadores constataron un aumento significativo.",
+    contextTarget: "constataron",
     revision: 1,
   },
   {
@@ -125,6 +138,7 @@ export const b2Vocabulary = [
     translation: "характер",
     accept: ["характер", "природа"],
     context: "Es un problema de índole económica.",
+    contextTarget: "índole",
     revision: 1,
   },
 ] satisfies VocabularyCard[];

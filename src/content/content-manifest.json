@@ -170,16 +170,16 @@
       "digest": "9d5876a5fc2775f2ea7c954527a1d0e20013bac01f6e3cd3324938ef71d550e1"
     },
     "b2-05": {
-      "revision": 1,
-      "digest": "36748416435886004b988ff95ea22c1c27e835e4739924e7a66f056a4663d3ec"
+      "revision": 2,
+      "digest": "9434bc3be97c91e1d1e9a1986fab5319c7d5fd549ebc969b4660d37a03c6c797"
     },
     "b2-06": {
       "revision": 1,
       "digest": "2640995c41e19521198723216351ee2427ea0abcd6e40a5d17253d40f71da042"
     },
     "b2-07": {
-      "revision": 1,
-      "digest": "568c583a5a2aa9d14bfb6987ec9bb79a2e4e49bd62e0842bfeaa7adc42083734"
+      "revision": 2,
+      "digest": "5b95ace3ed7e1fb5f5b80dfa5f3e9ed1e92065fbb711bfb9ed41662a2283990b"
     },
     "b2-08": {
       "revision": 1,
@@ -222,8 +222,8 @@
       "digest": "9bcdfe9e9cefe1f85b57d7290e89455491befdb526a4f9ded6998208d69f33f2"
     },
     "c1-04": {
-      "revision": 1,
-      "digest": "faa863ec3d8017fcfe8f84da16be257a4b5bbbc2145f46ade68e4f63ad88a435"
+      "revision": 2,
+      "digest": "0443dda3d627c6297558f790c51926768e37e69c214fe3726db84522db3888c5"
     },
     "c1-05": {
       "revision": 1,
@@ -518,8 +518,8 @@
       "digest": "85e8081758ca71779cc7b570f5bf2fcde2eb0d7517f1fb077c9273a9816e1a75"
     },
     "tf-a2-1": {
-      "revision": 1,
-      "digest": "3428ffab0736097a02e90033e253b41452f3a5641b86a0fe176b73cb2b017ec2"
+      "revision": 2,
+      "digest": "d975c528f9a442a1d2724d061fdad1edd08a483358d25f40f78f0c40b347e5cc"
     },
     "tf-a2-2": {
       "revision": 1,
@@ -538,8 +538,8 @@
       "digest": "8b88e00c28fa8cd3169848096289f4bb856a366ced62ccdc6dfd9809fc8aa0f9"
     },
     "tf-b2-2": {
-      "revision": 1,
-      "digest": "4ad5862354ca05cc827be8f20648615e80f0edb93de705bb3781fb8f7e10ab29"
+      "revision": 2,
+      "digest": "7d4bfcb3ba593c06a0bb9caaef3a6f504e08e2e9c03789e15f660c41e9a7ea82"
     },
     "tf-c1-1": {
       "revision": 1,
@@ -646,8 +646,8 @@
       "digest": "8aff5a94b76c1406f7635a8c34b49be1e7e87c68fe14a0f05718f3bec16fd194"
     },
     "th-b1-3": {
-      "revision": 1,
-      "digest": "0d4d6284d16ae013d81d8f92d22d678db05f39b6f6dc3a1ba8434408f80237ed"
+      "revision": 2,
+      "digest": "6e67a905007897d50d9954f5ea8d97eebe02365b6f55412a0cdda64bb04e9182"
     },
     "th-b1-4": {
       "revision": 1,
@@ -658,8 +658,8 @@
       "digest": "f629253c9641e1bcc49470de257226f16bc03b14c3ee4a1e4dd1c756a8f4253f"
     },
     "th-b1-6": {
-      "revision": 1,
-      "digest": "4dbd130d17497fd4d33f50bcf2882507d8b74138614a2c5830f8047c880b6da1"
+      "revision": 2,
+      "digest": "fd7aaa71744bd0756f7af1e83e9daf0b8c779fa64073d8a72dfb2f0fea007466"
     },
     "th-b2-1": {
       "revision": 1,
@@ -682,8 +682,8 @@
       "digest": "10fd31755ff445a0ec861060ec17652fa2b58bcb1197790d50baeb13e5a26395"
     },
     "th-b2-6": {
-      "revision": 1,
-      "digest": "3af9578bac0627d69ccc74ba8bd0615067798cc59e7331bc87a7808222f2f62f"
+      "revision": 2,
+      "digest": "9bd28d85a2ca5f1d3c043ba38c47b698a59fdb1720b2beb7af39d78a58614b27"
     },
     "th-c1-1": {
       "revision": 1,
@@ -702,8 +702,8 @@
       "digest": "99632271b0b46a6c22d986e534f9540fec2d8d55598c922c5799760f026429bc"
     },
     "th-c1-5": {
-      "revision": 1,
-      "digest": "1046080e29b60d6d37cb02c58e17e3a4f17ca3d4988a2336736ba4c6e603f5e2"
+      "revision": 2,
+      "digest": "c9e37ff0d42c57c0495e122336a1ea149a3236381d9f0afbb193b7c3e8715788"
     },
     "th-c1-6": {
       "revision": 1,

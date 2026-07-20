@@ -21,7 +21,7 @@ export const b1Grammar = [
     options: ["tengáis", "tenéis", "tendréis", "tuvierais"],
     answer: "tengáis",
     explain:
-      '"Esperar que" вводит субхунтив. Tener → teng- (irregular stem) + окончания субхунтива: tengáis.',
+      '"Esperar que" вводит subjuntivo. Tener → teng- (неправильная основа) + окончания subjuntivo: tengáis.',
     revision: 1,
   },
   {
@@ -37,6 +37,7 @@ export const b1Grammar = [
       "tenga / tenga",
     ],
     answer: "tiene / tenga",
+    solvedExample: "Creo que ella tiene razón. / No creo que ella tenga razón.",
     explain:
       '"Creer que" (утверждение) требует indicativo: tiene. "No creer que" (отрицание/сомнение) требует subjuntivo: tenga.',
     revision: 1,
@@ -47,7 +48,7 @@ export const b1Grammar = [
     topic: "condicional simple",
     type: "fill",
     prompt: "En tu lugar, yo (hablar) ___ con el jefe.",
-    answer: "hablaria",
+    answer: "hablaría",
     explain:
       "Кондиционал = инфинитив + окончания имперфекта: hablar<b>ía</b>. Используется для советов и гипотез: yo hablaría.",
     revision: 1,
@@ -71,6 +72,7 @@ export const b1Grammar = [
     type: "fill",
     prompt: "Esta mañana (yo/desayunar) ___ ___ muy poco.",
     answer: "he desayunado",
+    solvedExample: "Esta mañana he desayunado muy poco.",
     explain:
       "Pretérito perfecto compuesto (haber + participio) используется для действий в недавнем/незавершённом временном отрезке: he desayunado.",
     revision: 1,
@@ -143,7 +145,7 @@ export const b1Grammar = [
     options: ["llegues", "llegas", "llega", "llegar"],
     answer: "llegues",
     explain:
-      'Отрицательный императив всегда образуется от субхунтива: no llegues (а не llega). Для "tú" -ar глаголов окончание -es.',
+      'Отрицательный императив всегда образуется от subjuntivo: no llegues (а не llega). Для "tú" у глаголов на -ar окончание -es.',
     revision: 1,
   },
   {

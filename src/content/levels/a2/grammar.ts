@@ -7,7 +7,7 @@ export const a2Grammar = [
     topic: "pretérito indefinido",
     type: "fill",
     prompt: "Ayer yo (comprar) ___ un libro nuevo.",
-    answer: "compre",
+    answer: "compré",
     explain:
       'Правильный глагол на -ar в претерите: compr<b>é</b>, compraste, compró, compramos, comprasteis, compraron. Для "yo" окончание -é.',
     revision: 1,
@@ -66,6 +66,7 @@ export const a2Grammar = [
     prompt: "Mi hermano es ___ alto ___ yo.",
     options: ["más / que", "tan / como", "menos / de", "muy / que"],
     answer: "más / que",
+    solvedExample: "Mi hermano es más alto que yo.",
     explain:
       'Сравнение превосходства: "más + прилагательное + que". Для равенства используется "tan...como".',
     revision: 1,
@@ -124,6 +125,7 @@ export const a2Grammar = [
     type: "fill",
     prompt: "Ahora mismo (nosotros/comer) ___ ___ en un restaurante.",
     answer: "estamos comiendo",
+    solvedExample: "Ahora mismo estamos comiendo en un restaurante.",
     explain:
       'Конструкция "estar + gerundio" выражает действие, происходящее прямо сейчас: estamos comiendo.',
     revision: 1,
@@ -194,6 +196,7 @@ export const a2Grammar = [
     type: "fill",
     prompt: "Ahora (yo/leer) ___ ___ un libro interesante.",
     answer: "estoy leyendo",
+    solvedExample: "Ahora estoy leyendo un libro interesante.",
     explain:
       '"Estar + gerundio" — действие прямо сейчас. Gerundio глагола leer неправильный: leyendo (i → y между гласными).',
     revision: 1,

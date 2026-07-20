@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { catalogItems } from "./catalog";
-import type { GrammarExercise } from "./types";
+import type { GrammarExercise, VocabularyCard } from "./types";
 import {
   assertManifestUpdateIsRevisioned,
   createContentManifest,
@@ -45,5 +45,39 @@ describe("content catalog validation", () => {
         createContentManifest(changed),
       ),
     ).toEqual([]);
+  });
+
+  it("requires an explicit solved example for multi-blank exercises", () => {
+    const changed = structuredClone(catalogItems);
+    const item = changed.find((entry) => entry.sourceId === "a1-04");
+    if (!item) throw new Error("Missing a1-04 fixture");
+    delete (item.data as GrammarExercise).solvedExample;
+
+    expect(validateCatalog(changed)).toContain(
+      "a1-04: multi-blank exercise has no solvedExample",
+    );
+  });
+
+  it("requires the vocabulary context target to occur in its context", () => {
+    const changed = structuredClone(catalogItems);
+    const item = changed.find((entry) => entry.sourceId === "v-b2-1");
+    if (!item) throw new Error("Missing v-b2-1 fixture");
+    (item.data as VocabularyCard).contextTarget = "exigir";
+
+    expect(validateCatalog(changed)).toContain(
+      "v-b2-1: contextTarget is absent from context",
+    );
+  });
+
+  it("requires every grammar topic to be covered by same-level theory", () => {
+    const changed = structuredClone(catalogItems);
+    const item = changed.find((entry) => entry.sourceId === "b1-10");
+    if (!item) throw new Error("Missing b1-10 fixture");
+    item.topic = "unlinked-topic";
+    (item.data as GrammarExercise).topic = "unlinked-topic";
+
+    expect(validateCatalog(changed)).toContain(
+      "b1-10: exercise topic has no theory lesson: unlinked-topic",
+    );
   });
 });

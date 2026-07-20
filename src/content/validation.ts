@@ -235,6 +235,14 @@ export function validateCatalog(
       ) {
         errors.push(`${item.sourceId}: exercise has no theory lesson link`);
       }
+      if (
+        (exercise.prompt.match(/___/g)?.length ?? 0) > 1 &&
+        !("solvedExample" in exercise && exercise.solvedExample)
+      ) {
+        errors.push(
+          `${item.sourceId}: multi-blank exercise has no solvedExample`,
+        );
+      }
     }
 
     if (item.kind === "PLACEMENT") {
@@ -251,8 +259,8 @@ export function validateCatalog(
       }
     }
 
-    if (item.kind === "VOCABULARY" && "contextTarget" in item.data) {
-      const card = item.data as VocabularyCard & { contextTarget: string };
+    if (item.kind === "VOCABULARY") {
+      const card = item.data as VocabularyCard;
       if (!card.context.includes(card.contextTarget)) {
         errors.push(`${item.sourceId}: contextTarget is absent from context`);
       }
@@ -272,17 +280,26 @@ export function validateCatalog(
   const grammarTopics = new Set(
     items
       .filter((item) => item.kind === "GRAMMAR")
-      .map((item) => item.topic)
+      .map((item) => (item.topic ? `${item.level}|${item.topic}` : null))
       .filter((topic): topic is string => Boolean(topic)),
   );
+  const theoryTopics = new Set<string>();
   for (const lesson of items.filter((item) => item.kind === "THEORY")) {
     const theory = lesson.data as Extract<ContentData, { topics: string[] }>;
     for (const topic of theory.topics) {
-      if (!grammarTopics.has(topic)) {
+      theoryTopics.add(`${lesson.level}|${topic}`);
+      if (!grammarTopics.has(`${lesson.level}|${topic}`)) {
         errors.push(
           `${lesson.sourceId}: theory topic has no exercise: ${topic}`,
         );
       }
+    }
+  }
+  for (const exercise of items.filter((item) => item.kind === "GRAMMAR")) {
+    if (!theoryTopics.has(`${exercise.level}|${exercise.topic}`)) {
+      errors.push(
+        `${exercise.sourceId}: exercise topic has no theory lesson: ${exercise.topic}`,
+      );
     }
   }
 

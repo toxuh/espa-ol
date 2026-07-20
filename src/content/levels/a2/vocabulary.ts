@@ -8,6 +8,7 @@ export const a2Vocabulary = [
     translation: "путешествие",
     accept: ["путешествие", "поездка"],
     context: "Hicimos un viaje a Italia.",
+    contextTarget: "viaje",
     revision: 1,
   },
   {
@@ -17,6 +18,7 @@ export const a2Vocabulary = [
     translation: "воспоминание",
     accept: ["воспоминание"],
     context: "Tengo un buen recuerdo de esas vacaciones.",
+    contextTarget: "recuerdo",
     revision: 1,
   },
   {
@@ -26,6 +28,7 @@ export const a2Vocabulary = [
     translation: "привычка",
     accept: ["привычка", "обычай"],
     context: "Es una costumbre muy antigua.",
+    contextTarget: "costumbre",
     revision: 1,
   },
   {
@@ -35,6 +38,7 @@ export const a2Vocabulary = [
     translation: "компания",
     accept: ["компания", "фирма", "предприятие"],
     context: "Trabaja en una empresa grande.",
+    contextTarget: "empresa",
     revision: 1,
   },
   {
@@ -44,6 +48,7 @@ export const a2Vocabulary = [
     translation: "встреча",
     accept: ["встреча", "собрание"],
     context: "Tenemos una reunión a las diez.",
+    contextTarget: "reunión",
     revision: 1,
   },
   {
@@ -53,6 +58,7 @@ export const a2Vocabulary = [
     translation: "район",
     accept: ["район", "квартал"],
     context: "Vivo en un barrio tranquilo.",
+    contextTarget: "barrio",
     revision: 1,
   },
   {
@@ -62,6 +68,7 @@ export const a2Vocabulary = [
     translation: "пейзаж",
     accept: ["пейзаж", "вид"],
     context: "El paisaje de la montaña es precioso.",
+    contextTarget: "paisaje",
     revision: 1,
   },
   {
@@ -71,6 +78,7 @@ export const a2Vocabulary = [
     translation: "собеседование",
     accept: ["собеседование", "интервью"],
     context: "Mañana tengo una entrevista de trabajo.",
+    contextTarget: "entrevista",
     revision: 1,
   },
   {
@@ -80,6 +88,7 @@ export const a2Vocabulary = [
     translation: "радость",
     accept: ["радость"],
     context: "Sintió una gran alegría al verlos.",
+    contextTarget: "alegría",
     revision: 1,
   },
   {
@@ -89,6 +98,7 @@ export const a2Vocabulary = [
     translation: "стыд",
     accept: ["стыд", "смущение"],
     context: "Me dio vergüenza hablar en público.",
+    contextTarget: "vergüenza",
     revision: 1,
   },
   {
@@ -98,6 +108,7 @@ export const a2Vocabulary = [
     translation: "терпение",
     accept: ["терпение"],
     context: "Hay que tener paciencia con los niños.",
+    contextTarget: "paciencia",
     revision: 1,
   },
   {
@@ -107,6 +118,7 @@ export const a2Vocabulary = [
     translation: "побережье",
     accept: ["побережье", "берег"],
     context: "Pasamos el verano en la costa.",
+    contextTarget: "costa",
     revision: 1,
   },
   {
@@ -116,6 +128,7 @@ export const a2Vocabulary = [
     translation: "расписание",
     accept: ["расписание", "график"],
     context: "¿Cuál es tu horario de trabajo?",
+    contextTarget: "horario",
     revision: 1,
   },
   {
@@ -125,6 +138,7 @@ export const a2Vocabulary = [
     translation: "багаж",
     accept: ["багаж"],
     context: "Perdí mi equipaje en el aeropuerto.",
+    contextTarget: "equipaje",
     revision: 1,
   },
 ] satisfies VocabularyCard[];

@@ -90,7 +90,8 @@ function Theory() {
                 />
                 <p className="mt-3 rounded-md bg-muted p-3 text-sm">
                   <span className="text-muted-foreground">Пример:</span>{" "}
-                  {exercise.prompt.replace("___", exercise.answer)}
+                  {exercise.solvedExample ??
+                    exercise.prompt.replace("___", exercise.answer)}
                 </p>
               </details>
             );

@@ -43,6 +43,7 @@ export const b2Grammar = [
     type: "fill",
     prompt: "La novela (escribir, pasiva) ___ ___ por Cervantes.",
     answer: "fue escrita",
+    solvedExample: "La novela fue escrita por Cervantes.",
     explain:
       'Пассивный залог: "ser (в нужном времени) + participio", согласованный в роде/числе с подлежащим: fue escrita.',
     revision: 1,
@@ -53,11 +54,11 @@ export const b2Grammar = [
     topic: "gerundio causal",
     type: "mcq",
     prompt: "___ mucho, aprobó el examen fácilmente.",
-    options: ["Estudiando", "Estudia", "Estudiado", "Al estudiar"],
+    options: ["Estudiando", "Estudia", "Estudiado", "Estudiar"],
     answer: "estudiando",
     explain:
       'Деепричастие (gerundio) может выражать причину или способ: "Estudiando mucho" = "поскольку/благодаря тому, что много учился".',
-    revision: 1,
+    revision: 2,
   },
   {
     id: "b2-06",
@@ -76,11 +77,11 @@ export const b2Grammar = [
     level: "B2",
     topic: "subjuntivo — duda/emoción",
     type: "fill",
-    prompt: "Me sorprende que no me (tú/llamar) ___ ayer.",
+    prompt: "Me sorprendió que no me (tú/llamar) ___ ayer.",
     answer: "llamaras",
     explain:
-      'После выражений эмоции ("me sorprende que") в прошедшем контексте требуется imperfecto de subjuntivo: llamaras.',
-    revision: 1,
+      'После выражения эмоции в прошедшем времени ("me sorprendió que") используется imperfecto de subjuntivo: llamaras.',
+    revision: 2,
   },
   {
     id: "b2-08",
@@ -100,7 +101,8 @@ export const b2Grammar = [
     topic: "pluscuamperfecto",
     type: "fill",
     prompt: "Cuando llegamos, la película ya (empezar) ___ ___.",
-    answer: "habia empezado",
+    answer: "había empezado",
+    solvedExample: "Cuando llegamos, la película ya había empezado.",
     explain:
       "Pluscuamperfecto (había + participio) описывает действие, завершившееся до другого прошедшего действия: había empezado.",
     revision: 1,
@@ -153,7 +155,7 @@ export const b2Grammar = [
     type: "mcq",
     prompt: "Me preguntó si ___ ir con ellos al cine.",
     options: ["quería", "quiero", "querré", "quise"],
-    answer: "queria",
+    answer: "quería",
     explain:
       "В косвенном вопросе после глагола в прошедшем времени presente переходит в imperfecto: quiero → quería.",
     revision: 1,
@@ -165,7 +167,7 @@ export const b2Grammar = [
     type: "mcq",
     prompt: "¿___ es tu color favorito?",
     options: ["Cuál", "Qué", "Cual es", "Que"],
-    answer: "cual",
+    answer: "cuál",
     explain:
       '"Cuál" используется перед глаголом "ser" для выбора из группы вариантов: ¿Cuál es tu color favorito?',
     revision: 1,
@@ -188,6 +190,7 @@ export const b2Grammar = [
     type: "fill",
     prompt: "El puente (construir, pasiva) ___ ___ en 1920.",
     answer: "fue construido",
+    solvedExample: "El puente fue construido en 1920.",
     explain:
       "Пассивный залог: ser (в прошедшем времени) + participio, согласованный с подлежащим (el puente — м.р.): fue construido.",
     revision: 1,
@@ -210,6 +213,7 @@ export const b2Grammar = [
     type: "fill",
     prompt: "Cuando llegué, ellos ya (salir) ___ ___.",
     answer: "habían salido",
+    solvedExample: "Cuando llegué, ellos ya habían salido.",
     explain:
       "Pluscuamperfecto (había + participio) описывает действие, завершившееся раньше другого прошедшего действия.",
     revision: 1,
@@ -221,6 +225,7 @@ export const b2Grammar = [
     type: "fill",
     prompt: "Para diciembre, (nosotros/terminar) ___ ___ el curso.",
     answer: "habremos terminado",
+    solvedExample: "Para diciembre, habremos terminado el curso.",
     explain:
       "Futuro compuesto (habremos + participio) выражает действие, которое будет завершено к определённому моменту будущего.",
     revision: 1,

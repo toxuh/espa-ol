@@ -14,10 +14,10 @@ export const b2TranslationsFromEs = [
     id: "tf-b2-2",
     level: "B2",
     title: "Ciudades más verdes",
-    text: "Numerosas capitales europeas han decidido replantear el diseño de sus espacios públicos con el fin de hacerlos más habitables. Estos cambios incluyen la ampliación de aceras, la creación de nuevos parques y la reducción del espacio destinado a los vehículos privados. Aunque algunos residentes iniciales se mostraron escépticos, encuestas recientes indican que la mayoría valora positivamente estas transformaciones. Los urbanistas sostienen que ciudades más verdes no solo mejoran la salud de sus habitantes, sino que también fortalecen la economía local. No obstante, aplicar estas reformas exige una inversión considerable y una planificación a largo plazo que no todos los gobiernos están dispuestos a asumir.",
+    text: "Numerosas capitales europeas han decidido replantear el diseño de sus espacios públicos con el fin de hacerlos más habitables. Estos cambios incluyen la ampliación de aceras, la creación de nuevos parques y la reducción del espacio destinado a los vehículos privados. Aunque al principio algunos residentes se mostraron escépticos, encuestas recientes indican que la mayoría valora positivamente estas transformaciones. Los urbanistas sostienen que ciudades más verdes no solo mejoran la salud de sus habitantes, sino que también fortalecen la economía local. No obstante, aplicar estas reformas exige una inversión considerable y una planificación a largo plazo que no todos los gobiernos están dispuestos a asumir.",
     reference:
       "Многие европейские столицы решили пересмотреть дизайн своих общественных пространств, чтобы сделать их более пригодными для жизни. Эти изменения включают расширение тротуаров, создание новых парков и сокращение пространства для частного транспорта. Хотя некоторые жители поначалу отнеслись скептически, недавние опросы показывают, что большинство положительно оценивает эти перемены. Урбанисты утверждают, что более зелёные города не только улучшают здоровье жителей, но и укрепляют местную экономику. Тем не менее, проведение этих реформ требует значительных инвестиций и долгосрочного планирования, на которое готовы не все правительства.",
-    revision: 1,
+    revision: 2,
   },
 ] satisfies TranslationContent[];
 

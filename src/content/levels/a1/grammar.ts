@@ -10,7 +10,7 @@ export const a1Grammar = [
     options: ["es", "está", "son", "están"],
     answer: "es",
     explain:
-      '<b>Ser</b> используется для постоянных характеристик: профессия, национальность, характер. <b>Estar</b> — для временных состояний и местоположения. "Профессия" — постоянный признак, поэтому "es".',
+      "<b>Ser</b> идентифицирует человека или относит его к категории: профессии, национальности, происхождению. Поэтому «Ella <b>es</b> profesora». Критерий «постоянное/временное» — только начальная подсказка и не заменяет это правило.",
     revision: 1,
   },
   {
@@ -22,7 +22,7 @@ export const a1Grammar = [
     options: ["somos", "estamos", "es", "está"],
     answer: "estamos",
     explain:
-      "Усталость — временное состояние, поэтому используется <b>estar</b>: estamos cansados.",
+      "<b>Estar</b> описывает состояние человека в конкретной ситуации; маркер hoy подчёркивает текущее состояние: estamos cansados.",
     revision: 1,
   },
   {
@@ -45,6 +45,7 @@ export const a1Grammar = [
     prompt: "Tengo ___ hermano y ___ hermana.",
     options: ["un / una", "una / un", "el / la", "un / uno"],
     answer: "un / una",
+    solvedExample: "Tengo un hermano y una hermana.",
     explain:
       'Неопределённый артикль: <b>un</b> для мужского рода, <b>una</b> для женского. "Hermano" — м.р., "hermana" — ж.р.',
     revision: 1,
@@ -136,7 +137,7 @@ export const a1Grammar = [
     topic: "plural",
     type: "fill",
     prompt: 'singular: "el lápiz" → plural: "los ___"',
-    answer: "lapices",
+    answer: "lápices",
     explain:
       "Существительные, оканчивающиеся на -z, во множественном числе меняют z на c и добавляют -es: lápiz → lápices.",
     revision: 1,

@@ -8,6 +8,7 @@ export const b1Vocabulary = [
     translation: "достижение",
     accept: ["достижение"],
     context: "Graduarse fue un gran logro para ella.",
+    contextTarget: "logro",
     revision: 1,
   },
   {
@@ -17,6 +18,7 @@ export const b1Vocabulary = [
     translation: "вызов",
     accept: ["вызов", "трудность"],
     context: "Aprender un idioma nuevo es un desafío.",
+    contextTarget: "desafío",
     revision: 1,
   },
   {
@@ -26,6 +28,7 @@ export const b1Vocabulary = [
     translation: "преимущество",
     accept: ["преимущество", "плюс"],
     context: "Trabajar desde casa tiene muchas ventajas.",
+    contextTarget: "ventajas",
     revision: 1,
   },
   {
@@ -35,6 +38,7 @@ export const b1Vocabulary = [
     translation: "недостаток",
     accept: ["недостаток", "минус"],
     context: "Esa decisión también tiene desventajas.",
+    contextTarget: "desventajas",
     revision: 1,
   },
   {
@@ -44,6 +48,7 @@ export const b1Vocabulary = [
     translation: "цель",
     accept: ["цель"],
     context: "Mi objetivo es aprender español en un año.",
+    contextTarget: "objetivo",
     revision: 1,
   },
   {
@@ -53,6 +58,7 @@ export const b1Vocabulary = [
     translation: "инструмент",
     accept: ["инструмент"],
     context: "Internet es una herramienta muy útil.",
+    contextTarget: "herramienta",
     revision: 1,
   },
   {
@@ -62,6 +68,7 @@ export const b1Vocabulary = [
     translation: "усилие",
     accept: ["усилие", "старание"],
     context: "Consiguió el trabajo con mucho esfuerzo.",
+    contextTarget: "esfuerzo",
     revision: 1,
   },
   {
@@ -71,6 +78,7 @@ export const b1Vocabulary = [
     translation: "исследование",
     accept: ["исследование"],
     context: "Publicaron una nueva investigación sobre el clima.",
+    contextTarget: "investigación",
     revision: 1,
   },
   {
@@ -80,6 +88,7 @@ export const b1Vocabulary = [
     translation: "общество",
     accept: ["общество"],
     context: "La sociedad está cambiando rápidamente.",
+    contextTarget: "sociedad",
     revision: 1,
   },
   {
@@ -89,6 +98,7 @@ export const b1Vocabulary = [
     translation: "черта",
     accept: ["черта", "особенность"],
     context: "La honestidad es su mejor rasgo.",
+    contextTarget: "rasgo",
     revision: 1,
   },
   {
@@ -98,6 +108,7 @@ export const b1Vocabulary = [
     translation: "соглашение",
     accept: ["соглашение", "договорённость"],
     context: "Llegaron a un acuerdo después de horas de debate.",
+    contextTarget: "acuerdo",
     revision: 1,
   },
   {
@@ -107,6 +118,7 @@ export const b1Vocabulary = [
     translation: "событие",
     accept: ["событие", "происшествие"],
     context: "Fue un suceso inesperado.",
+    contextTarget: "suceso",
     revision: 1,
   },
   {
@@ -116,6 +128,7 @@ export const b1Vocabulary = [
     translation: "предложение",
     accept: ["предложение"],
     context: "Presentaron una propuesta interesante.",
+    contextTarget: "propuesta",
     revision: 1,
   },
   {
@@ -125,6 +138,7 @@ export const b1Vocabulary = [
     translation: "окружающая среда",
     accept: ["окружающая среда", "экология"],
     context: "Debemos cuidar el medio ambiente.",
+    contextTarget: "medio ambiente",
     revision: 1,
   },
 ] satisfies VocabularyCard[];

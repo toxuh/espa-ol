@@ -8,6 +8,7 @@ export const a1Vocabulary = [
     translation: "дом",
     accept: ["дом", "домик"],
     context: "Mi casa está cerca del parque.",
+    contextTarget: "casa",
     revision: 1,
   },
   {
@@ -17,6 +18,7 @@ export const a1Vocabulary = [
     translation: "друг",
     accept: ["друг", "приятель"],
     context: "Mi amigo vive en Madrid.",
+    contextTarget: "amigo",
     revision: 1,
   },
   {
@@ -26,6 +28,7 @@ export const a1Vocabulary = [
     translation: "еда",
     accept: ["еда", "пища"],
     context: "La comida está muy rica.",
+    contextTarget: "comida",
     revision: 1,
   },
   {
@@ -35,6 +38,7 @@ export const a1Vocabulary = [
     translation: "работа",
     accept: ["работа"],
     context: "Tengo mucho trabajo hoy.",
+    contextTarget: "trabajo",
     revision: 1,
   },
   {
@@ -44,6 +48,7 @@ export const a1Vocabulary = [
     translation: "вода",
     accept: ["вода"],
     context: "Necesito un vaso de agua.",
+    contextTarget: "agua",
     revision: 1,
   },
   {
@@ -53,6 +58,7 @@ export const a1Vocabulary = [
     translation: "книга",
     accept: ["книга"],
     context: "Este libro es muy interesante.",
+    contextTarget: "libro",
     revision: 1,
   },
   {
@@ -62,6 +68,7 @@ export const a1Vocabulary = [
     translation: "день",
     accept: ["день"],
     context: "Hoy es un buen día.",
+    contextTarget: "día",
     revision: 1,
   },
   {
@@ -71,6 +78,7 @@ export const a1Vocabulary = [
     translation: "ночь",
     accept: ["ночь"],
     context: "Por la noche veo la televisión.",
+    contextTarget: "noche",
     revision: 1,
   },
   {
@@ -80,6 +88,7 @@ export const a1Vocabulary = [
     translation: "город",
     accept: ["город"],
     context: "Vivo en una ciudad grande.",
+    contextTarget: "ciudad",
     revision: 1,
   },
   {
@@ -89,6 +98,7 @@ export const a1Vocabulary = [
     translation: "время",
     accept: ["время", "погода"],
     context: "No tengo tiempo para eso.",
+    contextTarget: "tiempo",
     revision: 1,
   },
   {
@@ -98,6 +108,7 @@ export const a1Vocabulary = [
     translation: "семья",
     accept: ["семья"],
     context: "Mi familia es muy grande.",
+    contextTarget: "familia",
     revision: 1,
   },
   {
@@ -107,6 +118,7 @@ export const a1Vocabulary = [
     translation: "школа",
     accept: ["школа"],
     context: "Los niños van a la escuela.",
+    contextTarget: "escuela",
     revision: 1,
   },
   {
@@ -116,6 +128,7 @@ export const a1Vocabulary = [
     translation: "машина",
     accept: ["машина", "автомобиль"],
     context: "Voy al trabajo en coche.",
+    contextTarget: "coche",
     revision: 1,
   },
   {
@@ -125,6 +138,7 @@ export const a1Vocabulary = [
     translation: "деньги",
     accept: ["деньги"],
     context: "No tengo mucho dinero.",
+    contextTarget: "dinero",
     revision: 1,
   },
 ] satisfies VocabularyCard[];

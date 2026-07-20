@@ -8,6 +8,7 @@ export const c1Vocabulary = [
     translation: "самобытность",
     accept: ["самобытность", "особенность характера"],
     context: "Cada país tiene su propia idiosincrasia.",
+    contextTarget: "idiosincrasia",
     revision: 1,
   },
   {
@@ -17,6 +18,7 @@ export const c1Vocabulary = [
     translation: "спорный",
     accept: ["спорный"],
     context: "Es un tema muy controvertido.",
+    contextTarget: "controvertido",
     revision: 1,
   },
   {
@@ -26,6 +28,7 @@ export const c1Vocabulary = [
     translation: "постепенный",
     accept: ["постепенный"],
     context: "Se observa un declive paulatino en las ventas.",
+    contextTarget: "paulatino",
     revision: 1,
   },
   {
@@ -35,6 +38,7 @@ export const c1Vocabulary = [
     translation: "убедительный",
     accept: ["убедительный", "весомый"],
     context: "Presentó pruebas contundentes.",
+    contextTarget: "contundentes",
     revision: 1,
   },
   {
@@ -44,6 +48,7 @@ export const c1Vocabulary = [
     translation: "беспокойство",
     accept: ["беспокойство", "тревога"],
     context: "Sintió un profundo desasosiego.",
+    contextTarget: "desasosiego",
     revision: 1,
   },
   {
@@ -53,6 +58,7 @@ export const c1Vocabulary = [
     translation: "подробность",
     accept: ["подробность", "деталь"],
     context: "Explicó todos los pormenores del acuerdo.",
+    contextTarget: "pormenores",
     revision: 1,
   },
   {
@@ -62,6 +68,7 @@ export const c1Vocabulary = [
     translation: "укоренившийся",
     accept: ["укоренившийся"],
     context: "Es una tradición muy arraigada en la cultura.",
+    contextTarget: "arraigada",
     revision: 1,
   },
   {
@@ -71,6 +78,7 @@ export const c1Vocabulary = [
     translation: "предвидеть",
     accept: ["предвидеть", "смутно различать"],
     context: "Empezaba a vislumbrar una solución.",
+    contextTarget: "vislumbrar",
     revision: 1,
   },
   {
@@ -80,6 +88,7 @@ export const c1Vocabulary = [
     translation: "направлять",
     accept: ["направлять"],
     context: "Intentaron encauzar el debate hacia soluciones prácticas.",
+    contextTarget: "encauzar",
     revision: 1,
   },
   {
@@ -89,6 +98,7 @@ export const c1Vocabulary = [
     translation: "неизбежный",
     accept: ["неизбежный"],
     context: "Es una responsabilidad ineludible.",
+    contextTarget: "ineludible",
     revision: 1,
   },
   {
@@ -98,6 +108,7 @@ export const c1Vocabulary = [
     translation: "разгадать",
     accept: ["разгадать", "распутать"],
     context: "Los científicos intentan desentrañar el misterio.",
+    contextTarget: "desentrañar",
     revision: 1,
   },
   {
@@ -107,6 +118,7 @@ export const c1Vocabulary = [
     translation: "взвешивать",
     accept: ["взвешивать"],
     context: "Hay que sopesar los pros y los contras.",
+    contextTarget: "sopesar",
     revision: 1,
   },
   {
@@ -116,6 +128,7 @@ export const c1Vocabulary = [
     translation: "несклонный",
     accept: ["несклонный", "сдержанный"],
     context: "Se mostró reticente a aceptar el cambio.",
+    contextTarget: "reticente",
     revision: 1,
   },
   {
@@ -125,6 +138,7 @@ export const c1Vocabulary = [
     translation: "лежащий в основе",
     accept: ["лежащий в основе", "подспудный"],
     context: "Hay un problema subyacente que nadie menciona.",
+    contextTarget: "subyacente",
     revision: 1,
   },
 ] satisfies VocabularyCard[];

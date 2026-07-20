@@ -25,6 +25,7 @@ const grammarBaseSchema = baseContentSchema.extend({
   prompt: nonEmptyText,
   answer: nonEmptyText,
   explain: nonEmptyText,
+  solvedExample: nonEmptyText.optional(),
 });
 
 export const grammarExerciseSchema = z.discriminatedUnion("type", [
@@ -67,6 +68,7 @@ export const vocabularyCardSchema = baseContentSchema.extend({
   translation: nonEmptyText,
   accept: z.array(nonEmptyText).min(1),
   context: nonEmptyText,
+  contextTarget: nonEmptyText,
 });
 
 export const conjugationCardSchema = baseContentSchema.extend({

@@ -36,14 +36,18 @@ export const c1Theory = [
   {
     id: "th-c1-5",
     level: "C1",
-    title: "Устойчивые словосочетания и номинализация",
+    title: "Формальный регистр и способы передачи чужой речи",
     topics: [
       "colocaciones",
       "nominalización",
       "nominalización / registro formal",
+      "pasiva refleja vs ser",
+      "pasiva refleja",
+      "discurso indirecto complejo",
+      "discurso indirecto",
     ],
-    body: "\n<b>Colocaciones</b> — устойчивые сочетания слов, которые носители используют «как есть», не задумываясь, и которые нельзя переводить дословно:<br>\n— <i>darse cuenta de</i> — осознать<br>\n— <i>tener en cuenta</i> — принимать во внимание<br>\n— <i>llevar a cabo</i> — осуществить, провести (мероприятие)<br>\n— <i>hacer caso</i> — обращать внимание, слушаться<br>\n— <i>tomar una decisión</i> — принять решение<br>\n— <i>prestar atención</i> — уделять внимание<br><br>\n<b>Номинализация</b> — превращение глагола в существительное, характерное для формального/письменного регистра: вместо <i>decidieron cerrar la fábrica</i> (они решили закрыть завод) более формально сказать <i>tomaron la decisión de cerrar la fábrica</i> или даже <i>la decisión de cerrar la fábrica sorprendió a todos</i>.<br><br>\nНоминализация делает речь более официальной, безличной и «весомой» — типична для новостей, отчётов, академических текстов.",
-    revision: 1,
+    body: "\n<b>Colocaciones</b> — устойчивые сочетания слов, которые носители используют «как есть», не задумываясь, и которые нельзя переводить дословно:<br>\n— <i>darse cuenta de</i> — осознать<br>\n— <i>tener en cuenta</i> — принимать во внимание<br>\n— <i>llevar a cabo</i> — осуществить, провести (мероприятие)<br>\n— <i>hacer caso</i> — обращать внимание, слушаться<br>\n— <i>tomar una decisión</i> — принять решение<br>\n— <i>prestar atención</i> — уделять внимание<br><br>\n<b>Номинализация</b> — превращение глагола в существительное, характерное для формального/письменного регистра: вместо <i>decidieron cerrar la fábrica</i> более формально сказать <i>tomaron la decisión de cerrar la fábrica</i> или <i>la decisión de cerrar la fábrica sorprendió a todos</i>.<br><br>\n<b>Пассивная конструкция:</b> ser + participio позволяет назвать деятеля (<i>El informe fue aprobado por el comité</i>), а se + глагол естественно скрывает его, когда важен результат: <i>Se aprobaron nuevas medidas</i>. В пассивной конструкции с se глагол согласуется с объектом.<br><br>\n<b>Косвенная речь</b> передаёт чужие слова без кавычек. При прошедшем глаголе сообщения времена часто сдвигаются: <i>«Estoy listo» → Dijo que estaba listo</i>; нереальное условие в прошлом сохраняет pluscuamperfecto de subjuntivo: <i>Dijo que, si hubiera tenido tiempo, habría terminado</i>. Указатели времени и места тоже меняются по точке зрения: <i>hoy → aquel día</i>, <i>aquí → allí</i>.<br><br>\nЭти средства делают письменную речь более официальной и позволяют выбирать, что поставить в центр: действие, результат или источник сообщения.",
+    revision: 2,
   },
   {
     id: "th-c1-6",

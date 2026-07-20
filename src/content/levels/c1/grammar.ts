@@ -42,12 +42,12 @@ export const c1Grammar = [
     level: "C1",
     topic: "perífrasis verbales",
     type: "mcq",
-    prompt: "No me hables de eso otra vez, ya ___ de decírtelo mil veces.",
+    prompt: "No hace falta que me lo repitas: ___ de leer tu mensaje.",
     options: ["acabo", "vuelvo", "dejo", "llevo"],
     answer: "acabo",
     explain:
-      '"Acabar de + infinitivo" означает "только что что-то сделать": acabo de decírtelo — я только что тебе это сказал.',
-    revision: 1,
+      '"Acabar de + infinitivo" означает "только что что-то сделать": acabo de leer tu mensaje — я только что прочитал твоё сообщение.',
+    revision: 2,
   },
   {
     id: "c1-05",
@@ -139,7 +139,7 @@ export const c1Grammar = [
     level: "C1",
     topic: "sea como sea",
     type: "mcq",
-    prompt: "___ , terminaremos el proyecto a tiempo.",
+    prompt: "___, terminaremos el proyecto a tiempo.",
     options: [
       "Sea como sea",
       "Sea que sea",
@@ -169,6 +169,7 @@ export const c1Grammar = [
     type: "fill",
     prompt: "No quiero (volver a/cometer) ___ ___ el mismo error.",
     answer: "volver a cometer",
+    solvedExample: "No quiero volver a cometer el mismo error.",
     explain:
       '"Volver a + infinitivo" означает "сделать что-то снова": volver a cometer = совершить ещё раз.',
     revision: 1,
