@@ -1,6 +1,6 @@
 import type { VocabularyCard } from "../../types";
 
-export const a1Vocabulary = [
+const a1VocabularyBase = [
   {
     id: "v-a1-1",
     level: "A1",
@@ -142,3 +142,153 @@ export const a1Vocabulary = [
     revision: 1,
   },
 ] satisfies VocabularyCard[];
+
+type VocabularyDetails = Pick<
+  VocabularyCard,
+  | "partOfSpeech"
+  | "gender"
+  | "forms"
+  | "contextTranslation"
+  | "collocations"
+  | "usageNote"
+  | "register"
+>;
+
+function nounDetails(
+  gender: "мужской" | "женский",
+  forms: string[],
+  contextTranslation: string,
+  collocations: string[],
+  usageNote: string,
+): VocabularyDetails {
+  return {
+    partOfSpeech: "существительное",
+    gender,
+    forms,
+    contextTranslation,
+    collocations,
+    usageNote,
+    register: "нейтральный",
+  };
+}
+
+const a1VocabularyDetails: Record<string, VocabularyDetails> = {
+  "v-a1-1": nounDetails(
+    "женский",
+    ["la casa", "las casas"],
+    "Мой дом находится рядом с парком.",
+    ["estar en casa — быть дома", "volver a casa — вернуться домой"],
+    "Casa означает и дом как здание, и дом как место, где человек живёт.",
+  ),
+  "v-a1-2": nounDetails(
+    "мужской",
+    ["el amigo", "la amiga", "los amigos", "las amigas"],
+    "Мой друг живёт в Мадриде.",
+    ["un buen amigo — хороший друг", "amigos de la escuela — школьные друзья"],
+    "Женская форма образуется заменой -o на -a: amiga.",
+  ),
+  "v-a1-3": nounDetails(
+    "женский",
+    ["la comida", "las comidas"],
+    "Еда очень вкусная.",
+    [
+      "hacer la comida — готовить еду",
+      "comida española — испанская кухня / еда",
+    ],
+    "В зависимости от контекста comida означает еду, приём пищи или обед.",
+  ),
+  "v-a1-4": nounDetails(
+    "мужской",
+    ["el trabajo", "los trabajos"],
+    "Сегодня у меня много работы.",
+    ["ir al trabajo — идти на работу", "buscar trabajo — искать работу"],
+    "Trabajo может означать работу как занятие, рабочее место или конкретное задание.",
+  ),
+  "v-a1-5": nounDetails(
+    "женский",
+    ["el agua", "las aguas"],
+    "Мне нужен стакан воды.",
+    ["beber agua — пить воду", "un vaso de agua — стакан воды"],
+    "В единственном числе перед ударным a- используется el, но слово остаётся женского рода: el agua fría.",
+  ),
+  "v-a1-6": nounDetails(
+    "мужской",
+    ["el libro", "los libros"],
+    "Эта книга очень интересная.",
+    [
+      "leer un libro — читать книгу",
+      "libro de español — учебник / книга по испанскому",
+    ],
+    "Для учебника также часто используется libro de texto.",
+  ),
+  "v-a1-7": nounDetails(
+    "мужской",
+    ["el día", "los días"],
+    "Сегодня хороший день.",
+    ["todos los días — каждый день", "buenos días — доброе утро"],
+    "Несмотря на окончание -a, día — существительное мужского рода.",
+  ),
+  "v-a1-8": nounDetails(
+    "женский",
+    ["la noche", "las noches"],
+    "По вечерам я смотрю телевизор.",
+    [
+      "por la noche — вечером / ночью",
+      "buenas noches — добрый вечер / спокойной ночи",
+    ],
+    "Для регулярного времени суток используется por la noche, а не en la noche в стандартной речи Испании.",
+  ),
+  "v-a1-9": nounDetails(
+    "женский",
+    ["la ciudad", "las ciudades"],
+    "Я живу в большом городе.",
+    ["centro de la ciudad — центр города", "una ciudad grande — большой город"],
+    "Во множественном числе после конечной d добавляется -es: ciudades.",
+  ),
+  "v-a1-10": nounDetails(
+    "мужской",
+    ["el tiempo", "los tiempos"],
+    "У меня нет на это времени.",
+    ["tener tiempo — иметь время", "hace buen tiempo — стоит хорошая погода"],
+    "Tiempo может означать время или погоду; значение определяется конструкцией.",
+  ),
+  "v-a1-11": nounDetails(
+    "женский",
+    ["la familia", "las familias"],
+    "Моя семья очень большая.",
+    [
+      "mi familia — моя семья",
+      "familia numerosa — многодетная / большая семья",
+    ],
+    "Когда семья рассматривается как одна группа, глагол обычно стоит в единственном числе.",
+  ),
+  "v-a1-12": nounDetails(
+    "женский",
+    ["la escuela", "las escuelas"],
+    "Дети ходят в школу.",
+    ["ir a la escuela — ходить в школу", "escuela primaria — начальная школа"],
+    "В Испании в значении обычной школы часто употребляется colegio; escuela остаётся общеупотребительным словом.",
+  ),
+  "v-a1-13": nounDetails(
+    "мужской",
+    ["el coche", "los coches"],
+    "Я езжу на работу на машине.",
+    ["ir en coche — ехать на машине", "conducir un coche — водить машину"],
+    "Coche обычно употребляется в Испании; в Латинской Америке часто говорят carro или auto.",
+  ),
+  "v-a1-14": nounDetails(
+    "мужской",
+    ["el dinero"],
+    "У меня не очень много денег.",
+    [
+      "ganar dinero — зарабатывать деньги",
+      "pagar en efectivo — платить наличными",
+    ],
+    "Dinero обычно неисчисляемое и употребляется в единственном числе.",
+  ),
+};
+
+export const a1Vocabulary = a1VocabularyBase.map((card) => ({
+  ...card,
+  ...a1VocabularyDetails[card.id],
+})) satisfies VocabularyCard[];

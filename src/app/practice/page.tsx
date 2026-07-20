@@ -188,16 +188,40 @@ function Practice() {
                 const item = data.content[id] as ListeningContent;
                 const isDone = data.day.progress.listeningDone[id];
                 return (
-                  <div
-                    key={id}
-                    className="flex flex-wrap items-center justify-between gap-3 rounded-lg border p-3"
-                  >
-                    <div>
-                      <p className="font-medium">{item.title}</p>
-                      <p className="text-sm text-muted-foreground">
-                        {item.channel}
-                      </p>
+                  <div key={id} className="space-y-3 rounded-lg border p-4">
+                    <div className="flex flex-wrap items-start justify-between gap-3">
+                      <div>
+                        <p className="font-medium">{item.title}</p>
+                        <p className="text-sm text-muted-foreground">
+                          {item.channel}
+                        </p>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {item.durationMinutes && (
+                          <Badge variant="secondary">
+                            ≈ {item.durationMinutes} мин
+                          </Badge>
+                        )}
+                        {item.dialect && (
+                          <Badge variant="outline">{item.dialect}</Badge>
+                        )}
+                        {item.speed && (
+                          <Badge variant="outline">Темп: {item.speed}</Badge>
+                        )}
+                      </div>
                     </div>
+                    {item.instructions && (
+                      <p className="text-sm">{item.instructions}</p>
+                    )}
+                    <QuestionList questions={item.questions} />
+                    {item.summary && (
+                      <details className="rounded-md bg-muted p-3 text-sm">
+                        <summary className="cursor-pointer font-medium">
+                          Показать краткое содержание после прослушивания
+                        </summary>
+                        <p className="mt-2">{item.summary}</p>
+                      </details>
+                    )}
                     <div className="flex gap-2">
                       <Button variant="outline" asChild>
                         <a href={item.url} target="_blank" rel="noreferrer">
@@ -218,6 +242,11 @@ function Practice() {
                         {isDone ? "Прослушано" : "Отметить"}
                       </Button>
                     </div>
+                    {item.lastVerifiedAt && (
+                      <p className="text-xs text-muted-foreground">
+                        Ссылка проверена: {item.lastVerifiedAt}
+                      </p>
+                    )}
                   </div>
                 );
               })}
@@ -514,9 +543,32 @@ function ReadingCard({
           <CardTitle>Чтение: {content.title}</CardTitle>
           {done && <Badge>готово</Badge>}
         </div>
+        {content.instructions && (
+          <CardDescription>{content.instructions}</CardDescription>
+        )}
       </CardHeader>
       <CardContent className="space-y-4">
+        {content.glossary?.length ? (
+          <div className="grid gap-2 rounded-lg bg-muted p-4 text-sm sm:grid-cols-2">
+            {content.glossary.map((entry) => (
+              <p key={entry.term}>
+                <b lang="es">{entry.term}</b> — {entry.translation}
+              </p>
+            ))}
+          </div>
+        ) : null}
         <p className="whitespace-pre-line leading-8">{content.text}</p>
+        <QuestionList questions={content.questions} />
+        {content.notes?.length ? (
+          <div className="rounded-lg border p-3 text-sm">
+            <p className="font-medium">Языковая заметка</p>
+            <ul className="mt-1 list-disc space-y-1 pl-5">
+              {content.notes.map((note) => (
+                <li key={note}>{note}</li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
         <Button disabled={done || busy} onClick={onDone}>
           {done && <Check />}
           {done ? "Прочитано" : "Я прочитал(а)"}
@@ -556,6 +608,7 @@ function TranslateFrom({
             <div className="rounded-lg bg-muted p-4">
               <b>Эталон:</b> {card.reference}
             </div>
+            <TranslationAnalysis card={card} />
             <div className="flex flex-wrap gap-2">
               {(["easy", "mid", "hard"] as const).map((rating) => (
                 <Button
@@ -628,10 +681,90 @@ function TranslateTo({
               Проверка приблизительная: она сравнивает ключевые слова, а не
               оценивает грамматику, порядок слов или синонимы.
             </p>
+            <TranslationAnalysis card={card} />
           </div>
         )}
       </CardContent>
     </Card>
+  );
+}
+
+function QuestionList({
+  questions,
+}: {
+  questions?: Array<{
+    prompt: string;
+    answer: string;
+    explanation?: string;
+  }>;
+}) {
+  if (!questions?.length) return null;
+  return (
+    <div className="space-y-2">
+      <p className="text-sm font-medium">Вопросы для самопроверки</p>
+      {questions.map((question, index) => (
+        <details
+          key={question.prompt}
+          className="rounded-md border p-3 text-sm"
+        >
+          <summary className="cursor-pointer">
+            {index + 1}. {question.prompt}
+          </summary>
+          <p className="mt-2 font-medium" lang="es">
+            {question.answer}
+          </p>
+          {question.explanation && (
+            <p className="mt-1 text-muted-foreground">{question.explanation}</p>
+          )}
+        </details>
+      ))}
+    </div>
+  );
+}
+
+function TranslationAnalysis({ card }: { card: TranslationContent }) {
+  return (
+    <div className="space-y-3 text-sm">
+      {card.alternativeReferences?.length ? (
+        <div>
+          <p className="font-medium">Другой естественный вариант</p>
+          {card.alternativeReferences.map((reference) => (
+            <p key={reference} className="mt-1 text-muted-foreground">
+              {reference}
+            </p>
+          ))}
+        </div>
+      ) : null}
+      {card.keyConstructions?.length ? (
+        <div>
+          <p className="font-medium">Ключевые конструкции</p>
+          <div className="mt-2 space-y-2">
+            {card.keyConstructions.map((construction) => (
+              <div key={`${construction.source}-${construction.target}`}>
+                <p>
+                  <b>{construction.source}</b> → {construction.target}
+                </p>
+                {construction.note && (
+                  <p className="text-muted-foreground">{construction.note}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : null}
+      {card.acceptedKeywords?.length ? (
+        <p>
+          <b>Опорные выражения:</b> {card.acceptedKeywords.join(" · ")}
+        </p>
+      ) : null}
+      {card.notes?.length ? (
+        <ul className="list-disc space-y-1 pl-5 text-muted-foreground">
+          {card.notes.map((note) => (
+            <li key={note}>{note}</li>
+          ))}
+        </ul>
+      ) : null}
+    </div>
   );
 }
 

@@ -106,18 +106,28 @@ export function GrammarExerciseCard({
             </Button>
             {hintVisible && (
               <p className="mt-1 rounded-md bg-muted px-3 py-2 text-sm">
-                Используйте правило или время: <b>{exercise.topic}</b>.
+                {exercise.hint ?? (
+                  <>
+                    Используйте правило или время: <b>{exercise.topic}</b>.
+                  </>
+                )}
               </p>
             )}
           </div>
         )}
-        {attempt && <Result attempt={attempt} />}
+        {attempt && <Result attempt={attempt} exercise={exercise} />}
       </CardContent>
     </Card>
   );
 }
 
-function Result({ attempt }: { attempt: DayAttempt }) {
+function Result({
+  attempt,
+  exercise,
+}: {
+  attempt: DayAttempt;
+  exercise: GrammarExercise;
+}) {
   const correct = Boolean(attempt.result.correct);
   return (
     <Alert variant={correct ? "default" : "destructive"}>
@@ -134,6 +144,26 @@ function Result({ attempt }: { attempt: DayAttempt }) {
         {attempt.result.explain && (
           <span dangerouslySetInnerHTML={{ __html: attempt.result.explain }} />
         )}
+        {exercise.examples?.length ? (
+          <div className="mt-3 space-y-2 border-t pt-3">
+            <p className="font-medium">Дополнительные примеры</p>
+            {exercise.examples.map((example) => (
+              <p key={example.es}>
+                <span lang="es">{example.es}</span> — {example.ru}
+              </p>
+            ))}
+          </div>
+        ) : null}
+        {exercise.commonMistakes?.length ? (
+          <div className="mt-3 border-t pt-3">
+            <p className="font-medium">Частая ошибка</p>
+            <ul className="mt-1 list-disc space-y-1 pl-5">
+              {exercise.commonMistakes.map((mistake) => (
+                <li key={mistake}>{mistake}</li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
       </AlertDescription>
     </Alert>
   );

@@ -1,7 +1,12 @@
 import { describe, expect, it } from "vitest";
 
 import { catalogItems } from "./catalog";
-import type { GrammarExercise, VocabularyCard } from "./types";
+import type {
+  GrammarExercise,
+  ReadingContent,
+  TheoryLesson,
+  VocabularyCard,
+} from "./types";
 import {
   assertManifestUpdateIsRevisioned,
   createContentManifest,
@@ -78,6 +83,28 @@ describe("content catalog validation", () => {
 
     expect(validateCatalog(changed)).toContain(
       "b1-10: exercise topic has no theory lesson: unlinked-topic",
+    );
+  });
+
+  it("requires the complete reference template for A1 readings", () => {
+    const changed = structuredClone(catalogItems);
+    const item = changed.find((entry) => entry.sourceId === "r-a1-1");
+    if (!item) throw new Error("Missing r-a1-1 fixture");
+    delete (item.data as ReadingContent).questions;
+
+    expect(validateCatalog(changed)).toContain(
+      "r-a1-1: A1 field questions needs at least 3 items",
+    );
+  });
+
+  it("requires reciprocal A1 theory and exercise links", () => {
+    const changed = structuredClone(catalogItems);
+    const item = changed.find((entry) => entry.sourceId === "th-a1-1");
+    if (!item) throw new Error("Missing th-a1-1 fixture");
+    (item.data as TheoryLesson).exerciseIds = ["a1-02", "a1-14"];
+
+    expect(validateCatalog(changed)).toContain(
+      "a1-01: th-a1-1 has no exercise backlink",
     );
   });
 });

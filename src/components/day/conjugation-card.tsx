@@ -51,7 +51,12 @@ export function ConjugationExercise({
         </CardTitle>
         <CardDescription>{card.tenseLabel}</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="space-y-4">
+        {card.markers?.length ? (
+          <p className="text-sm text-muted-foreground">
+            Маркеры и конструкции: {card.markers.join(" · ")}
+          </p>
+        ) : null}
         {attempt ? (
           <div className="space-y-3">
             <p
@@ -120,10 +125,39 @@ export function ConjugationExercise({
             </Button>
           </form>
         )}
-        <div className="mt-5 rounded-lg bg-muted p-3 text-sm leading-6">
-          <p className="italic">{card.example.es}</p>
-          <p className="text-muted-foreground">{card.example.ru}</p>
+        <div className="rounded-lg bg-muted p-3 text-sm leading-6">
+          <p className="font-medium">Примеры</p>
+          {(card.examples ?? [card.example]).map((example) => (
+            <div key={example.es} className="mt-2">
+              <p className="italic" lang="es">
+                {example.es}
+              </p>
+              <p className="text-muted-foreground">{example.ru}</p>
+            </div>
+          ))}
         </div>
+        {attempt && card.formationRule && (
+          <div className="space-y-2 border-t pt-4 text-sm">
+            <p>
+              <b>Как образуется:</b> {card.formationRule}
+            </p>
+            {card.irregularity && (
+              <p>
+                <b>Особенность:</b> {card.irregularity}
+              </p>
+            )}
+            {card.commonMistakes?.length ? (
+              <div>
+                <b>Частая ошибка:</b>
+                <ul className="mt-1 list-disc pl-5">
+                  {card.commonMistakes.map((mistake) => (
+                    <li key={mistake}>{mistake}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </div>
+        )}
       </CardContent>
     </Card>
   );

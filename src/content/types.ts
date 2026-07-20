@@ -2,6 +2,37 @@ export const CEFR_LEVELS = ["A1", "A2", "B1", "B2", "C1"] as const;
 
 export type CefrLevel = (typeof CEFR_LEVELS)[number];
 
+export interface ContentExample {
+  es: string;
+  ru: string;
+}
+
+export interface ContentQuestion {
+  prompt: string;
+  answer: string;
+  explanation?: string;
+}
+
+export interface TheorySection {
+  title: string;
+  paragraphs: string[];
+  table?: {
+    headers: string[];
+    rows: string[][];
+  };
+}
+
+export interface GlossaryEntry {
+  term: string;
+  translation: string;
+}
+
+export interface KeyConstruction {
+  source: string;
+  target: string;
+  note?: string;
+}
+
 export interface GrammarExercise {
   id: string;
   revision: number;
@@ -11,8 +42,13 @@ export interface GrammarExercise {
   prompt: string;
   options?: string[];
   answer: string;
+  acceptedAnswers?: string[];
+  lessonIds?: string[];
+  hint?: string;
   explain: string;
   solvedExample?: string;
+  examples?: ContentExample[];
+  commonMistakes?: string[];
 }
 
 export interface ReadingContent {
@@ -22,6 +58,10 @@ export interface ReadingContent {
   type: string;
   title: string;
   text: string;
+  instructions?: string;
+  glossary?: GlossaryEntry[];
+  questions?: ContentQuestion[];
+  notes?: string[];
 }
 
 export interface ListeningContent {
@@ -31,6 +71,13 @@ export interface ListeningContent {
   title: string;
   channel: string;
   url: string;
+  durationMinutes?: number;
+  dialect?: string;
+  speed?: string;
+  instructions?: string;
+  questions?: ContentQuestion[];
+  summary?: string;
+  lastVerifiedAt?: string;
 }
 
 export interface TranslationContent {
@@ -40,6 +87,10 @@ export interface TranslationContent {
   title: string;
   text: string;
   reference: string;
+  alternativeReferences?: string[];
+  keyConstructions?: KeyConstruction[];
+  notes?: string[];
+  acceptedKeywords?: string[];
 }
 
 export interface TheoryLesson {
@@ -49,6 +100,12 @@ export interface TheoryLesson {
   title: string;
   topics: string[];
   body: string;
+  objectives?: string[];
+  sections?: TheorySection[];
+  summary?: string[];
+  examples?: ContentExample[];
+  commonMistakes?: string[];
+  exerciseIds?: string[];
 }
 
 export interface VocabularyCard {
@@ -60,6 +117,13 @@ export interface VocabularyCard {
   accept: string[];
   context: string;
   contextTarget: string;
+  partOfSpeech?: string;
+  gender?: string;
+  forms?: string[];
+  contextTranslation?: string;
+  collocations?: string[];
+  usageNote?: string;
+  register?: string;
 }
 
 export interface ConjugationCard {
@@ -72,6 +136,11 @@ export interface ConjugationCard {
   tenseLabel: string;
   forms: string[];
   example: { es: string; ru: string };
+  formationRule?: string;
+  irregularity?: string;
+  markers?: string[];
+  examples?: ContentExample[];
+  commonMistakes?: string[];
 }
 
 export interface PlacementQuestion {

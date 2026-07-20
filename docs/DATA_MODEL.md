@@ -52,11 +52,21 @@ Placement хранит метод (`PLACEMENT` или `MANUAL`), ответы, s
 `npm run content:check` дополнительно проверяет уникальность ID, минимальный
 объём по уровню и виду, MCQ-ответы, ссылки, двусторонние связи theory/topic,
 наличие `contextTarget` в словарном контексте, явные `solvedExample` для
-multi-blank заданий и защищённые смысловые поля по
+multi-blank заданий, полный эталонный шаблон A1, обратные ссылки
+`lessonIds`/`exerciseIds` и защищённые смысловые поля по
 `src/content/content-manifest.json`. Команда также печатает распределение по
 уровням, темам и расчётный горизонт ротации. При намеренном изменении
 защищённого смысла сначала увеличивается `revision`, затем manifest обновляется
 отдельной командой `npm run content:manifest`.
+
+Расширенный формат A1 хранится в том же `ContentItem.data`: structured theory
+sections и таблицы, grammar hints/examples/common mistakes, словарные формы и
+collocations, разбор спряжений, glossary/questions для чтения, альтернативные
+переводы и key constructions, а также метаданные и вопросы конкретных
+listening-материалов. Поля пока опциональны в общей Zod-схеме для совместимости
+с A2–C1, но обязательны для A1 на уровне `content:check`. Серверная проверка
+grammar учитывает `acceptedAnswers`, сохраняя один канонический `answer` для
+обратной связи.
 
 `prisma/seed.ts` импортирует уже проверенный каталог, делает upsert по
 `sourceId` и сначала деактивирует отсутствующие записи. Seed идемпотентен.

@@ -516,7 +516,12 @@ export async function submitAttempt(
       kind = AttemptKind.GRAMMAR;
       const answer = String(input.answer);
       const expected = String(data.answer ?? "");
-      const correct = normalizeAnswer(answer) === normalizeAnswer(expected);
+      const accepted = Array.isArray(data.acceptedAnswers)
+        ? [expected, ...data.acceptedAnswers.map(String)]
+        : [expected];
+      const correct = accepted.some(
+        (value) => normalizeAnswer(answer) === normalizeAnswer(value),
+      );
       correctCount = correct ? 1 : 0;
       result = { correct, expected, explain: String(data.explain ?? "") };
     } else if (content.kind === ContentKind.VOCABULARY) {

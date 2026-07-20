@@ -1,6 +1,6 @@
 import type { GrammarExercise } from "../../types";
 
-export const a1Grammar = [
+const a1GrammarBase = [
   {
     id: "a1-01",
     level: "A1",
@@ -232,3 +232,229 @@ export const a1Grammar = [
     revision: 1,
   },
 ] satisfies GrammarExercise[];
+
+const a1GrammarDetails: Record<
+  string,
+  Pick<
+    GrammarExercise,
+    "acceptedAnswers" | "lessonIds" | "hint" | "examples" | "commonMistakes"
+  >
+> = {
+  "a1-01": {
+    acceptedAnswers: ["es"],
+    lessonIds: ["th-a1-1"],
+    hint: "Для профессии без артикля обычно используется ser.",
+    examples: [
+      { es: "Soy estudiante.", ru: "Я студент / студентка." },
+      { es: "Carlos es médico.", ru: "Карлос — врач." },
+    ],
+    commonMistakes: ["Не ставьте estar перед профессией: está profesora."],
+  },
+  "a1-02": {
+    acceptedAnswers: ["estamos"],
+    lessonIds: ["th-a1-1"],
+    hint: "Сегодняшнее самочувствие — состояние, а не идентификация.",
+    examples: [
+      { es: "Estoy cansada hoy.", ru: "Сегодня я устала." },
+      { es: "¿Estáis bien?", ru: "Вы в порядке?" },
+    ],
+    commonMistakes: ["Не выбирайте ser только потому, что sujeto — nosotros."],
+  },
+  "a1-03": {
+    acceptedAnswers: ["el"],
+    lessonIds: ["th-a1-2"],
+    hint: "Перед ударным a- у некоторых существительных женского рода стоит el.",
+    examples: [
+      { es: "El agua está limpia.", ru: "Вода чистая." },
+      { es: "Las aguas están frías.", ru: "Воды холодные." },
+    ],
+    commonMistakes: [
+      "Артикль el не делает слово agua существительным мужского рода.",
+    ],
+  },
+  "a1-04": {
+    acceptedAnswers: ["un / una"],
+    lessonIds: ["th-a1-2"],
+    hint: "Согласуйте каждый артикль с существительным отдельно.",
+    examples: [
+      { es: "Tengo un gato y una gata.", ru: "У меня есть кот и кошка." },
+      { es: "Es una casa pequeña.", ru: "Это маленький дом." },
+    ],
+    commonMistakes: [
+      "Не используйте uno непосредственно перед существительным.",
+    ],
+  },
+  "a1-05": {
+    acceptedAnswers: ["hablo"],
+    lessonIds: ["th-a1-4"],
+    hint: "Уберите -ar и добавьте окончание yo: -o.",
+    examples: [
+      { es: "Trabajo en casa.", ru: "Я работаю дома." },
+      { es: "Estudio español.", ru: "Я изучаю испанский." },
+    ],
+    commonMistakes: ["Не сохраняйте инфинитив: yo hablar."],
+  },
+  "a1-06": {
+    acceptedAnswers: ["comes"],
+    lessonIds: ["th-a1-4"],
+    hint: "Основа com- плюс окончание tú для -er: -es.",
+    examples: [
+      { es: "Bebes agua.", ru: "Ты пьёшь воду." },
+      { es: "Lees mucho.", ru: "Ты много читаешь." },
+    ],
+    commonMistakes: ["Не переносите окончание -as от глаголов на -ar."],
+  },
+  "a1-07": {
+    acceptedAnswers: ["viven"],
+    lessonIds: ["th-a1-4"],
+    hint: "Для ellos у правильных -ir глаголов окончание -en.",
+    examples: [
+      { es: "Escriben cartas.", ru: "Они пишут письма." },
+      { es: "Abrimos la puerta.", ru: "Мы открываем дверь." },
+    ],
+    commonMistakes: ["Не используйте viven с nosotros: nosotros vivimos."],
+  },
+  "a1-08": {
+    acceptedAnswers: ["tienes"],
+    lessonIds: ["th-a1-5"],
+    hint: "Возраст выражается tener; вспомните форму tú.",
+    examples: [
+      { es: "Tengo treinta años.", ru: "Мне тридцать лет." },
+      { es: "¿Tienes hermanos?", ru: "У тебя есть братья или сёстры?" },
+    ],
+    commonMistakes: ["Не переводите возраст через ser: soy veinte años."],
+  },
+  "a1-09": {
+    acceptedAnswers: ["voy"],
+    lessonIds: ["th-a1-5"],
+    hint: "Mañana подсказывает план: форма ir + a + инфинитив.",
+    examples: [
+      { es: "Voy a estudiar.", ru: "Я собираюсь учиться." },
+      { es: "Vamos a cocinar.", ru: "Мы собираемся готовить." },
+    ],
+    commonMistakes: ["Не пропускайте a между формой ir и инфинитивом."],
+  },
+  "a1-10": {
+    acceptedAnswers: ["nuestro"],
+    lessonIds: ["th-a1-6"],
+    hint: "Притяжательное слово согласуется с coche, а не с владельцами.",
+    examples: [
+      { es: "Nuestra casa es blanca.", ru: "Наш дом белый." },
+      { es: "Nuestros amigos viven aquí.", ru: "Наши друзья живут здесь." },
+    ],
+    commonMistakes: [
+      "Не выбирайте nuestra перед существительным мужского рода coche.",
+    ],
+  },
+  "a1-11": {
+    acceptedAnswers: ["me gustan"],
+    lessonIds: ["th-a1-6"],
+    hint: "Форма gustar согласуется с los gatos, а местоимение — с a mí.",
+    examples: [
+      { es: "Me gusta el café.", ru: "Мне нравится кофе." },
+      { es: "Nos gustan los libros.", ru: "Нам нравятся книги." },
+    ],
+    commonMistakes: [
+      "Не ставьте gusta перед существительным во множественном числе.",
+    ],
+  },
+  "a1-12": {
+    acceptedAnswers: ["lápices", "lapices"],
+    lessonIds: ["th-a1-3"],
+    hint: "Перед -es конечная z меняется на c.",
+    examples: [
+      { es: "una vez — dos veces", ru: "один раз — два раза" },
+      { es: "el pez — los peces", ru: "рыба — рыбы" },
+    ],
+    commonMistakes: ["Не пишите lápizes: сочетание ze здесь заменяется на ce."],
+  },
+  "a1-13": {
+    acceptedAnswers: ["bonita"],
+    lessonIds: ["th-a1-2"],
+    hint: "Casa — женский род, единственное число.",
+    examples: [
+      { es: "un libro nuevo", ru: "новая книга" },
+      { es: "unas casas bonitas", ru: "красивые дома" },
+    ],
+    commonMistakes: ["Согласуйте прилагательное с casa, а не с говорящим."],
+  },
+  "a1-14": {
+    acceptedAnswers: ["está", "esta"],
+    lessonIds: ["th-a1-1"],
+    hint: "Местоположение предмета выражается estar.",
+    examples: [
+      { es: "Madrid está en España.", ru: "Мадрид находится в Испании." },
+      { es: "Las llaves están aquí.", ru: "Ключи здесь." },
+    ],
+    commonMistakes: ["Не используйте ser для местонахождения предмета."],
+  },
+  "a1-15": {
+    acceptedAnswers: ["trabaja"],
+    lessonIds: ["th-a1-4"],
+    hint: "Для ella у правильного глагола на -ar окончание -a.",
+    examples: [
+      { es: "Él estudia español.", ru: "Он изучает испанский." },
+      { es: "Ana cocina muy bien.", ru: "Ана очень хорошо готовит." },
+    ],
+    commonMistakes: ["Не добавляйте местоименное -s: ella trabajas."],
+  },
+  "a1-16": {
+    acceptedAnswers: ["somos"],
+    lessonIds: ["th-a1-4"],
+    hint: "Ser — неправильный глагол; форму nosotros нужно запомнить.",
+    examples: [
+      { es: "Somos vecinos.", ru: "Мы соседи." },
+      { es: "Soy de Rusia.", ru: "Я из России." },
+    ],
+    commonMistakes: [
+      "Форма nosotros у ser — somos, не seremos в настоящем времени.",
+    ],
+  },
+  "a1-17": {
+    acceptedAnswers: ["hay"],
+    lessonIds: ["th-a1-5"],
+    hint: "Для сообщения о наличии используется неизменяемое hay.",
+    examples: [
+      { es: "Hay una mesa.", ru: "Есть один стол." },
+      { es: "Hay tres ventanas.", ru: "Есть три окна." },
+    ],
+    commonMistakes: [
+      "Не согласуйте hay с множественным числом: hay veinte alumnos.",
+    ],
+  },
+  "a1-18": {
+    acceptedAnswers: ["su"],
+    lessonIds: ["th-a1-6"],
+    hint: "Перед одним предметом используется su независимо от пола владельца.",
+    examples: [
+      { es: "Su hermana vive aquí.", ru: "Его / её сестра живёт здесь." },
+      { es: "Sus perros son grandes.", ru: "Его / её собаки большие." },
+    ],
+    commonMistakes: ["Не выбирайте притяжательное слово по роду владельца."],
+  },
+  "a1-19": {
+    acceptedAnswers: ["ciudades"],
+    lessonIds: ["th-a1-3"],
+    hint: "После конечной согласной обычно добавляется -es.",
+    examples: [
+      { es: "el profesor — los profesores", ru: "учитель — учителя" },
+      { es: "la flor — las flores", ru: "цветок — цветы" },
+    ],
+    commonMistakes: ["Не добавляйте только -s после d: ciudad → ciudades."],
+  },
+  "a1-20": {
+    acceptedAnswers: ["escribo"],
+    lessonIds: ["th-a1-4"],
+    hint: "Для yo у правильных -ir глаголов окончание -o.",
+    examples: [
+      { es: "Vivo en Valencia.", ru: "Я живу в Валенсии." },
+      { es: "Abro la ventana.", ru: "Я открываю окно." },
+    ],
+    commonMistakes: ["Не используйте окончание -io: правильно escribo."],
+  },
+};
+
+export const a1Grammar = a1GrammarBase.map((exercise) => ({
+  ...exercise,
+  ...a1GrammarDetails[exercise.id],
+})) satisfies GrammarExercise[];

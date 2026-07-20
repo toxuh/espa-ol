@@ -62,11 +62,62 @@ function Theory() {
           <CardTitle className="text-3xl">{lesson.title}</CardTitle>
           <CardDescription>{lesson.topics.join(" · ")}</CardDescription>
         </CardHeader>
-        <CardContent>
-          <div
-            className="prose-content leading-8"
-            dangerouslySetInnerHTML={{ __html: lesson.body }}
-          />
+        <CardContent className="space-y-6">
+          {lesson.objectives?.length ? (
+            <section className="rounded-lg bg-muted p-4">
+              <h2 className="font-semibold">После урока вы сможете</h2>
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
+                {lesson.objectives.map((objective) => (
+                  <li key={objective}>{objective}</li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
+          {lesson.sections?.length ? (
+            <StructuredTheory lesson={lesson} />
+          ) : (
+            <div
+              className="prose-content leading-8"
+              dangerouslySetInnerHTML={{ __html: lesson.body }}
+            />
+          )}
+          {lesson.examples?.length ? (
+            <section>
+              <h2 className="text-xl font-semibold">Примеры</h2>
+              <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                {lesson.examples.map((example) => (
+                  <div key={example.es} className="rounded-lg border p-3">
+                    <p className="font-medium" lang="es">
+                      {example.es}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {example.ru}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          ) : null}
+          {lesson.commonMistakes?.length ? (
+            <section className="rounded-lg border border-amber-300 bg-amber-50 p-4 dark:bg-amber-950/20">
+              <h2 className="font-semibold">Типичные ошибки</h2>
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
+                {lesson.commonMistakes.map((mistake) => (
+                  <li key={mistake}>{mistake}</li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
+          {lesson.summary?.length ? (
+            <section className="rounded-lg bg-muted p-4">
+              <h2 className="font-semibold">Короткая шпаргалка</h2>
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
+                {lesson.summary.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
         </CardContent>
       </Card>
       <Card>
@@ -137,5 +188,48 @@ function Theory() {
       </section>
       {error && <p className="text-sm text-destructive">{error}</p>}
     </main>
+  );
+}
+
+function StructuredTheory({ lesson }: { lesson: TheoryLesson }) {
+  return (
+    <div className="space-y-7">
+      {lesson.sections?.map((section) => (
+        <section key={section.title} className="space-y-3">
+          <h2 className="text-xl font-semibold">{section.title}</h2>
+          {section.paragraphs.map((paragraph) => (
+            <p key={paragraph} className="leading-8">
+              {paragraph}
+            </p>
+          ))}
+          {section.table && (
+            <div className="overflow-x-auto rounded-lg border">
+              <table className="w-full min-w-lg text-left text-sm">
+                <thead className="bg-muted">
+                  <tr>
+                    {section.table.headers.map((header) => (
+                      <th key={header} className="px-3 py-2 font-medium">
+                        {header}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {section.table.rows.map((row) => (
+                    <tr key={row.join("|")} className="border-t">
+                      {row.map((cell, index) => (
+                        <td key={`${cell}-${index}`} className="px-3 py-2">
+                          {cell}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </section>
+      ))}
+    </div>
   );
 }

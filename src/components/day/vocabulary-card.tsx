@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 
 import type { VocabularyCard } from "@/content/types";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -44,6 +45,14 @@ export function VocabularyExercise({
     <Card>
       <CardHeader className="pb-2">
         <CardTitle className="text-xl">Слово: {card.word}</CardTitle>
+        {(card.partOfSpeech || card.gender) && (
+          <div className="flex flex-wrap gap-2">
+            {card.partOfSpeech && (
+              <Badge variant="secondary">{card.partOfSpeech}</Badge>
+            )}
+            {card.gender && <Badge variant="outline">{card.gender} род</Badge>}
+          </div>
+        )}
       </CardHeader>
       <CardContent className="space-y-3">
         <div className="rounded-lg bg-muted p-3 leading-7">
@@ -53,16 +62,44 @@ export function VocabularyExercise({
           Переведите выделенное слово на русский.
         </p>
         {attempt ? (
-          <div
-            className={
-              attempt.result.correct ? "text-emerald-700" : "text-amber-700"
-            }
-          >
-            <p className="font-medium">
-              {attempt.result.correct
-                ? `Верно: ${String(attempt.answer ?? "")}`
-                : `Ваш ответ: ${String(attempt.answer ?? "") || "(пусто)"}. Правильный перевод: ${attempt.result.expected}`}
-            </p>
+          <div className="space-y-3">
+            <div
+              className={
+                attempt.result.correct ? "text-emerald-700" : "text-amber-700"
+              }
+            >
+              <p className="font-medium">
+                {attempt.result.correct
+                  ? `Верно: ${String(attempt.answer ?? "")}`
+                  : `Ваш ответ: ${String(attempt.answer ?? "") || "(пусто)"}. Правильный перевод: ${attempt.result.expected}`}
+              </p>
+            </div>
+            {card.contextTranslation && (
+              <p className="text-sm text-muted-foreground">
+                Перевод контекста: {card.contextTranslation}
+              </p>
+            )}
+            {card.forms?.length ? (
+              <p className="text-sm">
+                <b>Формы:</b> {card.forms.join(" · ")}
+              </p>
+            ) : null}
+            {card.collocations?.length ? (
+              <div className="rounded-lg bg-muted p-3 text-sm">
+                <p className="font-medium">Сочетания</p>
+                <ul className="mt-1 list-disc space-y-1 pl-5">
+                  {card.collocations.map((collocation) => (
+                    <li key={collocation}>{collocation}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+            {card.usageNote && (
+              <p className="text-sm">
+                <b>Употребление:</b> {card.usageNote}
+                {card.register ? ` Регистр: ${card.register}.` : ""}
+              </p>
+            )}
           </div>
         ) : (
           <form className="flex gap-2" onSubmit={submit}>

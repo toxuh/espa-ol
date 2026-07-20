@@ -6,8 +6,14 @@ import type {
   CatalogContentKind,
   CatalogItem,
   CefrLevel,
+  ConjugationCard,
   ContentData,
+  GrammarExercise,
+  ListeningContent,
   PlacementQuestion,
+  ReadingContent,
+  TheoryLesson,
+  TranslationContent,
   VocabularyCard,
 } from "./types";
 
@@ -91,13 +97,24 @@ const protectedFields: Record<
       ContentData,
       { topic: string; prompt: string }
     >;
+    const canonicalAnswer = normalizeSemanticText(String(item.answer));
+    const acceptedAnswers =
+      "acceptedAnswers" in item && Array.isArray(item.acceptedAnswers)
+        ? [
+            ...new Set(
+              item.acceptedAnswers
+                .map(normalizeSemanticText)
+                .filter((answer) => answer !== canonicalAnswer),
+            ),
+          ].sort()
+        : [];
     return {
       level: item.level,
       topic: item.topic,
       type: "type" in item ? item.type : null,
       prompt: "prompt" in item ? normalizeSemanticText(item.prompt) : null,
-      answer:
-        "answer" in item ? normalizeSemanticText(String(item.answer)) : null,
+      answer: "answer" in item ? canonicalAnswer : null,
+      ...(acceptedAnswers.length ? { acceptedAnswers } : {}),
       options:
         "options" in item && Array.isArray(item.options)
           ? item.options.map(normalizeSemanticText)
@@ -243,6 +260,37 @@ export function validateCatalog(
           `${item.sourceId}: multi-blank exercise has no solvedExample`,
         );
       }
+      if (item.level === "A1") {
+        requireArrayLength(
+          item.sourceId,
+          exercise.acceptedAnswers,
+          "acceptedAnswers",
+          1,
+          errors,
+        );
+        requireArrayLength(
+          item.sourceId,
+          exercise.lessonIds,
+          "lessonIds",
+          1,
+          errors,
+        );
+        requireText(item.sourceId, exercise.hint, "hint", errors);
+        requireArrayLength(
+          item.sourceId,
+          exercise.examples,
+          "examples",
+          2,
+          errors,
+        );
+        requireArrayLength(
+          item.sourceId,
+          exercise.commonMistakes,
+          "commonMistakes",
+          1,
+          errors,
+        );
+      }
     }
 
     if (item.kind === "PLACEMENT") {
@@ -264,16 +312,156 @@ export function validateCatalog(
       if (!card.context.includes(card.contextTarget)) {
         errors.push(`${item.sourceId}: contextTarget is absent from context`);
       }
+      if (item.level === "A1") {
+        requireText(item.sourceId, card.partOfSpeech, "partOfSpeech", errors);
+        requireArrayLength(item.sourceId, card.forms, "forms", 1, errors);
+        requireText(
+          item.sourceId,
+          card.contextTranslation,
+          "contextTranslation",
+          errors,
+        );
+        requireArrayLength(
+          item.sourceId,
+          card.collocations,
+          "collocations",
+          2,
+          errors,
+        );
+        requireText(item.sourceId, card.usageNote, "usageNote", errors);
+        requireText(item.sourceId, card.register, "register", errors);
+      }
     }
 
     if (item.kind === "LISTENING") {
-      const listening = item.data as Extract<ContentData, { url: string }>;
+      const listening = item.data as ListeningContent;
       try {
         const url = new URL(listening.url);
         if (!["http:", "https:"].includes(url.protocol)) throw new Error();
       } catch {
         errors.push(`${item.sourceId}: listening URL is invalid`);
       }
+      if (item.level === "A1") {
+        if (!listening.durationMinutes) {
+          errors.push(`${item.sourceId}: missing A1 field durationMinutes`);
+        }
+        requireText(item.sourceId, listening.dialect, "dialect", errors);
+        requireText(item.sourceId, listening.speed, "speed", errors);
+        requireText(
+          item.sourceId,
+          listening.instructions,
+          "instructions",
+          errors,
+        );
+        requireArrayLength(
+          item.sourceId,
+          listening.questions,
+          "questions",
+          3,
+          errors,
+        );
+        requireText(item.sourceId, listening.summary, "summary", errors);
+        requireText(
+          item.sourceId,
+          listening.lastVerifiedAt,
+          "lastVerifiedAt",
+          errors,
+        );
+      }
+    }
+
+    if (item.kind === "READING" && item.level === "A1") {
+      const reading = item.data as ReadingContent;
+      requireText(item.sourceId, reading.instructions, "instructions", errors);
+      requireArrayLength(
+        item.sourceId,
+        reading.glossary,
+        "glossary",
+        4,
+        errors,
+      );
+      requireArrayLength(
+        item.sourceId,
+        reading.questions,
+        "questions",
+        3,
+        errors,
+      );
+      requireArrayLength(item.sourceId, reading.notes, "notes", 1, errors);
+    }
+
+    if (
+      (item.kind === "TRANSLATE_FROM_ES" || item.kind === "TRANSLATE_TO_ES") &&
+      item.level === "A1"
+    ) {
+      const translation = item.data as TranslationContent;
+      requireArrayLength(
+        item.sourceId,
+        translation.alternativeReferences,
+        "alternativeReferences",
+        1,
+        errors,
+      );
+      requireArrayLength(
+        item.sourceId,
+        translation.keyConstructions,
+        "keyConstructions",
+        2,
+        errors,
+      );
+      requireArrayLength(item.sourceId, translation.notes, "notes", 1, errors);
+      if (item.kind === "TRANSLATE_TO_ES") {
+        requireArrayLength(
+          item.sourceId,
+          translation.acceptedKeywords,
+          "acceptedKeywords",
+          4,
+          errors,
+        );
+      }
+    }
+
+    if (item.kind === "THEORY" && item.level === "A1") {
+      const lesson = item.data as TheoryLesson;
+      requireArrayLength(
+        item.sourceId,
+        lesson.objectives,
+        "objectives",
+        1,
+        errors,
+      );
+      requireArrayLength(item.sourceId, lesson.sections, "sections", 3, errors);
+      requireArrayLength(item.sourceId, lesson.summary, "summary", 1, errors);
+      requireArrayLength(item.sourceId, lesson.examples, "examples", 4, errors);
+      requireArrayLength(
+        item.sourceId,
+        lesson.commonMistakes,
+        "commonMistakes",
+        1,
+        errors,
+      );
+      requireArrayLength(
+        item.sourceId,
+        lesson.exerciseIds,
+        "exerciseIds",
+        1,
+        errors,
+      );
+    }
+
+    if (item.kind === "CONJUGATION" && item.level === "A1") {
+      const card = item.data as ConjugationCard;
+      requireText(item.sourceId, card.formationRule, "formationRule", errors);
+      requireText(item.sourceId, card.irregularity, "irregularity", errors);
+      requireArrayLength(item.sourceId, card.markers, "markers", 2, errors);
+      requireArrayLength(item.sourceId, card.examples, "examples", 2, errors);
+      requireArrayLength(
+        item.sourceId,
+        card.commonMistakes,
+        "commonMistakes",
+        1,
+        errors,
+      );
     }
   }
 
@@ -300,6 +488,52 @@ export function validateCatalog(
       errors.push(
         `${exercise.sourceId}: exercise topic has no theory lesson: ${exercise.topic}`,
       );
+    }
+  }
+
+  const grammarById = new Map(
+    items
+      .filter((item) => item.kind === "GRAMMAR")
+      .map((item) => [item.sourceId, item.data as GrammarExercise]),
+  );
+  const theoryById = new Map(
+    items
+      .filter((item) => item.kind === "THEORY")
+      .map((item) => [item.sourceId, item.data as TheoryLesson]),
+  );
+  for (const item of items.filter(
+    (entry) => entry.kind === "GRAMMAR" && entry.level === "A1",
+  )) {
+    const exercise = item.data as GrammarExercise;
+    for (const lessonId of exercise.lessonIds ?? []) {
+      const lesson = theoryById.get(lessonId);
+      if (!lesson || lesson.level !== item.level) {
+        errors.push(`${item.sourceId}: unknown same-level lesson ${lessonId}`);
+      } else {
+        if (!lesson.topics.includes(exercise.topic)) {
+          errors.push(
+            `${item.sourceId}: ${lessonId} does not cover topic ${exercise.topic}`,
+          );
+        }
+        if (!lesson.exerciseIds?.includes(item.sourceId)) {
+          errors.push(`${item.sourceId}: ${lessonId} has no exercise backlink`);
+        }
+      }
+    }
+  }
+  for (const item of items.filter(
+    (entry) => entry.kind === "THEORY" && entry.level === "A1",
+  )) {
+    const lesson = item.data as TheoryLesson;
+    for (const exerciseId of lesson.exerciseIds ?? []) {
+      const exercise = grammarById.get(exerciseId);
+      if (!exercise || exercise.level !== item.level) {
+        errors.push(
+          `${item.sourceId}: unknown same-level exercise ${exerciseId}`,
+        );
+      } else if (!exercise.lessonIds?.includes(item.sourceId)) {
+        errors.push(`${item.sourceId}: ${exerciseId} has no lesson backlink`);
+      }
     }
   }
 
@@ -345,6 +579,29 @@ export function validateCatalog(
   }
 
   return errors;
+}
+
+function requireText(
+  sourceId: string,
+  value: string | undefined,
+  field: string,
+  errors: string[],
+) {
+  if (!value?.trim()) errors.push(`${sourceId}: missing A1 field ${field}`);
+}
+
+function requireArrayLength(
+  sourceId: string,
+  value: unknown[] | undefined,
+  field: string,
+  minimum: number,
+  errors: string[],
+) {
+  if (!value || value.length < minimum) {
+    errors.push(
+      `${sourceId}: A1 field ${field} needs at least ${minimum} item${minimum === 1 ? "" : "s"}`,
+    );
+  }
 }
 
 export function assertManifestUpdateIsRevisioned(
