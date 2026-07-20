@@ -27,6 +27,8 @@ export interface ContentManifest {
   entries: Record<string, ContentManifestEntry>;
 }
 
+const completeTemplateLevels = new Set<CefrLevel>(["A1", "A2"]);
+
 export const baselineMinimums: Record<
   CefrLevel,
   Record<CatalogContentKind, number>
@@ -260,7 +262,7 @@ export function validateCatalog(
           `${item.sourceId}: multi-blank exercise has no solvedExample`,
         );
       }
-      if (item.level === "A1") {
+      if (completeTemplateLevels.has(item.level)) {
         requireArrayLength(
           item.sourceId,
           exercise.acceptedAnswers,
@@ -312,7 +314,7 @@ export function validateCatalog(
       if (!card.context.includes(card.contextTarget)) {
         errors.push(`${item.sourceId}: contextTarget is absent from context`);
       }
-      if (item.level === "A1") {
+      if (completeTemplateLevels.has(item.level)) {
         requireText(item.sourceId, card.partOfSpeech, "partOfSpeech", errors);
         requireArrayLength(item.sourceId, card.forms, "forms", 1, errors);
         requireText(
@@ -341,9 +343,11 @@ export function validateCatalog(
       } catch {
         errors.push(`${item.sourceId}: listening URL is invalid`);
       }
-      if (item.level === "A1") {
+      if (completeTemplateLevels.has(item.level)) {
         if (!listening.durationMinutes) {
-          errors.push(`${item.sourceId}: missing A1 field durationMinutes`);
+          errors.push(
+            `${item.sourceId}: missing reference-template field durationMinutes`,
+          );
         }
         requireText(item.sourceId, listening.dialect, "dialect", errors);
         requireText(item.sourceId, listening.speed, "speed", errors);
@@ -370,7 +374,7 @@ export function validateCatalog(
       }
     }
 
-    if (item.kind === "READING" && item.level === "A1") {
+    if (item.kind === "READING" && completeTemplateLevels.has(item.level)) {
       const reading = item.data as ReadingContent;
       requireText(item.sourceId, reading.instructions, "instructions", errors);
       requireArrayLength(
@@ -392,7 +396,7 @@ export function validateCatalog(
 
     if (
       (item.kind === "TRANSLATE_FROM_ES" || item.kind === "TRANSLATE_TO_ES") &&
-      item.level === "A1"
+      completeTemplateLevels.has(item.level)
     ) {
       const translation = item.data as TranslationContent;
       requireArrayLength(
@@ -421,7 +425,7 @@ export function validateCatalog(
       }
     }
 
-    if (item.kind === "THEORY" && item.level === "A1") {
+    if (item.kind === "THEORY" && completeTemplateLevels.has(item.level)) {
       const lesson = item.data as TheoryLesson;
       requireArrayLength(
         item.sourceId,
@@ -449,7 +453,7 @@ export function validateCatalog(
       );
     }
 
-    if (item.kind === "CONJUGATION" && item.level === "A1") {
+    if (item.kind === "CONJUGATION" && completeTemplateLevels.has(item.level)) {
       const card = item.data as ConjugationCard;
       requireText(item.sourceId, card.formationRule, "formationRule", errors);
       requireText(item.sourceId, card.irregularity, "irregularity", errors);
@@ -502,7 +506,8 @@ export function validateCatalog(
       .map((item) => [item.sourceId, item.data as TheoryLesson]),
   );
   for (const item of items.filter(
-    (entry) => entry.kind === "GRAMMAR" && entry.level === "A1",
+    (entry) =>
+      entry.kind === "GRAMMAR" && completeTemplateLevels.has(entry.level),
   )) {
     const exercise = item.data as GrammarExercise;
     for (const lessonId of exercise.lessonIds ?? []) {
@@ -522,7 +527,8 @@ export function validateCatalog(
     }
   }
   for (const item of items.filter(
-    (entry) => entry.kind === "THEORY" && entry.level === "A1",
+    (entry) =>
+      entry.kind === "THEORY" && completeTemplateLevels.has(entry.level),
   )) {
     const lesson = item.data as TheoryLesson;
     for (const exerciseId of lesson.exerciseIds ?? []) {
@@ -587,7 +593,9 @@ function requireText(
   field: string,
   errors: string[],
 ) {
-  if (!value?.trim()) errors.push(`${sourceId}: missing A1 field ${field}`);
+  if (!value?.trim()) {
+    errors.push(`${sourceId}: missing reference-template field ${field}`);
+  }
 }
 
 function requireArrayLength(
@@ -599,7 +607,7 @@ function requireArrayLength(
 ) {
   if (!value || value.length < minimum) {
     errors.push(
-      `${sourceId}: A1 field ${field} needs at least ${minimum} item${minimum === 1 ? "" : "s"}`,
+      `${sourceId}: reference-template field ${field} needs at least ${minimum} item${minimum === 1 ? "" : "s"}`,
     );
   }
 }

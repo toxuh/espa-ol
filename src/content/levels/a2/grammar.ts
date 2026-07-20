@@ -1,6 +1,6 @@
 import type { GrammarExercise } from "../../types";
 
-export const a2Grammar = [
+const a2GrammarBase = [
   {
     id: "a2-01",
     level: "A2",
@@ -235,3 +235,298 @@ export const a2Grammar = [
     revision: 1,
   },
 ] satisfies GrammarExercise[];
+
+const a2GrammarDetails: Record<
+  string,
+  Pick<
+    GrammarExercise,
+    "acceptedAnswers" | "lessonIds" | "hint" | "examples" | "commonMistakes"
+  >
+> = {
+  "a2-01": {
+    acceptedAnswers: ["compré", "compre"],
+    lessonIds: ["th-a2-1"],
+    hint: "Ayer задаёт завершённое событие; для yo у глагола на -ar нужно окончание -é.",
+    examples: [
+      { es: "Ayer trabajé hasta las seis.", ru: "Вчера я работал до шести." },
+      { es: "El lunes llamé a Ana.", ru: "В понедельник я позвонил Ане." },
+    ],
+    commonMistakes: [
+      "Не пропускайте ударение: compré — форма yo, compre — другая форма.",
+    ],
+  },
+  "a2-02": {
+    acceptedAnswers: ["fueron"],
+    lessonIds: ["th-a2-1"],
+    hint: "Подлежащее ellos требует форму 3-го лица множественного числа indefinido.",
+    examples: [
+      { es: "Mis padres fueron a Chile.", ru: "Мои родители ездили в Чили." },
+      { es: "Las vacaciones fueron cortas.", ru: "Каникулы были короткими." },
+    ],
+    commonMistakes: [
+      "Fueron может быть формой и ir, и ser; значение определяет контекст.",
+    ],
+  },
+  "a2-03": {
+    acceptedAnswers: ["jugaba"],
+    lessonIds: ["th-a2-2"],
+    hint: "Todos los días описывает повторявшуюся привычку в прошлом.",
+    examples: [
+      {
+        es: "De niño nadaba cada verano.",
+        ru: "В детстве я плавал каждое лето.",
+      },
+      {
+        es: "Antes caminábamos al colegio.",
+        ru: "Раньше мы ходили в школу пешком.",
+      },
+    ],
+    commonMistakes: [
+      "Jugué обозначило бы один завершённый случай, а не ежедневную привычку.",
+    ],
+  },
+  "a2-04": {
+    acceptedAnswers: ["preparaba"],
+    lessonIds: ["th-a2-2"],
+    hint: "После mientras действие создаёт фон для внезапного sonó.",
+    examples: [
+      { es: "Dormía cuando llegó Marta.", ru: "Я спал, когда пришла Марта." },
+      {
+        es: "Mientras llovía, vimos una película.",
+        ru: "Пока шёл дождь, мы посмотрели фильм.",
+      },
+    ],
+    commonMistakes: [
+      "Не ставьте оба действия в indefinido, если одно уже шло в момент другого.",
+    ],
+  },
+  "a2-05": {
+    acceptedAnswers: ["viajaremos"],
+    lessonIds: ["th-a2-3"],
+    hint: "Сохраните весь инфинитив viajar и добавьте окончание nosotros -emos.",
+    examples: [
+      {
+        es: "Mañana estudiaremos juntos.",
+        ru: "Завтра мы будем заниматься вместе.",
+      },
+      {
+        es: "El verano próximo visitaré Perú.",
+        ru: "Следующим летом я посещу Перу.",
+      },
+    ],
+    commonMistakes: [
+      "Не отбрасывайте -ar: правильно viajaremos, а не viajemos.",
+    ],
+  },
+  "a2-06": {
+    acceptedAnswers: ["más / que", "más que", "mas / que", "mas que"],
+    lessonIds: ["th-a2-6"],
+    hint: "Нужно показать, что один человек выше другого: más ... que.",
+    examples: [
+      { es: "Este libro es más largo que ese.", ru: "Эта книга длиннее той." },
+      {
+        es: "Madrid es menos húmedo que Bilbao.",
+        ru: "В Мадриде менее влажно, чем в Бильбао.",
+      },
+    ],
+    commonMistakes: [
+      "После сравнительной формы más используется que, а не de перед объектом сравнения.",
+    ],
+  },
+  "a2-07": {
+    acceptedAnswers: ["más", "mas"],
+    lessonIds: ["th-a2-6"],
+    hint: "Артикль el уже стоит перед существительным; нужна форма максимальной степени.",
+    examples: [
+      {
+        es: "Es la calle más antigua del barrio.",
+        ru: "Это самая старая улица района.",
+      },
+      {
+        es: "Son los billetes menos caros.",
+        ru: "Это самые недорогие билеты.",
+      },
+    ],
+    commonMistakes: ["Muy caro значит «очень дорогой», но не «самый дорогой»."],
+  },
+  "a2-08": {
+    acceptedAnswers: ["las"],
+    lessonIds: ["th-a2-4"],
+    hint: "Замените las llaves местоимением того же рода и числа.",
+    examples: [
+      {
+        es: "¿Ves las fotos? Sí, las veo.",
+        ru: "Ты видишь фотографии? Да, вижу их.",
+      },
+      { es: "La carta la escribí ayer.", ru: "Письмо я написал вчера." },
+    ],
+    commonMistakes: [
+      "Les — косвенное дополнение; для прямого las llaves нужно las.",
+    ],
+  },
+  "a2-09": {
+    acceptedAnswers: ["le"],
+    lessonIds: ["th-a2-4"],
+    hint: "A mi madre отвечает на вопрос «кому?», поэтому нужно косвенное местоимение.",
+    examples: [
+      { es: "Le escribo a mi abuela.", ru: "Я пишу бабушке." },
+      { es: "Les dimos agua a los niños.", ru: "Мы дали детям воды." },
+    ],
+    commonMistakes: [
+      "Род адресата не влияет на le: le sirve и для мужчины, и для женщины.",
+    ],
+  },
+  "a2-10": {
+    acceptedAnswers: ["me levanto"],
+    lessonIds: ["th-a2-5"],
+    hint: "Для yo выберите местоимение me и форму presente levanto.",
+    examples: [
+      { es: "Me ducho por la mañana.", ru: "Я принимаю душ утром." },
+      { es: "Nos acostamos tarde.", ru: "Мы ложимся поздно." },
+    ],
+    commonMistakes: [
+      "Не оставляйте -se при спряжении: me levanto, а не me levantarse.",
+    ],
+  },
+  "a2-11": {
+    acceptedAnswers: ["estamos comiendo"],
+    lessonIds: ["th-a2-5"],
+    hint: "Ahora mismo требует estar в форме nosotros и герундий comer.",
+    examples: [
+      { es: "Estoy trabajando ahora.", ru: "Я сейчас работаю." },
+      { es: "Los niños están durmiendo.", ru: "Дети сейчас спят." },
+    ],
+    commonMistakes: [
+      "Не согласуйте герундий по числу: всегда comiendo, не comiendos.",
+    ],
+  },
+  "a2-12": {
+    acceptedAnswers: ["hay que"],
+    lessonIds: ["th-a2-6"],
+    hint: "В предложении нет конкретного исполнителя обязанности.",
+    examples: [
+      { es: "Hay que llegar a tiempo.", ru: "Нужно приходить вовремя." },
+      { es: "Tengo que llamar a Pedro.", ru: "Мне нужно позвонить Педро." },
+    ],
+    commonMistakes: [
+      "Hay que не спрягается по лицам и всегда сопровождается инфинитивом.",
+    ],
+  },
+  "a2-13": {
+    acceptedAnswers: ["vivían", "vivian"],
+    lessonIds: ["th-a2-2"],
+    hint: "Antes вводит прежнее состояние без указанной конечной границы.",
+    examples: [
+      { es: "Antes vivíamos cerca del mar.", ru: "Раньше мы жили у моря." },
+      {
+        es: "Mis abuelos tenían una granja.",
+        ru: "У моих бабушки и дедушки была ферма.",
+      },
+    ],
+    commonMistakes: [
+      "Не пропускайте ударение во всех формах imperfecto глаголов на -er/-ir.",
+    ],
+  },
+  "a2-14": {
+    acceptedAnswers: ["tuve"],
+    lessonIds: ["th-a2-1"],
+    hint: "Ayer указывает на завершённую необходимость; tener имеет основу tuv-.",
+    examples: [
+      {
+        es: "Tuve que cancelar la cita.",
+        ru: "Мне пришлось отменить встречу.",
+      },
+      {
+        es: "Tuvieron un problema ayer.",
+        ru: "Вчера у них возникла проблема.",
+      },
+    ],
+    commonMistakes: [
+      "Tuve не имеет графического ударения и не образуется от основы ten-.",
+    ],
+  },
+  "a2-15": {
+    acceptedAnswers: ["te"],
+    lessonIds: ["th-a2-5"],
+    hint: "Форма acuestas обращена к tú, значит возвратное местоимение — te.",
+    examples: [
+      { es: "¿Te vistes rápido?", ru: "Ты быстро одеваешься?" },
+      { es: "Se acuesta a las once.", ru: "Он / она ложится в одиннадцать." },
+    ],
+    commonMistakes: [
+      "Местоимение выбирается по подлежащему, а не по окончанию инфинитива -se.",
+    ],
+  },
+  "a2-16": {
+    acceptedAnswers: ["llegarán", "llegaran"],
+    lessonIds: ["th-a2-3"],
+    hint: "Для ellos в futuro используется окончание -án после полного инфинитива.",
+    examples: [
+      { es: "Llegaré antes de las ocho.", ru: "Я приеду до восьми." },
+      { es: "Mis amigos saldrán mañana.", ru: "Мои друзья уедут завтра." },
+    ],
+    commonMistakes: [
+      "Не путайте llegarán с llegaran: futuro требует графического ударения.",
+    ],
+  },
+  "a2-17": {
+    acceptedAnswers: ["estoy leyendo"],
+    lessonIds: ["th-a2-5"],
+    hint: "Спрягите estar для yo; между гласными gerundio leer получает y.",
+    examples: [
+      { es: "Estoy oyendo música.", ru: "Я сейчас слушаю музыку." },
+      { es: "Estamos leyendo el menú.", ru: "Мы сейчас читаем меню." },
+    ],
+    commonMistakes: ["Герундий leer — leyendo, не leiendo и не leendo."],
+  },
+  "a2-18": {
+    acceptedAnswers: ["como"],
+    lessonIds: ["th-a2-6"],
+    hint: "После tan + прилагательное сравнение равенства завершается como.",
+    examples: [
+      {
+        es: "El tren es tan rápido como el avión.",
+        ru: "Поезд такой же быстрый, как самолёт.",
+      },
+      {
+        es: "No trabajo tanto como antes.",
+        ru: "Я работаю не так много, как раньше.",
+      },
+    ],
+    commonMistakes: [
+      "Для прилагательного используется tan ... como; tanto согласуется с существительным или относится к действию.",
+    ],
+  },
+  "a2-19": {
+    acceptedAnswers: ["lo"],
+    lessonIds: ["th-a2-4"],
+    hint: "El pan — прямое дополнение мужского рода, единственного числа.",
+    examples: [
+      { es: "El café lo compré aquí.", ru: "Кофе я купил здесь." },
+      {
+        es: "¿Tienes el mapa? No lo encuentro.",
+        ru: "У тебя карта? Я её не нахожу.",
+      },
+    ],
+    commonMistakes: [
+      "Не используйте le для неодушевлённого прямого дополнения el pan.",
+    ],
+  },
+  "a2-20": {
+    acceptedAnswers: ["tenemos que"],
+    lessonIds: ["th-a2-6"],
+    hint: "Обязанность относится к nosotros, поэтому спрягите tener в presente.",
+    examples: [
+      { es: "Tenemos que salir ahora.", ru: "Нам нужно выйти сейчас." },
+      { es: "Ana tiene que trabajar hoy.", ru: "Ане нужно сегодня работать." },
+    ],
+    commonMistakes: [
+      "После tener que нужен инфинитив: tenemos que terminar, не tenemos que terminamos.",
+    ],
+  },
+};
+
+export const a2Grammar = a2GrammarBase.map((exercise) => ({
+  ...exercise,
+  ...a2GrammarDetails[exercise.id],
+})) satisfies GrammarExercise[];
