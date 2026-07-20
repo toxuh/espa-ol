@@ -42,7 +42,6 @@ export default function PracticePage() {
 
 function Practice() {
   const { data, error, busyId, attempt, activity } = useDay();
-  const [translation, setTranslation] = useState("");
   if (!data)
     return (
       <main className="mx-auto w-full max-w-5xl px-6 py-10">
@@ -50,19 +49,22 @@ function Practice() {
       </main>
     );
   const { plan } = data.day;
-  const practiceIds = [
+  const requiredExerciseIds = new Set([
     ...plan.grammarIds,
+    ...plan.theoryExerciseIds,
     ...plan.vocabIds,
     ...plan.conjugationIds,
-  ];
-  const exerciseDone = practiceIds.filter((id) => data.attempts[id]).length;
+  ]);
+  const exerciseDone = [...requiredExerciseIds].filter(
+    (id) => data.attempts[id],
+  ).length;
   const activityDone =
     Number(data.day.progress.readingDone) +
     plan.listeningIds.filter((id) => data.day.progress.listeningDone[id])
       .length +
     Number(Boolean(data.day.progress.translateFrom.rating)) +
     Number(Boolean(data.day.progress.translateTo.rating));
-  const total = practiceIds.length + plan.listeningIds.length + 3;
+  const total = requiredExerciseIds.size + plan.listeningIds.length + 3;
   const done = exerciseDone + activityDone;
 
   return (
@@ -76,7 +78,7 @@ function Practice() {
             <h1 className="mt-2 text-3xl font-semibold">Практика дня</h1>
           </div>
           <span className="text-sm text-muted-foreground">
-            {done} из {total} блоков
+            {done} из {total} заданий и активностей
           </span>
         </div>
         <Progress value={(done / total) * 100} />
@@ -226,53 +228,12 @@ function Practice() {
             progress={data.day.progress.translateFrom}
             onAction={activity}
           />
-          <Card>
-            <CardHeader>
-              <CardTitle>Перевод RU → ES</CardTitle>
-              <CardDescription>
-                {(data.content[plan.translateToId] as TranslationContent).title}
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <p className="leading-7">
-                {(data.content[plan.translateToId] as TranslationContent).text}
-              </p>
-              <Textarea
-                value={translation}
-                onChange={(event) => setTranslation(event.target.value)}
-                disabled={Boolean(data.day.progress.translateTo.rating)}
-                placeholder="Ваш перевод на испанский"
-                rows={6}
-              />
-              <Button
-                disabled={
-                  !translation.trim() ||
-                  Boolean(data.day.progress.translateTo.rating)
-                }
-                onClick={() =>
-                  activity("translate-to-check", { text: translation })
-                }
-              >
-                Проверить совпадение
-              </Button>
-              {data.day.progress.translateTo.rating && (
-                <div className="rounded-lg bg-muted p-4">
-                  <p className="font-medium">
-                    Совпадение значимых слов:{" "}
-                    {data.day.progress.translateTo.percent}% ·{" "}
-                    {data.day.progress.translateTo.rating}
-                  </p>
-                  <p className="mt-2 text-sm">
-                    <b>Эталон:</b>{" "}
-                    {
-                      (data.content[plan.translateToId] as TranslationContent)
-                        .reference
-                    }
-                  </p>
-                </div>
-              )}
-            </CardContent>
-          </Card>
+          <TranslateTo
+            key={plan.translateToId}
+            card={data.content[plan.translateToId] as TranslationContent}
+            progress={data.day.progress.translateTo}
+            onAction={activity}
+          />
         </TabsContent>
         <TabsContent value="analysis" className="mt-5">
           <DayAnalysis data={data} />
@@ -287,14 +248,33 @@ function DayAnalysis({ data }: { data: DayPayload }) {
     ...data.day.plan.grammarIds,
     ...data.day.plan.theoryExerciseIds,
   ]);
-  const topicStats = new Map<string, { correct: number; total: number }>();
+  const topicStats = new Map<
+    string,
+    {
+      correct: number;
+      total: number;
+      explain: string;
+      examples: { prompt: string; answer: string; correct: boolean }[];
+    }
+  >();
   for (const id of grammarIds) {
     const current = data.attempts[id];
     if (!current) continue;
     const exercise = data.content[id] as GrammarExercise;
-    const value = topicStats.get(exercise.topic) ?? { correct: 0, total: 0 };
+    const value = topicStats.get(exercise.topic) ?? {
+      correct: 0,
+      total: 0,
+      explain: exercise.explain,
+      examples: [],
+    };
     value.total += 1;
     if (current.correctFirstTry) value.correct += 1;
+    else value.explain = exercise.explain;
+    value.examples.push({
+      prompt: exercise.prompt,
+      answer: exercise.answer,
+      correct: current.correctFirstTry,
+    });
     topicStats.set(exercise.topic, value);
   }
   const topics = [...topicStats]
@@ -312,23 +292,42 @@ function DayAnalysis({ data }: { data: DayPayload }) {
       total: ids.length,
     };
   };
-  const grammar = category([...grammarIds]);
+  const grammar = category(data.day.plan.grammarIds);
+  const theory = category(data.day.plan.theoryExerciseIds);
   const vocab = category(data.day.plan.vocabIds);
   const conjugation = category(data.day.plan.conjugationIds);
-  const attempted = grammar.done + vocab.done + conjugation.done;
+  const attempted = new Set([
+    ...data.day.plan.grammarIds,
+    ...data.day.plan.theoryExerciseIds,
+    ...data.day.plan.vocabIds,
+    ...data.day.plan.conjugationIds,
+  ]);
+  const attemptedCount = [...attempted].filter(
+    (id) => data.attempts[id],
+  ).length;
+  const goodTopics = topics.filter((topic) => topic.correct === topic.total);
+  const weakTopics = topics.filter((topic) => topic.correct < topic.total);
+  const wrongWords = data.day.plan.vocabIds
+    .filter((id) => data.attempts[id] && !data.attempts[id].correctFirstTry)
+    .map((id) => (data.content[id] as VocabularyCard).word);
+  const listeningDone = data.day.plan.listeningIds.filter(
+    (id) => data.day.progress.listeningDone[id],
+  ).length;
   return (
     <div className="space-y-5">
       <div>
-        <h2 className="text-2xl font-semibold">Промежуточный анализ дня</h2>
+        <h2 className="text-2xl font-semibold">
+          {data.day.completedAt ? "Итоги дня" : "Промежуточный анализ дня"}
+        </h2>
         <p className="text-muted-foreground">
-          Считаются только уже отправленные первые попытки. Выполнено{" "}
-          {attempted}
-          упражнений.
+          Считаются только уже отправленные первые попытки. Решено{" "}
+          {attemptedCount} упражнений.
         </p>
       </div>
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {[
           ["Грамматика", grammar],
+          ["Закрепление теории", theory],
           ["Словарь", vocab],
           ["Спряжения", conjugation],
         ].map(([label, raw]) => {
@@ -353,6 +352,43 @@ function DayAnalysis({ data }: { data: DayPayload }) {
           );
         })}
       </div>
+      <Card>
+        <CardHeader>
+          <CardTitle>Остальные части дня</CardTitle>
+        </CardHeader>
+        <CardContent className="grid gap-2 text-sm md:grid-cols-2">
+          <p>
+            Перевод ES → RU:{" "}
+            <b>{ratingLabel(data.day.progress.translateFrom.rating)}</b>
+          </p>
+          <p>
+            Перевод RU → ES:{" "}
+            <b>
+              {data.day.progress.translateTo.percent === null
+                ? "ещё не сделан"
+                : `${data.day.progress.translateTo.percent}% совпадения`}
+            </b>
+          </p>
+          <p>
+            Чтение:{" "}
+            <b>{data.day.progress.readingDone ? "готово" : "не отмечено"}</b>
+          </p>
+          <p>
+            Аудирование:{" "}
+            <b>
+              {listeningDone}/{data.day.plan.listeningIds.length}
+            </b>
+          </p>
+          <p>
+            Серия: <b>🔥 {data.profile.streak}</b>
+          </p>
+          {wrongWords.length > 0 && (
+            <p>
+              Повторить слова: <b>{wrongWords.join(", ")}</b>
+            </p>
+          )}
+        </CardContent>
+      </Card>
       <Card>
         <CardHeader>
           <CardTitle>Темы грамматики сегодня</CardTitle>
@@ -382,6 +418,60 @@ function DayAnalysis({ data }: { data: DayPayload }) {
                 </div>
               ))}
             </div>
+          )}
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-emerald-700">Что было хорошо</CardTitle>
+        </CardHeader>
+        <CardContent>
+          {goodTopics.length ? (
+            <div className="flex flex-wrap gap-2">
+              {goodTopics.map((topic) => (
+                <Badge key={topic.topic} variant="secondary">
+                  {topic.topic}
+                </Badge>
+              ))}
+            </div>
+          ) : (
+            <p className="text-muted-foreground">
+              Пока нет темы, выполненной без единой ошибки.
+            </p>
+          )}
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-destructive">
+            Что стоит подтянуть
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {weakTopics.length ? (
+            weakTopics.map((topic) => (
+              <div key={topic.topic} className="rounded-lg bg-muted p-4">
+                <p className="font-medium">
+                  {topic.topic} — {topic.correct}/{topic.total} верно
+                </p>
+                <div
+                  className="mt-2 text-sm leading-6"
+                  dangerouslySetInnerHTML={{ __html: topic.explain }}
+                />
+                <div className="mt-3 space-y-2 border-t pt-3 text-sm">
+                  {topic.examples.map((example) => (
+                    <p key={`${topic.topic}-${example.prompt}`}>
+                      {example.correct ? "✓" : "✗"} {example.prompt}{" "}
+                      <b>{example.answer}</b>
+                    </p>
+                  ))}
+                </div>
+              </div>
+            ))
+          ) : (
+            <p className="text-muted-foreground">
+              В выполненных грамматических заданиях ошибок нет.
+            </p>
           )}
         </CardContent>
       </Card>
@@ -453,9 +543,13 @@ function TranslateFrom({
       </CardHeader>
       <CardContent className="space-y-4">
         <p className="leading-7">{card.text}</p>
+        <p className="text-sm text-muted-foreground">
+          Переведите текст на бумаге, в заметках или мысленно, затем сравните с
+          примером перевода.
+        </p>
         {!progress.revealed ? (
           <Button onClick={() => onAction("translate-from-reveal")}>
-            Показать эталон
+            Показать перевод для сравнения
           </Button>
         ) : (
           <>
@@ -467,7 +561,6 @@ function TranslateFrom({
                 <Button
                   key={rating}
                   variant={progress.rating === rating ? "default" : "outline"}
-                  disabled={Boolean(progress.rating)}
                   onClick={() => onAction("translate-from-rate", { rating })}
                 >
                   {rating === "easy"
@@ -483,4 +576,68 @@ function TranslateFrom({
       </CardContent>
     </Card>
   );
+}
+
+function TranslateTo({
+  card,
+  progress,
+  onAction,
+}: {
+  card: TranslationContent;
+  progress: {
+    text: string;
+    percent: number | null;
+    rating: "easy" | "mid" | "hard" | null;
+  };
+  onAction: (action: string, values?: Record<string, unknown>) => void;
+}) {
+  const [translation, setTranslation] = useState(progress.text);
+  const checked = progress.rating !== null;
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Перевод RU → ES</CardTitle>
+        <CardDescription>{card.title}</CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        <p className="leading-7">{card.text}</p>
+        <Textarea
+          value={translation}
+          onChange={(event) => setTranslation(event.target.value)}
+          disabled={checked}
+          placeholder="Ваш перевод на испанский"
+          rows={6}
+        />
+        <Button
+          disabled={checked}
+          onClick={() => onAction("translate-to-check", { text: translation })}
+        >
+          Проверить совпадение
+        </Button>
+        {checked && (
+          <div className="rounded-lg bg-muted p-4">
+            <p className="font-medium">
+              Совпадение значимых слов: {progress.percent}% ·{" "}
+              {ratingLabel(progress.rating)}
+            </p>
+            <p className="mt-2 text-sm">
+              <b>Эталон:</b> {card.reference}
+            </p>
+            <p className="mt-2 text-xs text-muted-foreground">
+              Проверка приблизительная: она сравнивает ключевые слова, а не
+              оценивает грамматику, порядок слов или синонимы.
+            </p>
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  );
+}
+
+function ratingLabel(rating: "easy" | "mid" | "hard" | null) {
+  if (rating === "easy") return "🙂 легко";
+  if (rating === "mid") return "😐 нормально";
+  if (rating === "hard") return "😟 сложно";
+  return "ещё не сделан";
 }

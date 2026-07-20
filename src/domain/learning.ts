@@ -3,6 +3,18 @@ import { normalizeAnswer } from "@/domain/answer-normalization";
 
 export type TranslationRating = "easy" | "mid" | "hard";
 
+export function firstTrySummary(
+  attempts: readonly { correctFirstTry: boolean }[],
+) {
+  const total = attempts.length;
+  const correct = attempts.filter((attempt) => attempt.correctFirstTry).length;
+  return {
+    correct,
+    total,
+    accuracy: total ? Math.round((correct / total) * 100) : null,
+  };
+}
+
 export function levelFromPlacementScore(score: number): CefrLevel {
   if (score <= 3) return "A1";
   if (score <= 6) return "A2";

@@ -37,8 +37,12 @@ export function ConjugationExercise({
   const [answers, setAnswers] = useState(() => Array(6).fill("") as string[]);
   function submit(event: FormEvent) {
     event.preventDefault();
-    if (answers.every((item) => item.trim())) onSubmit(answers);
+    onSubmit(answers);
   }
+  const submitted = Array.isArray(attempt?.answer)
+    ? attempt.answer.map(String)
+    : answers;
+  const correctCount = attempt?.result.correctMask?.filter(Boolean).length ?? 0;
   return (
     <Card>
       <CardHeader>
@@ -49,24 +53,46 @@ export function ConjugationExercise({
       </CardHeader>
       <CardContent>
         {attempt ? (
-          <div className="space-y-2">
+          <div className="space-y-3">
+            <p
+              className={
+                attempt.result.correct
+                  ? "font-medium text-emerald-700"
+                  : "font-medium text-destructive"
+              }
+            >
+              {attempt.result.correct
+                ? "Все 6 форм верны."
+                : `Верно ${correctCount}/6. Сравните ошибки с правильными формами.`}
+            </p>
             {persons.map((person, index) => (
-              <p
+              <div
                 key={person}
-                className={
-                  attempt.result.correctMask?.[index]
-                    ? "text-emerald-700"
-                    : "text-destructive"
-                }
+                className="grid items-center gap-2 sm:grid-cols-[170px_1fr]"
               >
-                <span className="inline-block w-44 text-muted-foreground">
-                  {person}
-                </span>
-                {String(
-                  (attempt.result.expected as string[] | undefined)?.[index] ??
-                    "",
-                )}
-              </p>
+                <span className="text-sm text-muted-foreground">{person}</span>
+                <div>
+                  <p
+                    className={
+                      attempt.result.correctMask?.[index]
+                        ? "text-emerald-700"
+                        : "text-destructive"
+                    }
+                  >
+                    {submitted[index] || "(пусто)"}
+                  </p>
+                  {!attempt.result.correctMask?.[index] && (
+                    <p className="text-sm text-muted-foreground">
+                      Правильно:{" "}
+                      {String(
+                        (attempt.result.expected as string[] | undefined)?.[
+                          index
+                        ] ?? "",
+                      )}
+                    </p>
+                  )}
+                </div>
+              </div>
             ))}
           </div>
         ) : (
@@ -89,14 +115,15 @@ export function ConjugationExercise({
                 />
               </label>
             ))}
-            <Button
-              className="mt-2"
-              disabled={busy || answers.some((item) => !item.trim())}
-            >
+            <Button className="mt-2" disabled={busy}>
               Проверить все формы
             </Button>
           </form>
         )}
+        <div className="mt-5 rounded-lg bg-muted p-3 text-sm leading-6">
+          <p className="italic">{card.example.es}</p>
+          <p className="text-muted-foreground">{card.example.ru}</p>
+        </div>
       </CardContent>
     </Card>
   );

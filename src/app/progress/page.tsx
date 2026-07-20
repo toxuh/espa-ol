@@ -1,9 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
+import { ActivityCalendar } from "@/components/activity-calendar";
 import { ProfileRequired } from "@/components/profile-required";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -16,7 +19,11 @@ import { profileFetch } from "@/lib/client-api";
 
 type Stats = {
   profile: { joinedAt: string; streak: number; level: string };
-  days: { started: number; completed: number };
+  days: {
+    started: number;
+    completed: number;
+    activity: { localDate: string; completedAt: string | null }[];
+  };
   categories: Record<
     string,
     {
@@ -27,6 +34,15 @@ type Stats = {
     }
   >;
   topics: { topic: string; correct: number; total: number; accuracy: number }[];
+  vocabulary: ItemMastery[];
+  conjugation: ItemMastery[];
+};
+type ItemMastery = {
+  id: string;
+  label: string;
+  correct: number;
+  total: number;
+  accuracy: number;
 };
 const labels: Record<string, string> = {
   GRAMMAR: "Грамматика",
@@ -65,13 +81,20 @@ function ProgressPageContent() {
           Серия: 🔥 {stats.profile.streak} · начато дней: {stats.days.started} ·
           завершено: {stats.days.completed}
         </p>
+        <p className="text-sm text-muted-foreground">
+          Дата начала:{" "}
+          {new Date(stats.profile.joinedAt).toLocaleDateString("ru-RU")}
+        </p>
       </div>
       <section className="grid gap-4 md:grid-cols-3">
         {Object.entries(stats.categories).map(([kind, value]) => (
           <Card key={kind}>
             <CardHeader>
               <CardTitle>{labels[kind] ?? kind}</CardTitle>
-              <CardDescription>{value.attempts} карточек</CardDescription>
+              <CardDescription>
+                Решено карточек: {value.attempts}. Процент — доля полностью
+                верных первых попыток.
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-2">
               <div className="text-3xl font-semibold">
@@ -96,8 +119,72 @@ function ProgressPageContent() {
               Статистика появится после первых ответов.
             </p>
           ) : (
-            <div className="space-y-4">
-              {stats.topics.map((topic) => (
+            <TopicGroups topics={stats.topics} />
+          )}
+        </CardContent>
+      </Card>
+      <MasteryCard
+        title="Словарный запас"
+        empty="Пока нет данных по словарным карточкам."
+        items={stats.vocabulary}
+      />
+      <MasteryCard
+        title="Спряжение глаголов"
+        empty="Пока нет данных по спряжениям."
+        items={stats.conjugation}
+      />
+      <Card>
+        <CardHeader>
+          <CardTitle>Календарь активности</CardTitle>
+          <CardDescription>
+            Зелёный день завершён полностью, оранжевый начат частично.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <ActivityCalendar days={stats.days.activity} />
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle>Изменить уровень</CardTitle>
+          <CardDescription>
+            Можно повторить placement-тест или выбрать уровень вручную. История
+            сохранится.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Button asChild variant="outline">
+            <Link href="/placement">Изменить уровень</Link>
+          </Button>
+        </CardContent>
+      </Card>
+    </main>
+  );
+}
+
+function TopicGroups({ topics }: { topics: Stats["topics"] }) {
+  const groups = [
+    {
+      title: "Нужно подтянуть",
+      items: topics.filter((item) => item.accuracy < 45),
+    },
+    {
+      title: "Средне",
+      items: topics.filter((item) => item.accuracy >= 45 && item.accuracy < 75),
+    },
+    {
+      title: "Хорошо усвоено",
+      items: topics.filter((item) => item.accuracy >= 75),
+    },
+  ];
+  return (
+    <div className="space-y-6">
+      {groups.map((group) =>
+        group.items.length ? (
+          <section key={group.title}>
+            <h3 className="mb-3 font-medium">{group.title}</h3>
+            <div className="space-y-3">
+              {group.items.map((topic) => (
                 <div
                   key={topic.topic}
                   className="grid items-center gap-2 sm:grid-cols-[220px_1fr_60px]"
@@ -108,9 +195,47 @@ function ProgressPageContent() {
                 </div>
               ))}
             </div>
-          )}
-        </CardContent>
-      </Card>
-    </main>
+          </section>
+        ) : null,
+      )}
+    </div>
+  );
+}
+
+function MasteryCard({
+  title,
+  empty,
+  items,
+}: {
+  title: string;
+  empty: string;
+  items: ItemMastery[];
+}) {
+  const learned = items.filter((item) => item.accuracy >= 75);
+  const struggling = items.filter((item) => item.accuracy < 45);
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>{title}</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        {items.length ? (
+          <>
+            <p>
+              Отработано карточек: <b>{items.length}</b>. Хорошо усвоено:{" "}
+              <b>{learned.length}</b>.
+            </p>
+            {struggling.length > 0 && (
+              <p className="text-sm text-muted-foreground">
+                Пока даются трудно:{" "}
+                {struggling.map((item) => item.label).join(", ")}
+              </p>
+            )}
+          </>
+        ) : (
+          <p className="text-muted-foreground">{empty}</p>
+        )}
+      </CardContent>
+    </Card>
   );
 }

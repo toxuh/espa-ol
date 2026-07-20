@@ -2,22 +2,27 @@
 
 import { useCallback, useEffect, useState } from "react";
 
+import { useProfile } from "@/components/profile-provider";
 import { profileFetch } from "@/lib/client-api";
 import type { DayPayload } from "@/types/day";
 
 export function useDay() {
+  const { refresh: refreshProfile } = useProfile();
   const [data, setData] = useState<DayPayload | null>(null);
   const [error, setError] = useState("");
   const [busyId, setBusyId] = useState<string | null>(null);
 
   const refresh = useCallback(async () => {
     try {
-      setData(await profileFetch<DayPayload>("/api/day"));
+      const next = await profileFetch<DayPayload>("/api/day");
+      setData(next);
       setError("");
+      return next;
     } catch (caught) {
       setError(
         caught instanceof Error ? caught.message : "Не удалось загрузить день",
       );
+      return null;
     }
   }, []);
 
@@ -45,11 +50,13 @@ export function useDay() {
       if (!data) return;
       setBusyId(sourceId);
       try {
+        const wasCompleted = Boolean(data.day.completedAt);
         await profileFetch("/api/day/attempt", {
           method: "POST",
           body: JSON.stringify({ dayId: data.day.id, sourceId, answer }),
         });
-        await refresh();
+        const next = await refresh();
+        if (!wasCompleted && next?.day.completedAt) await refreshProfile();
       } catch (caught) {
         setError(
           caught instanceof Error
@@ -60,7 +67,7 @@ export function useDay() {
         setBusyId(null);
       }
     },
-    [data, refresh],
+    [data, refresh, refreshProfile],
   );
 
   const activity = useCallback(
@@ -68,11 +75,13 @@ export function useDay() {
       if (!data) return;
       setBusyId(action + String(values.sourceId ?? ""));
       try {
+        const wasCompleted = Boolean(data.day.completedAt);
         await profileFetch("/api/day/activity", {
           method: "POST",
           body: JSON.stringify({ dayId: data.day.id, action, ...values }),
         });
-        await refresh();
+        const next = await refresh();
+        if (!wasCompleted && next?.day.completedAt) await refreshProfile();
       } catch (caught) {
         setError(
           caught instanceof Error
@@ -83,7 +92,7 @@ export function useDay() {
         setBusyId(null);
       }
     },
-    [data, refresh],
+    [data, refresh, refreshProfile],
   );
 
   return { data, error, busyId, attempt, activity, refresh };

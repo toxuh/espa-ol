@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   allowedLevels,
+  firstTrySummary,
   levelFromPlacementScore,
   localDateInTimeZone,
   previousDate,
@@ -47,5 +48,23 @@ describe("learning rules", () => {
     expect(
       scoreTranslation("Madrid", "Me llamo María. Vivo en Madrid.").rating,
     ).toBe("hard");
+  });
+
+  it("scores complete cards instead of counting partial fields as attempts", () => {
+    expect(
+      firstTrySummary([{ correctFirstTry: true }, { correctFirstTry: false }]),
+    ).toEqual({ correct: 1, total: 2, accuracy: 50 });
+    expect(
+      firstTrySummary([
+        // A conjugation card with five correct forms out of six is still one
+        // incorrectly completed card on the first try.
+        { correctFirstTry: false },
+      ]),
+    ).toEqual({ correct: 0, total: 1, accuracy: 0 });
+    expect(firstTrySummary([])).toEqual({
+      correct: 0,
+      total: 0,
+      accuracy: null,
+    });
   });
 });

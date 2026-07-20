@@ -15,6 +15,7 @@ import { normalizeAnswer } from "@/domain/answer-normalization";
 import {
   adaptivePick,
   allowedLevels,
+  firstTrySummary,
   localDateInTimeZone,
   previousDate,
   scoreTranslation,
@@ -227,7 +228,9 @@ export async function ensureDailyPlan(profile: Profile, now = new Date()) {
 
   const completedFrom = new Set(
     oldPlans
-      .filter(({ progress }) => progressFromJson(progress).translateFrom.rating)
+      .filter(
+        ({ progress }) => progressFromJson(progress).translateFrom.revealed,
+      )
       .map(({ plan }) => planFromJson(plan).translateFromId),
   );
   const completedTo = new Set(
@@ -362,6 +365,13 @@ export async function hydrateDay(profile: Profile, now = new Date()) {
     getDb().contentItem.findMany({ where: { sourceId: { in: [...ids] } } }),
     getDb().dailyAttempt.findMany({ where: { dailyPlanId: day.id } }),
   ]);
+  const displayedScore = day.completedAt
+    ? (firstTrySummary(
+        attempts.filter((attempt) =>
+          plan.grammarIds.includes(attempt.contentSourceId),
+        ),
+      ).accuracy ?? 0)
+    : day.score;
   return {
     profile: {
       id: profile.id,
@@ -369,7 +379,12 @@ export async function hydrateDay(profile: Profile, now = new Date()) {
       level: profile.level,
       streak: profile.streak,
     },
-    day: { ...day, plan, progress: progressFromJson(day.progress) },
+    day: {
+      ...day,
+      score: displayedScore,
+      plan,
+      progress: progressFromJson(day.progress),
+    },
     content: Object.fromEntries(
       content.map((item) => [item.sourceId, item.data]),
     ),
@@ -379,8 +394,9 @@ export async function hydrateDay(profile: Profile, now = new Date()) {
   };
 }
 
-async function completeDayIfReady(dayId: string) {
-  const db = getDb();
+type DbClient = ReturnType<typeof getDb> | Prisma.TransactionClient;
+
+async function completeDayIfReady(db: DbClient, dayId: string) {
   const day = await db.dailyPlan.findUniqueOrThrow({
     where: { id: dayId },
     include: { attempts: true, profile: true },
@@ -408,12 +424,10 @@ async function completeDayIfReady(dayId: string) {
   )
     return;
 
-  const total = day.attempts.reduce((sum, item) => sum + item.totalCount, 0);
-  const correct = day.attempts.reduce(
-    (sum, item) => sum + item.correctCount,
-    0,
+  const grammarAttempts = day.attempts.filter((attempt) =>
+    plan.grammarIds.includes(attempt.contentSourceId),
   );
-  const score = total ? Math.round((correct / total) * 100) : 0;
+  const score = firstTrySummary(grammarAttempts).accuracy ?? 0;
   const localDate = day.localDate.toISOString().slice(0, 10);
   const lastDate = day.profile.lastCompletedDate?.toISOString().slice(0, 10);
   const streak =
@@ -423,102 +437,122 @@ async function completeDayIfReady(dayId: string) {
         ? day.profile.streak + 1
         : 1;
 
-  await db.$transaction([
-    db.dailyPlan.update({
-      where: { id: day.id },
-      data: {
-        completedAt: new Date(),
-        score,
-        rating: score >= 90 ? "excellent" : score >= 70 ? "good" : "practice",
-      },
-    }),
-    db.profile.update({
+  await db.dailyPlan.update({
+    where: { id: day.id },
+    data: {
+      completedAt: new Date(),
+      score,
+      rating: score >= 90 ? "excellent" : score >= 70 ? "good" : "practice",
+    },
+  });
+  if (!lastDate || lastDate <= localDate) {
+    await db.profile.update({
       where: { id: day.profileId },
       data: { streak, lastCompletedDate: day.localDate },
-    }),
-  ]);
+    });
+  }
+}
+
+async function serializableTransaction<T>(
+  work: (tx: Prisma.TransactionClient) => Promise<T>,
+) {
+  const db = getDb();
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    try {
+      return await db.$transaction(work, {
+        isolationLevel: Prisma.TransactionIsolationLevel.Serializable,
+      });
+    } catch (error) {
+      const retryable =
+        error instanceof Prisma.PrismaClientKnownRequestError &&
+        (error.code === "P2002" || error.code === "P2034");
+      if (!retryable || attempt === 2) throw error;
+    }
+  }
+  throw new Error("Serializable transaction retry exhausted");
 }
 
 export async function submitAttempt(
   profile: Profile,
   input: { dayId: string; sourceId: string; answer: string | string[] },
 ) {
-  const db = getDb();
-  const day = await db.dailyPlan.findFirst({
-    where: { id: input.dayId, profileId: profile.id },
-  });
-  if (!day) throw new ApiError(404, "Учебный день не найден");
-  const plan = planFromJson(day.plan);
-  const allowed = new Set([
-    ...plan.grammarIds,
-    ...plan.theoryExerciseIds,
-    ...plan.vocabIds,
-    ...plan.conjugationIds,
-  ]);
-  if (!allowed.has(input.sourceId))
-    throw new ApiError(400, "Задание не входит в этот день");
-  const existing = await db.dailyAttempt.findUnique({
-    where: {
-      dailyPlanId_contentSourceId: {
-        dailyPlanId: day.id,
-        contentSourceId: input.sourceId,
+  return serializableTransaction(async (db) => {
+    const day = await db.dailyPlan.findFirst({
+      where: { id: input.dayId, profileId: profile.id },
+    });
+    if (!day) throw new ApiError(404, "Учебный день не найден");
+    const plan = planFromJson(day.plan);
+    const allowed = new Set([
+      ...plan.grammarIds,
+      ...plan.theoryExerciseIds,
+      ...plan.vocabIds,
+      ...plan.conjugationIds,
+    ]);
+    if (!allowed.has(input.sourceId))
+      throw new ApiError(400, "Задание не входит в этот день");
+    const existing = await db.dailyAttempt.findUnique({
+      where: {
+        dailyPlanId_contentSourceId: {
+          dailyPlanId: day.id,
+          contentSourceId: input.sourceId,
+        },
       },
-    },
-  });
-  if (existing) return existing;
+    });
+    if (existing) {
+      await completeDayIfReady(db, day.id);
+      return existing;
+    }
 
-  const content = await db.contentItem.findUnique({
-    where: { sourceId: input.sourceId },
-  });
-  if (!content) throw new ApiError(404, "Задание не найдено");
-  const data = jsonObject(content.data);
-  let kind: AttemptKind;
-  let correctCount = 0;
-  let totalCount = 1;
-  let result: Prisma.InputJsonObject;
-  if (content.kind === ContentKind.GRAMMAR) {
-    kind = AttemptKind.GRAMMAR;
-    const answer = String(input.answer);
-    const expected = String(data.answer ?? "");
-    const correct = normalizeAnswer(answer) === normalizeAnswer(expected);
-    correctCount = correct ? 1 : 0;
-    result = { correct, expected, explain: String(data.explain ?? "") };
-  } else if (content.kind === ContentKind.VOCABULARY) {
-    kind = AttemptKind.VOCABULARY;
-    const answer = String(input.answer);
-    const accepted = Array.isArray(data.accept)
-      ? data.accept.map(String)
-      : [String(data.translation ?? "")];
-    const correct = accepted.some(
-      (value) => normalizeAnswer(value) === normalizeAnswer(answer),
-    );
-    correctCount = correct ? 1 : 0;
-    result = {
-      correct,
-      expected: String(data.translation ?? ""),
-      context: String(data.context ?? ""),
-    };
-  } else if (content.kind === ContentKind.CONJUGATION) {
-    kind = AttemptKind.CONJUGATION;
-    const answers = Array.isArray(input.answer) ? input.answer : [];
-    const expected = Array.isArray(data.forms) ? data.forms.map(String) : [];
-    const mask = expected.map(
-      (value, index) =>
-        normalizeAnswer(answers[index] ?? "") === normalizeAnswer(value),
-    );
-    correctCount = mask.filter(Boolean).length;
-    totalCount = expected.length;
-    result = { correct: mask.every(Boolean), correctMask: mask, expected };
-  } else {
-    throw new ApiError(
-      400,
-      "Этот тип контента нельзя проверить как упражнение",
-    );
-  }
+    const content = await db.contentItem.findUnique({
+      where: { sourceId: input.sourceId },
+    });
+    if (!content) throw new ApiError(404, "Задание не найдено");
+    const data = jsonObject(content.data);
+    let kind: AttemptKind;
+    let correctCount = 0;
+    let totalCount = 1;
+    let result: Prisma.InputJsonObject;
+    if (content.kind === ContentKind.GRAMMAR) {
+      kind = AttemptKind.GRAMMAR;
+      const answer = String(input.answer);
+      const expected = String(data.answer ?? "");
+      const correct = normalizeAnswer(answer) === normalizeAnswer(expected);
+      correctCount = correct ? 1 : 0;
+      result = { correct, expected, explain: String(data.explain ?? "") };
+    } else if (content.kind === ContentKind.VOCABULARY) {
+      kind = AttemptKind.VOCABULARY;
+      const answer = String(input.answer);
+      const accepted = Array.isArray(data.accept)
+        ? data.accept.map(String)
+        : [String(data.translation ?? "")];
+      const correct = accepted.some(
+        (value) => normalizeAnswer(value) === normalizeAnswer(answer),
+      );
+      correctCount = correct ? 1 : 0;
+      result = {
+        correct,
+        expected: String(data.translation ?? ""),
+        context: String(data.context ?? ""),
+      };
+    } else if (content.kind === ContentKind.CONJUGATION) {
+      kind = AttemptKind.CONJUGATION;
+      const answers = Array.isArray(input.answer) ? input.answer : [];
+      const expected = Array.isArray(data.forms) ? data.forms.map(String) : [];
+      const mask = expected.map(
+        (value, index) =>
+          normalizeAnswer(answers[index] ?? "") === normalizeAnswer(value),
+      );
+      correctCount = mask.filter(Boolean).length;
+      totalCount = expected.length;
+      result = { correct: mask.every(Boolean), correctMask: mask, expected };
+    } else {
+      throw new ApiError(
+        400,
+        "Этот тип контента нельзя проверить как упражнение",
+      );
+    }
 
-  let attempt;
-  try {
-    attempt = await db.dailyAttempt.create({
+    const attempt = await db.dailyAttempt.create({
       data: {
         dailyPlanId: day.id,
         contentSourceId: input.sourceId,
@@ -530,25 +564,9 @@ export async function submitAttempt(
         correctFirstTry: correctCount === totalCount,
       },
     });
-  } catch (error) {
-    if (
-      error instanceof Prisma.PrismaClientKnownRequestError &&
-      error.code === "P2002"
-    ) {
-      attempt = await db.dailyAttempt.findUniqueOrThrow({
-        where: {
-          dailyPlanId_contentSourceId: {
-            dailyPlanId: day.id,
-            contentSourceId: input.sourceId,
-          },
-        },
-      });
-    } else {
-      throw error;
-    }
-  }
-  await completeDayIfReady(day.id);
-  return attempt;
+    await completeDayIfReady(db, day.id);
+    return attempt;
+  });
 }
 
 export async function updateDayActivity(
@@ -562,52 +580,53 @@ export async function updateDayActivity(
     text?: string;
   },
 ) {
-  const db = getDb();
-  const day = await db.dailyPlan.findFirst({
-    where: { id: input.dayId, profileId: profile.id },
-  });
-  if (!day) throw new ApiError(404, "Учебный день не найден");
-  const plan = planFromJson(day.plan);
-  const progress = progressFromJson(day.progress);
-
-  if (input.action === "reading-complete") {
-    progress.readingDone = true;
-  } else if (
-    input.action === "listening-set" &&
-    input.sourceId &&
-    plan.listeningIds.includes(input.sourceId)
-  ) {
-    progress.listeningDone[input.sourceId] = Boolean(input.done);
-  } else if (input.action === "translate-from-reveal") {
-    progress.translateFrom.revealed = true;
-  } else if (
-    input.action === "translate-from-rate" &&
-    ["easy", "mid", "hard"].includes(input.rating ?? "")
-  ) {
-    progress.translateFrom.revealed = true;
-    progress.translateFrom.rating = input.rating as "easy" | "mid" | "hard";
-  } else if (input.action === "translate-to-check") {
-    const item = await db.contentItem.findUnique({
-      where: { sourceId: plan.translateToId },
+  return serializableTransaction(async (db) => {
+    const day = await db.dailyPlan.findFirst({
+      where: { id: input.dayId, profileId: profile.id },
     });
-    const data = item ? jsonObject(item.data) : {};
-    const scored = scoreTranslation(
-      input.text ?? "",
-      String(data.reference ?? ""),
-    );
-    progress.translateTo = {
-      text: input.text ?? "",
-      percent: scored.percent,
-      rating: scored.rating,
-    };
-  } else {
-    throw new ApiError(400, "Неизвестное действие дня");
-  }
+    if (!day) throw new ApiError(404, "Учебный день не найден");
+    const plan = planFromJson(day.plan);
+    const progress = progressFromJson(day.progress);
 
-  await db.dailyPlan.update({
-    where: { id: day.id },
-    data: { progress: progress as unknown as Prisma.InputJsonValue },
+    if (input.action === "reading-complete") {
+      progress.readingDone = true;
+    } else if (
+      input.action === "listening-set" &&
+      input.sourceId &&
+      plan.listeningIds.includes(input.sourceId)
+    ) {
+      progress.listeningDone[input.sourceId] = Boolean(input.done);
+    } else if (input.action === "translate-from-reveal") {
+      progress.translateFrom.revealed = true;
+    } else if (
+      input.action === "translate-from-rate" &&
+      ["easy", "mid", "hard"].includes(input.rating ?? "")
+    ) {
+      progress.translateFrom.revealed = true;
+      progress.translateFrom.rating = input.rating as "easy" | "mid" | "hard";
+    } else if (input.action === "translate-to-check") {
+      const item = await db.contentItem.findUnique({
+        where: { sourceId: plan.translateToId },
+      });
+      const data = item ? jsonObject(item.data) : {};
+      const scored = scoreTranslation(
+        input.text ?? "",
+        String(data.reference ?? ""),
+      );
+      progress.translateTo = {
+        text: input.text ?? "",
+        percent: scored.percent,
+        rating: scored.rating,
+      };
+    } else {
+      throw new ApiError(400, "Неизвестное действие дня");
+    }
+
+    await db.dailyPlan.update({
+      where: { id: day.id },
+      data: { progress: progress as unknown as Prisma.InputJsonValue },
+    });
+    await completeDayIfReady(db, day.id);
+    return progress;
   });
-  await completeDayIfReady(day.id);
-  return progress;
 }
