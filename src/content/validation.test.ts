@@ -108,6 +108,17 @@ describe("content catalog validation", () => {
     );
   });
 
+  it("requires the complete reference template for B1 readings", () => {
+    const changed = structuredClone(catalogItems);
+    const item = changed.find((entry) => entry.sourceId === "r-b1-1");
+    if (!item) throw new Error("Missing r-b1-1 fixture");
+    delete (item.data as ReadingContent).questions;
+
+    expect(validateCatalog(changed)).toContain(
+      "r-b1-1: reference-template field questions needs at least 3 items",
+    );
+  });
+
   it("requires reciprocal A1 theory and exercise links", () => {
     const changed = structuredClone(catalogItems);
     const item = changed.find((entry) => entry.sourceId === "th-a1-1");
@@ -127,6 +138,17 @@ describe("content catalog validation", () => {
 
     expect(validateCatalog(changed)).toContain(
       "a2-01: th-a2-1 has no exercise backlink",
+    );
+  });
+
+  it("requires reciprocal B1 theory and exercise links", () => {
+    const changed = structuredClone(catalogItems);
+    const item = changed.find((entry) => entry.sourceId === "th-b1-1");
+    if (!item) throw new Error("Missing th-b1-1 fixture");
+    (item.data as TheoryLesson).exerciseIds = ["b1-08", "b1-19"];
+
+    expect(validateCatalog(changed)).toContain(
+      "b1-07: th-b1-1 has no exercise backlink",
     );
   });
 });

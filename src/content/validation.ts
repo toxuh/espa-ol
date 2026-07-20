@@ -27,7 +27,7 @@ export interface ContentManifest {
   entries: Record<string, ContentManifestEntry>;
 }
 
-const completeTemplateLevels = new Set<CefrLevel>(["A1", "A2"]);
+const completeTemplateLevels = new Set<CefrLevel>(["A1", "A2", "B1"]);
 
 export const baselineMinimums: Record<
   CefrLevel,

@@ -39,7 +39,7 @@
 - Обе миграции применены к PostgreSQL 17.
 - `content:check` подтверждает 292 уникальные записи, 73 grammar-темы,
   минимальные объёмы, ссылки, ответы, отсутствие orphan-тем, словарные
-  `contextTarget`, multi-blank примеры, полный A1–A2-шаблон, двусторонние
+  `contextTarget`, multi-blank примеры, полный A1–B1-шаблон, двусторонние
   `lessonIds`/`exerciseIds` и manifest защищённых полей.
 - Seed дважды загрузил те же 292 записи контента.
 - TypeScript, ESLint, Prettier и unit-тесты доменных правил проходят.
@@ -56,9 +56,9 @@
 
 ## Current execution pointer
 
-Этап 3 и вертикальный A2-срез этапа 4 из
+Этап 3 и вертикальные A2–B1-срезы этапа 4 из
 [CONTENT_EXPANSION_PLAN.md](CONTENT_EXPANSION_PLAN.md) закрыты без изменения 292
-ID и дневной нагрузки: полный шаблон обязателен для A1–A2 и подтверждён
-контентом, валидацией и browser acceptance на A2-профиле. Следующий срез —
-вертикальный B1: сначала listening, переводы, readings и conjugations, затем
+ID и дневной нагрузки: полный шаблон обязателен для A1–B1 и подтверждён
+контентом, валидацией и browser acceptance на B1-профиле. Следующий срез —
+вертикальный B2: сначала listening, переводы, readings и conjugations, затем
 grammar, vocabulary и шесть theory-уроков.
