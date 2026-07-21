@@ -1,6 +1,6 @@
 import type { VocabularyCard } from "../../types";
 
-export const b2Vocabulary = [
+const b2VocabularyBase = [
   {
     id: "v-b2-1",
     level: "B2",
@@ -142,3 +142,158 @@ export const b2Vocabulary = [
     revision: 1,
   },
 ] satisfies VocabularyCard[];
+
+const b2VocabularyDetails: Record<
+  string,
+  Pick<
+    VocabularyCard,
+    | "partOfSpeech"
+    | "gender"
+    | "forms"
+    | "contextTranslation"
+    | "collocations"
+    | "usageNote"
+    | "register"
+  >
+> = {
+  "v-b2-1": {
+    partOfSpeech: "глагол",
+    forms: ["exigir", "exige", "exigen", "exigió", "exigiendo"],
+    contextTranslation: "Сотрудники требуют лучших условий.",
+    collocations: ["exigir responsabilidades", "exigir el cumplimiento de"],
+    usageNote:
+      "Exigir сильнее, чем pedir: оно предполагает право требовать. Перед придаточным требует subjuntivo: exigen que se cumpla el acuerdo.",
+    register: "нейтрально-формальный",
+  },
+  "v-b2-2": {
+    partOfSpeech: "глагол",
+    forms: ["fomentar", "fomenta", "fomentan", "fomentó", "fomentando"],
+    contextTranslation:
+      "Правительство хочет способствовать развитию сельского туризма.",
+    collocations: ["fomentar el empleo", "fomentar la participación"],
+    usageNote:
+      "Fomentar означает целенаправленно поощрять и развивать явление; в этом значении оно не заменяется на ayudar.",
+    register: "формальный, публицистический",
+  },
+  "v-b2-3": {
+    partOfSpeech: "глагол",
+    forms: [
+      "desempeñar",
+      "desempeña",
+      "desempeñan",
+      "desempeñó",
+      "desempeñando",
+    ],
+    contextTranslation: "Он играет ключевую роль в компании.",
+    collocations: ["desempeñar un papel", "desempeñar un cargo"],
+    usageNote:
+      "Чаще всего употребляется с papel, función или cargo; «выполнять задачу» в быту — realizar или hacer.",
+    register: "формальный",
+  },
+  "v-b2-4": {
+    partOfSpeech: "глагол",
+    forms: ["abarcar", "abarca", "abarcan", "abarcó", "abarcando"],
+    contextTranslation: "Проект охватывает несколько стран.",
+    collocations: ["abarcar un período", "abarcar varios temas"],
+    usageNote:
+      "Abarcar описывает охват по объёму, территории или времени; в перфекте пишется abarqué из-за чередования c/qu.",
+    register: "нейтрально-формальный",
+  },
+  "v-b2-5": {
+    partOfSpeech: "глагол",
+    forms: ["plantear", "plantea", "plantean", "planteó", "planteando"],
+    contextTranslation: "В докладе поставлено несколько важных вопросов.",
+    collocations: ["plantear un problema", "plantearse una duda"],
+    usageNote:
+      "Plantear — вынести вопрос на обсуждение; возвратное plantearse означает «задуматься о чём-то» самому.",
+    register: "нейтрально-формальный",
+  },
+  "v-b2-6": {
+    partOfSpeech: "глагол",
+    forms: ["destacar", "destaca", "destacan", "destacó", "destacando"],
+    contextTranslation: "Я хочу подчеркнуть важность этой темы.",
+    collocations: ["destacar la importancia", "destacar entre los demás"],
+    usageNote:
+      "С прямым дополнением значит «подчеркнуть», без дополнения — «выделяться»: destaca entre sus compañeros.",
+    register: "нейтральный",
+  },
+  "v-b2-7": {
+    partOfSpeech: "глагол",
+    forms: ["carecer", "carece", "carecen", "careció", "careciendo"],
+    contextTranslation: "В регионе не хватает базовых ресурсов.",
+    collocations: ["carecer de sentido", "carecer de recursos"],
+    usageNote:
+      "Всегда употребляется с предлогом de и близко к no tener, но звучит книжнее.",
+    register: "формальный",
+  },
+  "v-b2-8": {
+    partOfSpeech: "глагол",
+    forms: ["suscitar", "suscita", "suscitan", "suscitó", "suscitando"],
+    contextTranslation: "Новость вызвала много споров.",
+    collocations: ["suscitar interés", "suscitar polémica"],
+    usageNote:
+      "Suscitar сочетается с абстрактными существительными: interés, dudas, polémica. О физической реакции говорят provocar или causar.",
+    register: "формальный, публицистический",
+  },
+  "v-b2-9": {
+    partOfSpeech: "существительное",
+    gender: "мужской",
+    forms: ["el ámbito", "los ámbitos"],
+    contextTranslation: "Он работает в сфере образования.",
+    collocations: ["en el ámbito laboral", "el ámbito de aplicación"],
+    usageNote:
+      "Ámbito обозначает область деятельности или действия нормы; о профессиональной отрасли чаще говорят sector.",
+    register: "формальный",
+  },
+  "v-b2-10": {
+    partOfSpeech: "прилагательное",
+    forms: ["rentable", "rentables"],
+    contextTranslation: "Новая бизнес-модель очень рентабельна.",
+    collocations: ["un negocio rentable", "resultar rentable"],
+    usageNote:
+      "Форма одинакова для мужского и женского рода. Соответствующее существительное — la rentabilidad.",
+    register: "нейтрально-деловой",
+  },
+  "v-b2-11": {
+    partOfSpeech: "прилагательное",
+    forms: ["imprescindible", "imprescindibles"],
+    contextTranslation: "Вода необходима для жизни.",
+    collocations: ["resultar imprescindible", "un requisito imprescindible"],
+    usageNote:
+      "Означает «то, без чего нельзя обойтись». После es imprescindible que ставится subjuntivo: es imprescindible que vengas.",
+    register: "нейтральный",
+  },
+  "v-b2-12": {
+    partOfSpeech: "глагол",
+    forms: ["matizar", "matiza", "matizan", "matizó", "matizando"],
+    contextTranslation: "Я хочу уточнить то, что сказал раньше.",
+    collocations: ["matizar una afirmación", "matizar sus palabras"],
+    usageNote:
+      "Matizar — не исправить ошибку, а добавить оттенок и смягчить сказанное; в perfecto simple пишется maticé.",
+    register: "формальный",
+  },
+  "v-b2-13": {
+    partOfSpeech: "глагол",
+    forms: ["constatar", "constata", "constatan", "constató", "constatando"],
+    contextTranslation: "Исследователи констатировали значительный рост.",
+    collocations: ["constatar un hecho", "constatar la existencia de"],
+    usageNote:
+      "Употребляется, когда факт подтверждён наблюдением или данными; в разговорной речи чаще comprobar.",
+    register: "формальный, научный",
+  },
+  "v-b2-14": {
+    partOfSpeech: "существительное",
+    gender: "женский",
+    forms: ["la índole", "las índoles"],
+    contextTranslation: "Это проблема экономического характера.",
+    collocations: ["de índole personal", "de toda índole"],
+    usageNote:
+      "Почти всегда встречается в обороте de + índole + прилагательное, согласованное в женском роде: de índole económica.",
+    register: "формальный",
+  },
+};
+
+export const b2Vocabulary = b2VocabularyBase.map((card) => ({
+  ...card,
+  ...b2VocabularyDetails[card.id],
+})) satisfies VocabularyCard[];
