@@ -130,6 +130,17 @@ describe("content catalog validation", () => {
     );
   });
 
+  it("requires the complete reference template for C1 readings", () => {
+    const changed = structuredClone(catalogItems);
+    const item = changed.find((entry) => entry.sourceId === "r-c1-1");
+    if (!item) throw new Error("Missing r-c1-1 fixture");
+    delete (item.data as ReadingContent).questions;
+
+    expect(validateCatalog(changed)).toContain(
+      "r-c1-1: reference-template field questions needs at least 3 items",
+    );
+  });
+
   it("requires reciprocal A1 theory and exercise links", () => {
     const changed = structuredClone(catalogItems);
     const item = changed.find((entry) => entry.sourceId === "th-a1-1");
@@ -171,6 +182,17 @@ describe("content catalog validation", () => {
 
     expect(validateCatalog(changed)).toContain(
       "b2-01: th-b2-1 has no exercise backlink",
+    );
+  });
+
+  it("requires reciprocal C1 theory and exercise links", () => {
+    const changed = structuredClone(catalogItems);
+    const item = changed.find((entry) => entry.sourceId === "th-c1-6");
+    if (!item) throw new Error("Missing th-c1-6 fixture");
+    (item.data as TheoryLesson).exerciseIds = ["c1-06", "c1-13", "c1-20"];
+
+    expect(validateCatalog(changed)).toContain(
+      "c1-01: th-c1-6 has no exercise backlink",
     );
   });
 });
