@@ -594,7 +594,7 @@ export async function updateDayActivity(
     const progress = progressFromJson(day.progress);
 
     if (input.action === "reading-complete") {
-      progress.readingDone = true;
+      progress.readingDone = input.done ?? true;
     } else if (
       input.action === "listening-set" &&
       input.sourceId &&

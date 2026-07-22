@@ -196,7 +196,11 @@ function Practice() {
             content={data.content[plan.readingId] as ReadingContent}
             done={data.day.progress.readingDone}
             busy={busyId === "reading-complete"}
-            onDone={() => activity("reading-complete")}
+            onToggle={() =>
+              activity("reading-complete", {
+                done: !data.day.progress.readingDone,
+              })
+            }
           />
           <Card>
             <CardHeader>
@@ -551,12 +555,12 @@ function ReadingCard({
   content,
   done,
   busy,
-  onDone,
+  onToggle,
 }: {
   content: ReadingContent;
   done: boolean;
   busy: boolean;
-  onDone: () => void;
+  onToggle: () => void;
 }) {
   return (
     <Card>
@@ -591,7 +595,11 @@ function ReadingCard({
             </ul>
           </div>
         ) : null}
-        <Button disabled={done || busy} onClick={onDone}>
+        <Button
+          disabled={busy}
+          variant={done ? "default" : "secondary"}
+          onClick={onToggle}
+        >
           {done && <Check />}
           {done ? "Прочитано" : "Я прочитал(а)"}
         </Button>
