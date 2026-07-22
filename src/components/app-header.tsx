@@ -9,9 +9,9 @@ import {
   History,
   Home,
   NotebookPen,
-  UserRound,
 } from "lucide-react";
 
+import { ProfileMenu } from "@/components/profile-menu";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { useProfile } from "@/components/profile-provider";
@@ -26,7 +26,7 @@ const links = [
 ];
 
 export function AppHeader() {
-  const { profile, select } = useProfile();
+  const { profile } = useProfile();
   const pathname = usePathname();
 
   return (
@@ -77,29 +77,11 @@ export function AppHeader() {
           <div className="ml-auto flex items-center gap-1 sm:gap-2">
             {profile && (
               <>
-                <span className="hidden items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-xs font-semibold text-accent-foreground sm:inline-flex">
+                <span className="inline-flex items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-xs font-semibold text-accent-foreground">
                   <Flame className="size-3.5 text-primary" />
                   {profile.streak}
                 </span>
-                <Button
-                  variant="ghost"
-                  className="h-10 rounded-full px-2 sm:px-3"
-                  aria-label="Сменить профиль"
-                  title="Сменить профиль"
-                  onClick={() => select(null)}
-                >
-                  <span className="grid size-7 place-items-center rounded-full bg-secondary text-secondary-foreground">
-                    <UserRound className="size-3.5" />
-                  </span>
-                  <span className="hidden text-left leading-tight lg:block">
-                    <span className="block text-xs font-semibold">
-                      {profile.name}
-                    </span>
-                    <span className="block text-[0.65rem] text-muted-foreground">
-                      {profile.level ?? "без уровня"} · сменить
-                    </span>
-                  </span>
-                </Button>
+                <ProfileMenu />
               </>
             )}
             <ThemeToggle />
