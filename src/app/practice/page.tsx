@@ -82,6 +82,7 @@ function Practice() {
                 day: "numeric",
                 month: "long",
                 weekday: "long",
+                timeZone: "UTC",
               })}
             </p>
           </div>
