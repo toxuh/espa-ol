@@ -68,6 +68,9 @@ const rawCatalog = {
     ...b1Grammar.slice(14, 20),
     ...b2Grammar.slice(14, 20),
     ...c1Grammar.slice(12, 22),
+    // B1 expansion (exercises beyond the original 20) appended after the
+    // legacy interleaved positions so they join the catalog and rotation.
+    ...b1Grammar.slice(20),
   ],
   READINGS: [
     ...a1Readings,
